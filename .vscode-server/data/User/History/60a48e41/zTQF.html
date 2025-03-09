@@ -1,0 +1,394 @@
+<html>
+
+<head>
+	<title>Connect the Dots</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+
+		var socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Connected");
+		});
+
+	</script>
+</head>
+
+<body>
+
+	<div class="canvas-container" style="background-color: silver;">
+		<canvas class="bg" id="bg"></canvas>
+		<canvas class="diagram" id="canvas1" width="570" height="720"></canvas>
+	</div>
+	<div class="canvas-container" id="canvas-container" style="background-color: blue;">
+		<canvas class="diagram" id="canvas2" width="570" height="720"></canvas>
+	</div>
+
+	<script>		
+
+		function setupCanvas(canvas) {
+			var dpr = window.devicePixelRatio || 1;
+			var rect = canvas.getBoundingClientRect();
+			canvas.width = rect.width * dpr;
+			canvas.height = rect.height * dpr;
+			var ctx = canvas.getContext('2d');
+			ctx.scale(dpr, dpr);
+			return ctx;
+		}
+
+		const bgcanvas = document.getElementById('bg');
+			
+		function drawPoints() {
+			
+			// const bgctx = bgcanvas.getContext('2d');
+			const bgctx = setupCanvas(bgcanvas);
+			for (let i = 0; i < 700; i++) {
+				const x = Math.random() * bgcanvas.width;
+				const y = Math.random() * bgcanvas.height;
+				bgctx.beginPath();
+				bgctx.arc(x, y, 1, 0, 2 * Math.PI); 
+				bgctx.fill();
+			}
+		}
+
+		function resizeCanvas() {
+			bgcanvas.width = document.getElementById('canvas-container').clientWidth;
+			bgcanvas.height = document.getElementById('canvas-container').clientHeight;
+			drawPoints();
+		}
+
+		// resizeCanvas();
+		// window.addEventListener('resize', resizeCanvas, false);
+
+		drawPoints();
+		window.addEventListener('resize', drawPoints);
+
+
+		const dotDataForCanvas1 =
+			[
+				{ "index": 1, "coordinates": [323, 109], "connected": false, "color": null }, { "index": 2, "coordinates": [319, 99], "connected": false, "color": null }, { "index": 3, "coordinates": [329, 94], "connected": false, "color": null }, { "index": 4, "coordinates": [334, 103], "connected": false, "color": null }, { "index": 5, "coordinates": [329, 108], "connected": false, "color": null }, { "index": 6, "coordinates": [354, 103], "connected": false, "color": null }, { "index": 7, "coordinates": [352, 113], "connected": false, "color": null }, { "index": 8, "coordinates": [335, 128], "connected": false, "color": null }, { "index": 9, "coordinates": [316, 128], "connected": false, "color": null }, { "index": 10, "coordinates": [316, 110], "connected": false, "color": null }, { "index": 11, "coordinates": [325, 115], "connected": false, "color": null }, { "index": 12, "coordinates": [338, 111], "connected": false, "color": null }, { "index": 13, "coordinates": [338, 92], "connected": false, "color": null }, { "index": 14, "coordinates": [325, 88], "connected": false, "color": null }, { "index": 15, "coordinates": [315, 97], "connected": false, "color": null }, { "index": 16, "coordinates": [309, 80], "connected": false, "color": null }, { "index": 17, "coordinates": [320, 76], "connected": false, "color": null }, { "index": 18, "coordinates": [344, 81], "connected": false, "color": null }, { "index": 19, "coordinates": [356, 96], "connected": false, "color": null }, { "index": 20, "coordinates": [369, 100], "connected": false, "color": null }, { "index": 21, "coordinates": [368, 106], "connected": false, "color": null }, { "index": 22, "coordinates": [383, 138], "connected": false, "color": null }, { "index": 23, "coordinates": [380, 155], "connected": false, "color": null }, { "index": 24, "coordinates": [384, 178], "connected": false, "color": null }, { "index": 25, "coordinates": [379, 188], "connected": false, "color": null }, { "index": 26, "coordinates": [380, 208], "connected": false, "color": null }, { "index": 27, "coordinates": [374, 217], "connected": false, "color": null }, { "index": 28, "coordinates": [383, 240], "connected": false, "color": null }, { "index": 29, "coordinates": [376, 267], "connected": false, "color": null }, { "index": 30, "coordinates": [397, 243], "connected": false, "color": null }, { "index": 31, "coordinates": [409, 243], "connected": false, "color": null }, { "index": 32, "coordinates": [413, 218], "connected": false, "color": null }, { "index": 33, "coordinates": [421, 216], "connected": false, "color": null }, { "index": 34, "coordinates": [413, 154], "connected": false, "color": null }, { "index": 35, "coordinates": [422, 150], "connected": false, "color": null }, { "index": 36, "coordinates": [405, 109], "connected": false, "color": null }, { "index": 37, "coordinates": [387, 91], "connected": false, "color": null }, { "index": 38, "coordinates": [394, 89], "connected": false, "color": null }, { "index": 39, "coordinates": [379, 72], "connected": false, "color": null }, { "index": 40, "coordinates": [355, 63], "connected": false, "color": null }, { "index": 41, "coordinates": [357, 55], "connected": false, "color": null }, { "index": 42, "coordinates": [336, 56], "connected": false, "color": null }, { "index": 43, "coordinates": [338, 48], "connected": false, "color": null }, { "index": 44, "coordinates": [320, 53], "connected": false, "color": null }, { "index": 45, "coordinates": [314, 48], "connected": false, "color": null }, { "index": 46, "coordinates": [311, 60], "connected": false, "color": null }, { "index": 47, "coordinates": [304, 74], "connected": false, "color": null }, { "index": 48, "coordinates": [302, 87], "connected": false, "color": null }, { "index": 49, "coordinates": [304, 100], "connected": false, "color": null }, { "index": 50, "coordinates": [311, 134], "connected": false, "color": null }, { "index": 51, "coordinates": [301, 148], "connected": false, "color": null }, { "index": 52, "coordinates": [274, 157], "connected": false, "color": null }, { "index": 53, "coordinates": [212, 160], "connected": false, "color": null }, { "index": 54, "coordinates": [161, 153], "connected": false, "color": null }, { "index": 55, "coordinates": [127, 158], "connected": false, "color": null }, { "index": 56, "coordinates": [96, 172], "connected": false, "color": null }, { "index": 57, "coordinates": [113, 155], "connected": false, "color": null }, { "index": 58, "coordinates": [132, 144], "connected": false, "color": null }, { "index": 59, "coordinates": [162, 147], "connected": false, "color": null }, { "index": 60, "coordinates": [173, 140], "connected": false, "color": null }, { "index": 61, "coordinates": [184, 147], "connected": false, "color": null }, { "index": 62, "coordinates": [196, 138], "connected": false, "color": null }, { "index": 63, "coordinates": [209, 147], "connected": false, "color": null }, { "index": 64, "coordinates": [244, 145], "connected": false, "color": null }, { "index": 65, "coordinates": [256, 136], "connected": false, "color": null }, { "index": 66, "coordinates": [265, 146], "connected": false, "color": null }, { "index": 67, "coordinates": [277, 148], "connected": false, "color": null }, { "index": 68, "coordinates": [298, 125], "connected": false, "color": null }, { "index": 69, "coordinates": [239, 121], "connected": false, "color": null }, { "index": 70, "coordinates": [221, 125], "connected": false, "color": null }, { "index": 71, "coordinates": [189, 126], "connected": false, "color": null }, { "index": 72, "coordinates": [144, 135], "connected": false, "color": null }, { "index": 73, "coordinates": [154, 124], "connected": false, "color": null }, { "index": 74, "coordinates": [164, 127], "connected": false, "color": null }, { "index": 75, "coordinates": [169, 118], "connected": false, "color": null }, { "index": 76, "coordinates": [185, 112], "connected": false, "color": null }, { "index": 77, "coordinates": [191, 116], "connected": false, "color": null }, { "index": 78, "coordinates": [198, 108], "connected": false, "color": null }, { "index": 79, "coordinates": [210, 119], "connected": false, "color": null }, { "index": 80, "coordinates": [217, 112], "connected": false, "color": null }, { "index": 81, "coordinates": [232, 110], "connected": false, "color": null }, { "index": 82, "coordinates": [241, 115], "connected": false, "color": null }, { "index": 83, "coordinates": [255, 101], "connected": false, "color": null }, { "index": 84, "coordinates": [265, 110], "connected": false, "color": null }, { "index": 85, "coordinates": [271, 100], "connected": false, "color": null }, { "index": 86, "coordinates": [284, 108], "connected": false, "color": null }, { "index": 87, "coordinates": [286, 116], "connected": false, "color": null }, { "index": 88, "coordinates": [300, 120], "connected": false, "color": null }, { "index": 89, "coordinates": [298, 115], "connected": false, "color": null }, { "index": 90, "coordinates": [292, 101], "connected": false, "color": null }, { "index": 91, "coordinates": [293, 80], "connected": false, "color": null }, { "index": 92, "coordinates": [304, 62], "connected": false, "color": null }, { "index": 93, "coordinates": [248, 59], "connected": false, "color": null }, { "index": 94, "coordinates": [197, 65], "connected": false, "color": null }, { "index": 95, "coordinates": [149, 77], "connected": false, "color": null }, { "index": 96, "coordinates": [127, 91], "connected": false, "color": null }, { "index": 97, "coordinates": [144, 100], "connected": false, "color": null }, { "index": 98, "coordinates": [145, 117], "connected": false, "color": null }, { "index": 99, "coordinates": [137, 136], "connected": false, "color": null }, { "index": 100, "coordinates": [117, 142], "connected": false, "color": null }, { "index": 101, "coordinates": [99, 158], "connected": false, "color": null }, { "index": 102, "coordinates": [87, 177], "connected": false, "color": null }, { "index": 103, "coordinates": [88, 145], "connected": false, "color": null }, { "index": 104, "coordinates": [101, 116], "connected": false, "color": null }, { "index": 105, "coordinates": [122, 95], "connected": false, "color": null }, { "index": 106, "coordinates": [101, 86], "connected": false, "color": null }, { "index": 107, "coordinates": [85, 69], "connected": false, "color": null }, { "index": 108, "coordinates": [60, 64], "connected": false, "color": null }, { "index": 109, "coordinates": [47, 41], "connected": false, "color": null }, { "index": 110, "coordinates": [42, 23], "connected": false, "color": null }, { "index": 111, "coordinates": [14, 21], "connected": false, "color": null }, { "index": 112, "coordinates": [14, 36], "connected": false, "color": null }, { "index": 113, "coordinates": [30, 42], "connected": false, "color": null }, { "index": 114, "coordinates": [42, 63], "connected": false, "color": null }, { "index": 115, "coordinates": [46, 86], "connected": false, "color": null }, { "index": 116, "coordinates": [60, 101], "connected": false, "color": null }, { "index": 117, "coordinates": [64, 133], "connected": false, "color": null }, { "index": 118, "coordinates": [78, 158], "connected": false, "color": null }, { "index": 119, "coordinates": [50, 147], "connected": false, "color": null }, { "index": 120, "coordinates": [34, 120], "connected": false, "color": null }, { "index": 121, "coordinates": [14, 109], "connected": false, "color": null }, { "index": 122, "coordinates": [14, 156], "connected": false, "color": null }, { "index": 123, "coordinates": [84, 228], "connected": false, "color": null }, { "index": 124, "coordinates": [116, 285], "connected": false, "color": null }, { "index": 125, "coordinates": [129, 318], "connected": false, "color": null }, { "index": 126, "coordinates": [118, 330], "connected": false, "color": null }, { "index": 127, "coordinates": [93, 307], "connected": false, "color": null }, { "index": 128, "coordinates": [15, 190], "connected": false, "color": null }, { "index": 129, "coordinates": [47, 268], "connected": false, "color": null }, { "index": 130, "coordinates": [60, 334], "connected": false, "color": null }, { "index": 131, "coordinates": [61, 364], "connected": false, "color": null }, { "index": 132, "coordinates": [46, 352], "connected": false, "color": null }, { "index": 133, "coordinates": [25, 276], "connected": false, "color": null }, { "index": 134, "coordinates": [14, 228], "connected": false, "color": null }, { "index": 135, "coordinates": [14, 272], "connected": false, "color": null }, { "index": 136, "coordinates": [32, 343], "connected": false, "color": null }, { "index": 137, "coordinates": [27, 407], "connected": false, "color": null }, { "index": 138, "coordinates": [13, 391], "connected": false, "color": null }, { "index": 139, "coordinates": [14, 450], "connected": false, "color": null }, { "index": 140, "coordinates": [45, 453], "connected": false, "color": null }, { "index": 141, "coordinates": [76, 468], "connected": false, "color": null }, { "index": 142, "coordinates": [94, 456], "connected": false, "color": null }, { "index": 143, "coordinates": [96, 429], "connected": false, "color": null }, { "index": 144, "coordinates": [107, 395], "connected": false, "color": null }, { "index": 145, "coordinates": [134, 372], "connected": false, "color": null }, { "index": 146, "coordinates": [167, 360], "connected": false, "color": null }, { "index": 147, "coordinates": [182, 348], "connected": false, "color": null }, { "index": 148, "coordinates": [185, 325], "connected": false, "color": null }, { "index": 149, "coordinates": [187, 355], "connected": false, "color": null }, { "index": 150, "coordinates": [177, 385], "connected": false, "color": null }, { "index": 151, "coordinates": [139, 433], "connected": false, "color": null }, { "index": 152, "coordinates": [98, 462], "connected": false, "color": null }, { "index": 153, "coordinates": [134, 457], "connected": false, "color": null }, { "index": 154, "coordinates": [159, 440], "connected": false, "color": null }, { "index": 155, "coordinates": [182, 413], "connected": false, "color": null }, { "index": 156, "coordinates": [190, 372], "connected": false, "color": null }, { "index": 157, "coordinates": [196, 392], "connected": false, "color": null }, { "index": 158, "coordinates": [196, 411], "connected": false, "color": null }, { "index": 159, "coordinates": [191, 431], "connected": false, "color": null }, { "index": 160, "coordinates": [174, 445], "connected": false, "color": null }, { "index": 161, "coordinates": [178, 461], "connected": false, "color": null }, { "index": 162, "coordinates": [191, 473], "connected": false, "color": null }, { "index": 163, "coordinates": [182, 488], "connected": false, "color": null }, { "index": 164, "coordinates": [139, 494], "connected": false, "color": null }, { "index": 165, "coordinates": [86, 480], "connected": false, "color": null }, { "index": 166, "coordinates": [92, 469], "connected": false, "color": null }, { "index": 167, "coordinates": [68, 482], "connected": false, "color": null }, { "index": 168, "coordinates": [49, 469], "connected": false, "color": null }, { "index": 169, "coordinates": [13, 465], "connected": false, "color": null }, { "index": 170, "coordinates": [16, 575], "connected": false, "color": null }, { "index": 171, "coordinates": [33, 553], "connected": false, "color": null }, { "index": 172, "coordinates": [65, 544], "connected": false, "color": null }, { "index": 173, "coordinates": [89, 548], "connected": false, "color": null }, { "index": 174, "coordinates": [98, 526], "connected": false, "color": null }, { "index": 175, "coordinates": [84, 489], "connected": false, "color": null }, { "index": 176, "coordinates": [145, 504], "connected": false, "color": null }, { "index": 177, "coordinates": [200, 499], "connected": false, "color": null }, { "index": 178, "coordinates": [205, 504], "connected": false, "color": null }, { "index": 179, "coordinates": [214, 500], "connected": false, "color": null }, { "index": 180, "coordinates": [213, 488], "connected": false, "color": null }, { "index": 181, "coordinates": [193, 484], "connected": false, "color": null }, { "index": 182, "coordinates": [223, 440], "connected": false, "color": null }, { "index": 183, "coordinates": [225, 410], "connected": false, "color": null }, { "index": 184, "coordinates": [194, 357], "connected": false, "color": null }, { "index": 185, "coordinates": [241, 403], "connected": false, "color": null }, { "index": 186, "coordinates": [253, 434], "connected": false, "color": null }, { "index": 187, "coordinates": [253, 460], "connected": false, "color": null }, { "index": 188, "coordinates": [210, 472], "connected": false, "color": null }, { "index": 189, "coordinates": [224, 489], "connected": false, "color": null }, { "index": 190, "coordinates": [222, 513], "connected": false, "color": null }, { "index": 191, "coordinates": [196, 529], "connected": false, "color": null }, { "index": 192, "coordinates": [183, 553], "connected": false, "color": null }, { "index": 193, "coordinates": [149, 539], "connected": false, "color": null }, { "index": 194, "coordinates": [137, 524], "connected": false, "color": null }, { "index": 195, "coordinates": [133, 508], "connected": false, "color": null }, { "index": 196, "coordinates": [123, 506], "connected": false, "color": null }, { "index": 197, "coordinates": [126, 529], "connected": false, "color": null }, { "index": 198, "coordinates": [145, 549], "connected": false, "color": null }, { "index": 199, "coordinates": [218, 568], "connected": false, "color": null },
+				{ "index": 200, "coordinates": [253, 557], "connected": false, "color": null }, { "index": 201, "coordinates": [264, 526], "connected": false, "color": null }, { "index": 202, "coordinates": [260, 491], "connected": false, "color": null }, { "index": 203, "coordinates": [243, 476], "connected": false, "color": null }, { "index": 204, "coordinates": [280, 447], "connected": false, "color": null }, { "index": 205, "coordinates": [267, 410], "connected": false, "color": null }, { "index": 206, "coordinates": [262, 416], "connected": false, "color": null }, { "index": 207, "coordinates": [253, 354], "connected": false, "color": null }, { "index": 208, "coordinates": [245, 355], "connected": false, "color": null }, { "index": 209, "coordinates": [250, 306], "connected": false, "color": null }, { "index": 210, "coordinates": [244, 306], "connected": false, "color": null }, { "index": 211, "coordinates": [252, 262], "connected": false, "color": null }, { "index": 212, "coordinates": [266, 234], "connected": false, "color": null }, { "index": 213, "coordinates": [232, 228], "connected": false, "color": null }, { "index": 214, "coordinates": [210, 236], "connected": false, "color": null }, { "index": 215, "coordinates": [185, 238], "connected": false, "color": null }, { "index": 216, "coordinates": [186, 253], "connected": false, "color": null }, { "index": 217, "coordinates": [195, 263], "connected": false, "color": null }, { "index": 218, "coordinates": [211, 266], "connected": false, "color": null }, { "index": 219, "coordinates": [224, 281], "connected": false, "color": null }, { "index": 220, "coordinates": [228, 308], "connected": false, "color": null }, { "index": 221, "coordinates": [221, 326], "connected": false, "color": null }, { "index": 222, "coordinates": [227, 349], "connected": false, "color": null }, { "index": 223, "coordinates": [243, 369], "connected": false, "color": null }, { "index": 224, "coordinates": [210, 355], "connected": false, "color": null }, { "index": 225, "coordinates": [192, 321], "connected": false, "color": null }, { "index": 226, "coordinates": [170, 305], "connected": false, "color": null }, { "index": 227, "coordinates": [160, 280], "connected": false, "color": null }, { "index": 228, "coordinates": [163, 257], "connected": false, "color": null }, { "index": 229, "coordinates": [176, 246], "connected": false, "color": null }, { "index": 230, "coordinates": [176, 235], "connected": false, "color": null }, { "index": 231, "coordinates": [143, 233], "connected": false, "color": null }, { "index": 232, "coordinates": [125, 220], "connected": false, "color": null }, { "index": 233, "coordinates": [131, 240], "connected": false, "color": null }, { "index": 234, "coordinates": [148, 265], "connected": false, "color": null }, { "index": 235, "coordinates": [137, 268], "connected": false, "color": null }, { "index": 236, "coordinates": [122, 244], "connected": false, "color": null }, { "index": 237, "coordinates": [112, 217], "connected": false, "color": null }, { "index": 238, "coordinates": [91, 206], "connected": false, "color": null }, { "index": 239, "coordinates": [71, 203], "connected": false, "color": null }, { "index": 240, "coordinates": [57, 187], "connected": false, "color": null }, { "index": 241, "coordinates": [87, 192], "connected": false, "color": null }, { "index": 242, "coordinates": [147, 219], "connected": false, "color": null }, { "index": 243, "coordinates": [167, 206], "connected": false, "color": null }, { "index": 244, "coordinates": [200, 195], "connected": false, "color": null }, { "index": 245, "coordinates": [226, 175], "connected": false, "color": null }, { "index": 246, "coordinates": [230, 180], "connected": false, "color": null }, { "index": 247, "coordinates": [211, 198], "connected": false, "color": null }, { "index": 248, "coordinates": [224, 200], "connected": false, "color": null }, { "index": 249, "coordinates": [234, 207], "connected": false, "color": null }, { "index": 250, "coordinates": [239, 189], "connected": false, "color": null }, { "index": 251, "coordinates": [249, 174], "connected": false, "color": null }, { "index": 252, "coordinates": [269, 163], "connected": false, "color": null }, { "index": 253, "coordinates": [257, 188], "connected": false, "color": null }, { "index": 254, "coordinates": [237, 215], "connected": false, "color": null }, { "index": 255, "coordinates": [215, 206], "connected": false, "color": null }, { "index": 256, "coordinates": [181, 208], "connected": false, "color": null }, { "index": 257, "coordinates": [168, 221], "connected": false, "color": null }, { "index": 258, "coordinates": [211, 228], "connected": false, "color": null }, { "index": 259, "coordinates": [222, 221], "connected": false, "color": null }, { "index": 260, "coordinates": [263, 223], "connected": false, "color": null }, { "index": 261, "coordinates": [246, 212], "connected": false, "color": null }, { "index": 262, "coordinates": [262, 209], "connected": false, "color": null }, { "index": 263, "coordinates": [270, 193], "connected": false, "color": null }, { "index": 264, "coordinates": [277, 162], "connected": false, "color": null }, { "index": 265, "coordinates": [289, 173], "connected": false, "color": null }, { "index": 266, "coordinates": [291, 193], "connected": false, "color": null }, { "index": 267, "coordinates": [271, 221], "connected": false, "color": null }, { "index": 268, "coordinates": [264, 257], "connected": false, "color": null }, { "index": 269, "coordinates": [279, 293], "connected": false, "color": null }, { "index": 270, "coordinates": [285, 290], "connected": false, "color": null }, { "index": 271, "coordinates": [302, 303], "connected": false, "color": null }, { "index": 272, "coordinates": [330, 300], "connected": false, "color": null }, { "index": 273, "coordinates": [347, 285], "connected": false, "color": null }, { "index": 274, "coordinates": [346, 295], "connected": false, "color": null }, { "index": 275, "coordinates": [369, 277], "connected": false, "color": null }, { "index": 276, "coordinates": [378, 292], "connected": false, "color": null }, { "index": 277, "coordinates": [377, 320], "connected": false, "color": null }, { "index": 278, "coordinates": [361, 312], "connected": false, "color": null }, { "index": 279, "coordinates": [361, 348], "connected": false, "color": null }, { "index": 280, "coordinates": [349, 341], "connected": false, "color": null }, { "index": 281, "coordinates": [343, 378], "connected": false, "color": null }, { "index": 282, "coordinates": [323, 363], "connected": false, "color": null }, { "index": 283, "coordinates": [314, 339], "connected": false, "color": null }, { "index": 284, "coordinates": [310, 369], "connected": false, "color": null }, { "index": 285, "coordinates": [302, 386], "connected": false, "color": null }, { "index": 286, "coordinates": [275, 352], "connected": false, "color": null }, { "index": 287, "coordinates": [274, 390], "connected": false, "color": null }, { "index": 288, "coordinates": [302, 433], "connected": false, "color": null }, { "index": 289, "coordinates": [310, 411], "connected": false, "color": null }, { "index": 290, "coordinates": [321, 448], "connected": false, "color": null }, { "index": 291, "coordinates": [305, 453], "connected": false, "color": null }, { "index": 292, "coordinates": [304, 473], "connected": false, "color": null }, { "index": 293, "coordinates": [282, 455], "connected": false, "color": null }, { "index": 294, "coordinates": [294, 485], "connected": false, "color": null }, { "index": 295, "coordinates": [313, 504], "connected": false, "color": null }, { "index": 296, "coordinates": [292, 502], "connected": false, "color": null }, { "index": 297, "coordinates": [273, 513], "connected": false, "color": null }, { "index": 298, "coordinates": [269, 554], "connected": false, "color": null }, { "index": 299, "coordinates": [286, 575], "connected": false, "color": null }, { "index": 300, "coordinates": [297, 573], "connected": false, "color": null }, { "index": 301, "coordinates": [286, 558], "connected": false, "color": null }, { "index": 302, "coordinates": [286, 516], "connected": false, "color": null }, { "index": 303, "coordinates": [303, 507], "connected": false, "color": null }, { "index": 304, "coordinates": [314, 512], "connected": false, "color": null }, { "index": 305, "coordinates": [303, 518], "connected": false, "color": null }, { "index": 306, "coordinates": [301, 552], "connected": false, "color": null }, { "index": 307, "coordinates": [307, 568], "connected": false, "color": null }, { "index": 308, "coordinates": [325, 568], "connected": false, "color": null }, { "index": 309, "coordinates": [304, 578], "connected": false, "color": null }, { "index": 310, "coordinates": [273, 609], "connected": false, "color": null }, { "index": 311, "coordinates": [263, 634], "connected": false, "color": null }, { "index": 312, "coordinates": [234, 649], "connected": false, "color": null }, { "index": 313, "coordinates": [235, 618], "connected": false, "color": null }, { "index": 314, "coordinates": [253, 595], "connected": false, "color": null }, { "index": 315, "coordinates": [277, 574], "connected": false, "color": null }, { "index": 316, "coordinates": [229, 594], "connected": false, "color": null }, { "index": 317, "coordinates": [218, 606], "connected": false, "color": null }, { "index": 318, "coordinates": [201, 606], "connected": false, "color": null }, { "index": 319, "coordinates": [154, 623], "connected": false, "color": null }, { "index": 320, "coordinates": [161, 604], "connected": false, "color": null }, { "index": 321, "coordinates": [170, 588] }, { "index": 322, "coordinates": [170, 562] }, { "index": 323, "coordinates": [157, 561] }, { "index": 324, "coordinates": [124, 571] }, { "index": 325, "coordinates": [105, 601] }, { "index": 326, "coordinates": [77, 590] }, { "index": 327, "coordinates": [35, 583] }, { "index": 328, "coordinates": [14, 587] }, { "index": 329, "coordinates": [14, 637] }, { "index": 330, "coordinates": [47, 632] }, { "index": 331, "coordinates": [71, 618] }, { "index": 332, "coordinates": [102, 612] }, { "index": 333, "coordinates": [93, 630] }, { "index": 334, "coordinates": [95, 653] }, { "index": 335, "coordinates": [15, 692] }, { "index": 336, "coordinates": [68, 693] }, { "index": 337, "coordinates": [74, 674] }, { "index": 338, "coordinates": [97, 662] }, { "index": 339, "coordinates": [99, 677] }, { "index": 340, "coordinates": [95, 694] }, { "index": 341, "coordinates": [115, 692] }, { "index": 342, "coordinates": [128, 677] }, { "index": 343, "coordinates": [149, 640] }, { "index": 344, "coordinates": [168, 631] }, { "index": 345, "coordinates": [186, 639] }, { "index": 346, "coordinates": [213, 633] }, { "index": 347, "coordinates": [189, 661] }, { "index": 348, "coordinates": [157, 672] }, { "index": 349, "coordinates": [140, 694] }, { "index": 350, "coordinates": [178, 692] }, { "index": 351, "coordinates": [203, 667] }, { "index": 352, "coordinates": [231, 668] }, { "index": 353, "coordinates": [213, 693] }, { "index": 354, "coordinates": [250, 692] }, { "index": 355, "coordinates": [242, 666] }, { "index": 356, "coordinates": [261, 645] }, { "index": 357, "coordinates": [292, 637] }, { "index": 358, "coordinates": [308, 638] }, { "index": 359, "coordinates": [290, 652] }, { "index": 360, "coordinates": [271, 692] }, { "index": 361, "coordinates": [319, 692] }, { "index": 362, "coordinates": [325, 665] }, { "index": 363, "coordinates": [315, 641] }, { "index": 364, "coordinates": [322, 618] }, { "index": 365, "coordinates": [335, 599] }, { "index": 366, "coordinates": [320, 603] }, { "index": 367, "coordinates": [322, 592] }, { "index": 368, "coordinates": [335, 582] }, { "index": 369, "coordinates": [324, 581] }, { "index": 370, "coordinates": [330, 561] }, { "index": 371, "coordinates": [364, 542] }, { "index": 372, "coordinates": [361, 582] }, { "index": 373, "coordinates": [350, 582] }, { "index": 374, "coordinates": [361, 595] }, { "index": 375, "coordinates": [362, 667] }, { "index": 376, "coordinates": [371, 654] }, { "index": 377, "coordinates": [371, 539] }, { "index": 378, "coordinates": [395, 523] }, { "index": 379, "coordinates": [400, 577] }, { "index": 380, "coordinates": [391, 589] }, { "index": 381, "coordinates": [396, 595] }, { "index": 382, "coordinates": [401, 671] }, { "index": 383, "coordinates": [409, 605] }, { "index": 384, "coordinates": [405, 562] }, { "index": 385, "coordinates": [412, 559] }, { "index": 386, "coordinates": [407, 547] }, { "index": 387, "coordinates": [407, 521] }, { "index": 388, "coordinates": [436, 507] }, { "index": 389, "coordinates": [449, 585] }, { "index": 390, "coordinates": [437, 584] }, { "index": 391, "coordinates": [447, 605] }, { "index": 392, "coordinates": [447, 626] }, { "index": 393, "coordinates": [438, 624] }, { "index": 394, "coordinates": [451, 642] }, { "index": 395, "coordinates": [450, 693] }, { "index": 396, "coordinates": [502, 693] }, { "index": 397, "coordinates": [488, 654] }, { "index": 398, "coordinates": [467, 632] }, { "index": 399, "coordinates": [473, 597] }, { "index": 400, "coordinates": [493, 577] }, { "index": 401, "coordinates": [499, 624] }, { "index": 402, "coordinates": [520, 693] }, { "index": 403, "coordinates": [543, 693] }, { "index": 404, "coordinates": [544, 648] }, { "index": 405, "coordinates": [543, 622] }, { "index": 406, "coordinates": [535, 596] }, { "index": 407, "coordinates": [507, 580] }, { "index": 408, "coordinates": [503, 567] }, { "index": 409, "coordinates": [509, 558] }, { "index": 410, "coordinates": [506, 544] }, { "index": 411, "coordinates": [500, 555] }, { "index": 412, "coordinates": [494, 568] }, { "index": 413, "coordinates": [446, 503] }, { "index": 414, "coordinates": [510, 463] }, { "index": 415, "coordinates": [496, 510] }, { "index": 416, "coordinates": [480, 511] }, { "index": 417, "coordinates": [461, 507] }, { "index": 418, "coordinates": [493, 549] }, { "index": 419, "coordinates": [503, 523] }, { "index": 420, "coordinates": [518, 554] }, { "index": 421, "coordinates": [543, 580] }, { "index": 422, "coordinates": [543, 501] }, { "index": 423, "coordinates": [525, 461] }, { "index": 424, "coordinates": [543, 449] }, { "index": 425, "coordinates": [544, 394] }, { "index": 426, "coordinates": [462, 431] }, { "index": 427, "coordinates": [447, 441] }, { "index": 428, "coordinates": [438, 464] }, { "index": 429, "coordinates": [435, 494] }, { "index": 430, "coordinates": [427, 476] }, { "index": 431, "coordinates": [422, 471] }, { "index": 432, "coordinates": [427, 462] }, { "index": 433, "coordinates": [420, 457] }, { "index": 434, "coordinates": [421, 448] }, { "index": 435, "coordinates": [327, 506] }, { "index": 436, "coordinates": [333, 489] }, { "index": 437, "coordinates": [319, 465] }, { "index": 438, "coordinates": [341, 477] }, { "index": 439, "coordinates": [339, 446] }, { "index": 440, "coordinates": [355, 454] }, { "index": 441, "coordinates": [346, 431] }, { "index": 442, "coordinates": [351, 406] }, { "index": 443, "coordinates": [365, 428] }, { "index": 444, "coordinates": [384, 438] }, { "index": 445, "coordinates": [387, 413] }, { "index": 446, "coordinates": [399, 430] }, { "index": 447, "coordinates": [422, 438] }, { "index": 448, "coordinates": [425, 425] }, { "index": 449, "coordinates": [436, 429] }, { "index": 450, "coordinates": [436, 421] }, { "index": 451, "coordinates": [416, 414] }, { "index": 452, "coordinates": [405, 396] }, { "index": 453, "coordinates": [421, 403] }, { "index": 454, "coordinates": [418, 379] }, { "index": 455, "coordinates": [399, 344] }, { "index": 456, "coordinates": [392, 298] }, { "index": 457, "coordinates": [402, 265] }, { "index": 458, "coordinates": [403, 313] }, { "index": 459, "coordinates": [443, 418] }, { "index": 460, "coordinates": [460, 423] }, { "index": 461, "coordinates": [459, 402] }, { "index": 462, "coordinates": [445, 354] }, { "index": 463, "coordinates": [468, 394] }, { "index": 464, "coordinates": [471, 415] }, { "index": 465, "coordinates": [484, 410] }, { "index": 466, "coordinates": [484, 387] }, { "index": 467, "coordinates": [477, 353] }, { "index": 468, "coordinates": [489, 379] }, { "index": 469, "coordinates": [495, 408] }, { "index": 470, "coordinates": [508, 401] }, { "index": 471, "coordinates": [499, 344] }, { "index": 472, "coordinates": [483, 298] }, { "index": 473, "coordinates": [458, 253] }, { "index": 474, "coordinates": [426, 222] }, { "index": 475, "coordinates": [437, 188] }, { "index": 476, "coordinates": [467, 145] }, { "index": 477, "coordinates": [518, 105] }, { "index": 478, "coordinates": [478, 118] }, { "index": 479, "coordinates": [454, 135] }, { "index": 480, "coordinates": [435, 158] }, { "index": 481, "coordinates": [433, 143] }, { "index": 482, "coordinates": [447, 114] }, { "index": 483, "coordinates": [479, 89] }, { "index": 484, "coordinates": [522, 81] }, { "index": 485, "coordinates": [489, 72] }, { "index": 486, "coordinates": [460, 73] }, { "index": 487, "coordinates": [431, 92] }, { "index": 488, "coordinates": [418, 106] }, { "index": 489, "coordinates": [416, 92] }, { "index": 490, "coordinates": [428, 68] }, { "index": 491, "coordinates": [493, 39] }, { "index": 492, "coordinates": [457, 34] }, { "index": 493, "coordinates": [420, 43] }, { "index": 494, "coordinates": [390, 59] }, { "index": 495, "coordinates": [394, 45] }, { "index": 496, "coordinates": [437, 22] }, { "index": 497, "coordinates": [543, 22] }, { "index": 498, "coordinates": [542, 55] }, { "index": 499, "coordinates": [523, 47] }, { "index": 500, "coordinates": [545, 72] }, { "index": 501, "coordinates": [543, 122] }, { "index": 502, "coordinates": [501, 148] }, { "index": 503, "coordinates": [434, 220] }, { "index": 504, "coordinates": [471, 201] }, { "index": 505, "coordinates": [521, 158] }, { "index": 506, "coordinates": [544, 139] }, { "index": 507, "coordinates": [544, 161] }, { "index": 508, "coordinates": [515, 180] }, { "index": 509, "coordinates": [498, 211] }, { "index": 510, "coordinates": [495, 230] }, { "index": 511, "coordinates": [478, 259] }, { "index": 512, "coordinates": [504, 240] }, { "index": 513, "coordinates": [526, 205] }, { "index": 514, "coordinates": [546, 181] }, { "index": 515, "coordinates": [544, 225] }, { "index": 516, "coordinates": [526, 243] }, { "index": 517, "coordinates": [488, 261] }, { "index": 518, "coordinates": [517, 258] }, { "index": 519, "coordinates": [530, 263] }, { "index": 520, "coordinates": [545, 261] }, { "index": 521, "coordinates": [543, 294] }, { "index": 522, "coordinates": [522, 284] }, { "index": 523, "coordinates": [512, 271] }, { "index": 524, "coordinates": [486, 269] }, { "index": 525, "coordinates": [505, 282] }, { "index": 526, "coordinates": [519, 307] }, { "index": 527, "coordinates": [545, 322] }, { "index": 528, "coordinates": [543, 328] }, { "index": 529, "coordinates": [530, 339] }, { "index": 530, "coordinates": [525, 352] }, { "index": 531, "coordinates": [513, 363] }, { "index": 532, "coordinates": [527, 369] }, { "index": 533, "coordinates": [545, 365] }, { "index": 534, "coordinates": [544, 382] }
+			];
+
+		const dotDataForCanvas2 =
+			[
+				{ "index": 1, "coordinates": [323, 109], "connected": false, "color": null }, { "index": 2, "coordinates": [319, 99], "connected": false, "color": null }, { "index": 3, "coordinates": [329, 94], "connected": false, "color": null }, { "index": 4, "coordinates": [334, 103], "connected": false, "color": null }, { "index": 5, "coordinates": [329, 108], "connected": false, "color": null }, { "index": 6, "coordinates": [354, 103], "connected": false, "color": null }, { "index": 7, "coordinates": [352, 113], "connected": false, "color": null }, { "index": 8, "coordinates": [335, 128], "connected": false, "color": null }, { "index": 9, "coordinates": [316, 128], "connected": false, "color": null }, { "index": 10, "coordinates": [316, 110], "connected": false, "color": null }, { "index": 11, "coordinates": [325, 115], "connected": false, "color": null }, { "index": 12, "coordinates": [338, 111], "connected": false, "color": null }, { "index": 13, "coordinates": [338, 92], "connected": false, "color": null }, { "index": 14, "coordinates": [325, 88], "connected": false, "color": null }, { "index": 15, "coordinates": [315, 97], "connected": false, "color": null }, { "index": 16, "coordinates": [309, 80], "connected": false, "color": null }, { "index": 17, "coordinates": [320, 76], "connected": false, "color": null }, { "index": 18, "coordinates": [344, 81], "connected": false, "color": null }, { "index": 19, "coordinates": [356, 96], "connected": false, "color": null }, { "index": 20, "coordinates": [369, 100], "connected": false, "color": null }, { "index": 21, "coordinates": [368, 106], "connected": false, "color": null }, { "index": 22, "coordinates": [383, 138], "connected": false, "color": null }, { "index": 23, "coordinates": [380, 155], "connected": false, "color": null }, { "index": 24, "coordinates": [384, 178], "connected": false, "color": null }, { "index": 25, "coordinates": [379, 188], "connected": false, "color": null }, { "index": 26, "coordinates": [380, 208], "connected": false, "color": null }, { "index": 27, "coordinates": [374, 217], "connected": false, "color": null }, { "index": 28, "coordinates": [383, 240], "connected": false, "color": null }, { "index": 29, "coordinates": [376, 267], "connected": false, "color": null }, { "index": 30, "coordinates": [397, 243], "connected": false, "color": null }, { "index": 31, "coordinates": [409, 243], "connected": false, "color": null }, { "index": 32, "coordinates": [413, 218], "connected": false, "color": null }, { "index": 33, "coordinates": [421, 216], "connected": false, "color": null }, { "index": 34, "coordinates": [413, 154], "connected": false, "color": null }, { "index": 35, "coordinates": [422, 150], "connected": false, "color": null }, { "index": 36, "coordinates": [405, 109], "connected": false, "color": null }, { "index": 37, "coordinates": [387, 91], "connected": false, "color": null }, { "index": 38, "coordinates": [394, 89], "connected": false, "color": null }, { "index": 39, "coordinates": [379, 72], "connected": false, "color": null }, { "index": 40, "coordinates": [355, 63], "connected": false, "color": null }, { "index": 41, "coordinates": [357, 55], "connected": false, "color": null }, { "index": 42, "coordinates": [336, 56], "connected": false, "color": null }, { "index": 43, "coordinates": [338, 48], "connected": false, "color": null }, { "index": 44, "coordinates": [320, 53], "connected": false, "color": null }, { "index": 45, "coordinates": [314, 48], "connected": false, "color": null }, { "index": 46, "coordinates": [311, 60], "connected": false, "color": null }, { "index": 47, "coordinates": [304, 74], "connected": false, "color": null }, { "index": 48, "coordinates": [302, 87], "connected": false, "color": null }, { "index": 49, "coordinates": [304, 100], "connected": false, "color": null }, { "index": 50, "coordinates": [311, 134], "connected": false, "color": null }, { "index": 51, "coordinates": [301, 148], "connected": false, "color": null }, { "index": 52, "coordinates": [274, 157], "connected": false, "color": null }, { "index": 53, "coordinates": [212, 160], "connected": false, "color": null }, { "index": 54, "coordinates": [161, 153], "connected": false, "color": null }, { "index": 55, "coordinates": [127, 158], "connected": false, "color": null }, { "index": 56, "coordinates": [96, 172], "connected": false, "color": null }, { "index": 57, "coordinates": [113, 155], "connected": false, "color": null }, { "index": 58, "coordinates": [132, 144], "connected": false, "color": null }, { "index": 59, "coordinates": [162, 147], "connected": false, "color": null }, { "index": 60, "coordinates": [173, 140], "connected": false, "color": null }, { "index": 61, "coordinates": [184, 147], "connected": false, "color": null }, { "index": 62, "coordinates": [196, 138], "connected": false, "color": null }, { "index": 63, "coordinates": [209, 147], "connected": false, "color": null }, { "index": 64, "coordinates": [244, 145], "connected": false, "color": null }, { "index": 65, "coordinates": [256, 136], "connected": false, "color": null }, { "index": 66, "coordinates": [265, 146], "connected": false, "color": null }, { "index": 67, "coordinates": [277, 148], "connected": false, "color": null }, { "index": 68, "coordinates": [298, 125], "connected": false, "color": null }, { "index": 69, "coordinates": [239, 121], "connected": false, "color": null }, { "index": 70, "coordinates": [221, 125], "connected": false, "color": null }, { "index": 71, "coordinates": [189, 126], "connected": false, "color": null }, { "index": 72, "coordinates": [144, 135], "connected": false, "color": null }, { "index": 73, "coordinates": [154, 124], "connected": false, "color": null }, { "index": 74, "coordinates": [164, 127], "connected": false, "color": null }, { "index": 75, "coordinates": [169, 118], "connected": false, "color": null }, { "index": 76, "coordinates": [185, 112], "connected": false, "color": null }, { "index": 77, "coordinates": [191, 116], "connected": false, "color": null }, { "index": 78, "coordinates": [198, 108], "connected": false, "color": null }, { "index": 79, "coordinates": [210, 119], "connected": false, "color": null }, { "index": 80, "coordinates": [217, 112], "connected": false, "color": null }, { "index": 81, "coordinates": [232, 110], "connected": false, "color": null }, { "index": 82, "coordinates": [241, 115], "connected": false, "color": null }, { "index": 83, "coordinates": [255, 101], "connected": false, "color": null }, { "index": 84, "coordinates": [265, 110], "connected": false, "color": null }, { "index": 85, "coordinates": [271, 100], "connected": false, "color": null }, { "index": 86, "coordinates": [284, 108], "connected": false, "color": null }, { "index": 87, "coordinates": [286, 116], "connected": false, "color": null }, { "index": 88, "coordinates": [300, 120], "connected": false, "color": null }, { "index": 89, "coordinates": [298, 115], "connected": false, "color": null }, { "index": 90, "coordinates": [292, 101], "connected": false, "color": null }, { "index": 91, "coordinates": [293, 80], "connected": false, "color": null }, { "index": 92, "coordinates": [304, 62], "connected": false, "color": null }, { "index": 93, "coordinates": [248, 59], "connected": false, "color": null }, { "index": 94, "coordinates": [197, 65], "connected": false, "color": null }, { "index": 95, "coordinates": [149, 77], "connected": false, "color": null }, { "index": 96, "coordinates": [127, 91], "connected": false, "color": null }, { "index": 97, "coordinates": [144, 100], "connected": false, "color": null }, { "index": 98, "coordinates": [145, 117], "connected": false, "color": null }, { "index": 99, "coordinates": [137, 136], "connected": false, "color": null }, { "index": 100, "coordinates": [117, 142], "connected": false, "color": null }, { "index": 101, "coordinates": [99, 158], "connected": false, "color": null }, { "index": 102, "coordinates": [87, 177], "connected": false, "color": null }, { "index": 103, "coordinates": [88, 145], "connected": false, "color": null }, { "index": 104, "coordinates": [101, 116], "connected": false, "color": null }, { "index": 105, "coordinates": [122, 95], "connected": false, "color": null }, { "index": 106, "coordinates": [101, 86], "connected": false, "color": null }, { "index": 107, "coordinates": [85, 69], "connected": false, "color": null }, { "index": 108, "coordinates": [60, 64], "connected": false, "color": null }, { "index": 109, "coordinates": [47, 41], "connected": false, "color": null }, { "index": 110, "coordinates": [42, 23], "connected": false, "color": null }, { "index": 111, "coordinates": [14, 21], "connected": false, "color": null }, { "index": 112, "coordinates": [14, 36], "connected": false, "color": null }, { "index": 113, "coordinates": [30, 42], "connected": false, "color": null }, { "index": 114, "coordinates": [42, 63], "connected": false, "color": null }, { "index": 115, "coordinates": [46, 86], "connected": false, "color": null }, { "index": 116, "coordinates": [60, 101], "connected": false, "color": null }, { "index": 117, "coordinates": [64, 133], "connected": false, "color": null }, { "index": 118, "coordinates": [78, 158], "connected": false, "color": null }, { "index": 119, "coordinates": [50, 147], "connected": false, "color": null }, { "index": 120, "coordinates": [34, 120], "connected": false, "color": null }, { "index": 121, "coordinates": [14, 109], "connected": false, "color": null }, { "index": 122, "coordinates": [14, 156], "connected": false, "color": null }, { "index": 123, "coordinates": [84, 228], "connected": false, "color": null }, { "index": 124, "coordinates": [116, 285], "connected": false, "color": null }, { "index": 125, "coordinates": [129, 318], "connected": false, "color": null }, { "index": 126, "coordinates": [118, 330], "connected": false, "color": null }, { "index": 127, "coordinates": [93, 307], "connected": false, "color": null }, { "index": 128, "coordinates": [15, 190], "connected": false, "color": null }, { "index": 129, "coordinates": [47, 268], "connected": false, "color": null }, { "index": 130, "coordinates": [60, 334], "connected": false, "color": null }, { "index": 131, "coordinates": [61, 364], "connected": false, "color": null }, { "index": 132, "coordinates": [46, 352], "connected": false, "color": null }, { "index": 133, "coordinates": [25, 276], "connected": false, "color": null }, { "index": 134, "coordinates": [14, 228], "connected": false, "color": null }, { "index": 135, "coordinates": [14, 272], "connected": false, "color": null }, { "index": 136, "coordinates": [32, 343], "connected": false, "color": null }, { "index": 137, "coordinates": [27, 407], "connected": false, "color": null }, { "index": 138, "coordinates": [13, 391], "connected": false, "color": null }, { "index": 139, "coordinates": [14, 450], "connected": false, "color": null }, { "index": 140, "coordinates": [45, 453], "connected": false, "color": null }, { "index": 141, "coordinates": [76, 468], "connected": false, "color": null }, { "index": 142, "coordinates": [94, 456], "connected": false, "color": null }, { "index": 143, "coordinates": [96, 429], "connected": false, "color": null }, { "index": 144, "coordinates": [107, 395], "connected": false, "color": null }, { "index": 145, "coordinates": [134, 372], "connected": false, "color": null }, { "index": 146, "coordinates": [167, 360], "connected": false, "color": null }, { "index": 147, "coordinates": [182, 348], "connected": false, "color": null }, { "index": 148, "coordinates": [185, 325], "connected": false, "color": null }, { "index": 149, "coordinates": [187, 355], "connected": false, "color": null }, { "index": 150, "coordinates": [177, 385], "connected": false, "color": null }, { "index": 151, "coordinates": [139, 433], "connected": false, "color": null }, { "index": 152, "coordinates": [98, 462], "connected": false, "color": null }, { "index": 153, "coordinates": [134, 457], "connected": false, "color": null }, { "index": 154, "coordinates": [159, 440], "connected": false, "color": null }, { "index": 155, "coordinates": [182, 413], "connected": false, "color": null }, { "index": 156, "coordinates": [190, 372], "connected": false, "color": null }, { "index": 157, "coordinates": [196, 392], "connected": false, "color": null }, { "index": 158, "coordinates": [196, 411], "connected": false, "color": null }
+			];
+
+
+		function setupAndDrawCanvas(canvasId, dotDatas) {
+
+			const canvas = document.getElementById(canvasId);
+
+			var ctx = setupCanvas(canvas);
+
+			let lastConnectedDot = null;
+
+			const dots = dotDatas.map(dot => ({
+				x: dot.coordinates[0],
+				y: dot.coordinates[1],
+				connected: false,
+				color: dot.color,
+				index: dot.index
+			}));
+
+			const connections = []; // Array to store connections between dots
+			const otherCursors = {};// Object to track other users' cursor positions
+
+			// Function to draw other users' cursors
+			function drawCursors() {
+				for (let id in otherCursors) {
+					const cursor = otherCursors[id];
+					ctx.beginPath();
+					ctx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
+					ctx.fillStyle = cursor.color; // Use the color assigned by the server
+					ctx.fill();
+
+					// Draw the username next to the cursor
+					ctx.font = '12px Arial';
+					ctx.fillStyle = cursor.color; // Use the same color for the username
+					const textWidth = ctx.measureText(cursor.username).width;
+					const height = 16;
+					const margin = 6;
+					const distance = 15;
+					ctx.beginPath();
+					ctx.roundRect(cursor.position.x + distance, cursor.position.y - height/2, textWidth + margin*2, height, height/2);
+					ctx.fill();
+					ctx.fillStyle = 'white';
+					ctx.fillText(cursor.username, cursor.position.x + distance + margin, cursor.position.y + 4);
+				}
+			}
+
+			let myCursorColor = 'black'; // Default color, updated upon 'assign color' event
+
+			// Draw initial dots and connections
+			function draw() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redraw
+
+				// Draw all connections
+				connections.forEach(connection => {
+					ctx.beginPath();
+					ctx.moveTo(connection.from.x, connection.from.y);
+					ctx.lineTo(connection.to.x, connection.to.y);
+					ctx.strokeStyle = connection.color; // Use the connection's color
+					ctx.stroke();
+				});
+
+				// Draw all dots
+				dots.forEach(dot => {
+					ctx.beginPath();
+					ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2);
+					ctx.fillStyle = dot.connected ? dot.color : 'black'; // Use the dot's color if connected
+					ctx.fill();
+
+					// Draw index number above each dot
+					ctx.font = '6px Arial';
+					const textWidth = ctx.measureText(dot.index).width;
+					ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 3);
+				});
+
+				drawCursors(); // Draw cursors last so they're on top
+
+			}
+
+			canvas.addEventListener('mousemove', (event) => {
+				const rect = canvas.getBoundingClientRect();
+				const position = {
+					x: Math.round((event.clientX - rect.left) * 100) / 100,
+					y: Math.round((event.clientY - rect.top) * 100) / 100
+				};
+				socket.emit('cursor move', position); // Send our cursor position to the server
+			});
+
+			// Listen for cursor updates from other clients
+			socket.on('cursor update', (data) => {
+				otherCursors[data.socketId] = { position: data.position, color: data.color, username: data.username };
+				draw(); // Redraw the canvas to show the updated cursor positions
+			});
+
+			// Clear cursor data for users who disconnect
+			socket.on('user disconnected', (socketId) => {
+				console.log(`Before deletion:`, otherCursors);
+				delete otherCursors[socketId];
+				console.log(`After deletion:`, otherCursors);
+				draw(); // Redraw the canvas to remove the cursor
+			});
+
+
+			// Check if a position is close to a dot
+			function closeToDot(x, y) {
+				// return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 10 && !dot.connected);
+				return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 5);
+			}
+
+			// Add connection between two dots
+			function connectDots(dot1, dot2, userColor) {
+				connections.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
+				dot1.connected = dot2.connected = true;
+				dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
+				socket.emit('connect dot', { from: dot1, to: dot2, color: userColor }); // Send connection with color
+			}
+
+			// Handle canvas click events
+			canvas.addEventListener('click', (event) => {
+				const rect = canvas.getBoundingClientRect();
+				const x = event.clientX - rect.left;
+				const y = event.clientY - rect.top;
+				const closeDot = closeToDot(x, y);
+
+				if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
+					if (lastConnectedDot !== null) {
+						// connectDots(lastConnectedDot, closeDot);
+						connectDots(lastConnectedDot, closeDot, myCursorColor);
+						socket.emit('connect dot', { from: lastConnectedDot, to: closeDot });
+					}
+					lastConnectedDot = closeDot;
+					draw(); // Redraw to update connections and dot colors
+				}
+			});
+
+			// Listen for dot connections from other users
+			socket.on('dot connected', (data) => {
+				connections.push({ from: data.from, to: data.to, color: data.color });
+				const dot1 = dots.find(dot => dot.index === data.from.index);
+				const dot2 = dots.find(dot => dot.index === data.to.index);
+				if (dot1 && dot2) {
+					dot1.connected = dot2.connected = true;
+					dot1.color = dot2.color = data.color;
+				}
+				draw();
+			});
+
+
+			draw(); // Initial draw
+
+			socket.on('assign color', (color) => {
+				myCursorColor = color; // Update this user's cursor color
+			});
+
+		}
+
+		function setupAndDrawCanvas1(canvasId, dotDatas) {
+
+			const canvas = document.getElementById(canvasId);
+
+			var ctx = setupCanvas(canvas);
+
+			let lastConnectedDot = null;
+
+			const dots = dotDatas.map(dot => ({
+				x: dot.coordinates[0],
+				y: dot.coordinates[1],
+				connected: false,
+				color: dot.color,
+				index: dot.index
+			}));
+
+			const connections = []; // Array to store connections between dots
+			const otherCursors = {};// Object to track other users' cursor positions
+
+			// Function to draw other users' cursors
+			function drawCursors() {
+				for (let id in otherCursors) {
+					const cursor = otherCursors[id];
+					ctx.beginPath();
+					ctx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
+					ctx.fillStyle = cursor.color; // Use the color assigned by the server
+					ctx.fill();
+
+					// Draw the username next to the cursor
+					ctx.font = '12px Arial';
+					ctx.fillStyle = cursor.color; // Use the same color for the username
+					const textWidth = ctx.measureText(cursor.username).width;
+					const height = 16;
+					const margin = 6;
+					const distance = 15;
+					ctx.beginPath();
+					ctx.roundRect(cursor.position.x + distance, cursor.position.y - height/2, textWidth + margin*2, height, height/2);
+					ctx.fill();
+					ctx.fillStyle = 'white';
+					ctx.fillText(cursor.username, cursor.position.x + distance + margin, cursor.position.y + 4);
+				}
+			}
+
+			let myCursorColor = 'black'; // Default color, updated upon 'assign color' event
+
+			// Draw initial dots and connections
+			function draw() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redraw
+
+				// Draw all connections
+				connections.forEach(connection => {
+					ctx.beginPath();
+					ctx.moveTo(connection.from.x, connection.from.y);
+					ctx.lineTo(connection.to.x, connection.to.y);
+					ctx.strokeStyle = connection.color; // Use the connection's color
+					ctx.stroke();
+				});
+
+				// Draw all dots
+				dots.forEach(dot => {
+					ctx.beginPath();
+					ctx.arc(dot.x, dot.y, 1, 0, Math.PI * 2);
+					ctx.fillStyle = dot.connected ? dot.color : 'black'; // Use the dot's color if connected
+					ctx.fill();
+
+					// Draw index number above each dot
+					ctx.font = '6px Arial';
+					const textWidth = ctx.measureText(dot.index).width;
+					// ctx.fillStyle = 'blue';
+					ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 3);
+				});
+
+				drawCursors(); // Draw cursors last so they're on top
+
+			}
+
+			canvas.addEventListener('mousemove', (event) => {
+				const rect = canvas.getBoundingClientRect();
+				const position = {
+					x: Math.round((event.clientX - rect.left) * 100) / 100,
+					y: Math.round((event.clientY - rect.top) * 100) / 100
+				};
+				socket.emit('cursor move1', position); // Send our cursor position to the server
+			});
+
+			// Listen for cursor updates from other clients
+			socket.on('cursor update1', (data) => {
+				otherCursors[data.socketId] = { position: data.position, color: data.color, username: data.username };
+				draw(); // Redraw the canvas to show the updated cursor positions
+			});
+
+			// Clear cursor data for users who disconnect
+			socket.on('user disconnected', (socketId) => {
+				console.log(`Before deletion:`, otherCursors);
+				delete otherCursors[socketId];
+				console.log(`After deletion:`, otherCursors);
+				draw(); // Redraw the canvas to remove the cursor
+			});
+
+
+			// Check if a position is close to a dot
+			function closeToDot(x, y) {
+				// return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 10 && !dot.connected);
+				return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 5);
+			}
+
+			// Add connection between two dots
+			function connectDots(dot1, dot2, userColor) {
+				connections.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
+				dot1.connected = dot2.connected = true;
+				dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
+				socket.emit('connect dot1', { from: dot1, to: dot2, color: userColor }); // Send connection with color
+			}
+
+			// Handle canvas click events
+			canvas.addEventListener('click', (event) => {
+				const rect = canvas.getBoundingClientRect();
+				const x = event.clientX - rect.left;
+				const y = event.clientY - rect.top;
+				const closeDot = closeToDot(x, y);
+
+				if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
+					if (lastConnectedDot !== null) {
+						// connectDots(lastConnectedDot, closeDot);
+						connectDots(lastConnectedDot, closeDot, myCursorColor);
+						socket.emit('connect dot1', { from: lastConnectedDot, to: closeDot });
+					}
+					lastConnectedDot = closeDot;
+					draw(); // Redraw to update connections and dot colors
+				}
+			});
+
+			// Listen for dot connections from other users
+			socket.on('dot connected1', (data) => {
+				connections.push({ from: data.from, to: data.to, color: data.color });
+				const dot1 = dots.find(dot => dot.index === data.from.index);
+				const dot2 = dots.find(dot => dot.index === data.to.index);
+				if (dot1 && dot2) {
+					dot1.connected = dot2.connected = true;
+					dot1.color = dot2.color = data.color;
+				}
+				draw();
+			});
+
+
+			draw(); // Initial draw
+
+			socket.on('assign color', (color) => {
+				myCursorColor = color; // Update this user's cursor color
+			});
+
+		}
+
+		setupAndDrawCanvas('canvas1', dotDataForCanvas1);
+		setupAndDrawCanvas1('canvas2', dotDataForCanvas2);
+
+
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+[
+    {
+        "index": 1,
+        "coordinates": [
+            323,
+            109
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 2,
+        "coordinates": [
+            319,
+            99
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 3,
+        "coordinates": [
+            329,
+            94
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 4,
+        "coordinates": [
+            334,
+            103
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 5,
+        "coordinates": [
+            329,
+            108
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 6,
+        "coordinates": [
+            354,
+            103
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 7,
+        "coordinates": [
+            352,
+            113
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 8,
+        "coordinates": [
+            335,
+            128
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 9,
+        "coordinates": [
+            316,
+            128
+        ],
+        "connected": false,
+        "color": null
+    },
+    {
+        "index": 10,
+        "coordinates": [
+            316,
+            110
+        ],
+        "connected": false,
+        "color": null
+    }
+]

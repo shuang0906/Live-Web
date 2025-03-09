@@ -1,0 +1,272 @@
+<html>
+
+<head>
+	<title>Connect the Dots</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+
+		var socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Connected");
+		});
+
+	</script>
+</head>
+
+<body>
+	<div class="title">connect • the • dots</div>
+	<div class="info"><button class="myButton"><span>info</span></button></div>
+	<div class="info-pop" id="info-pop" style="display: none;">
+		Connect the dots in numerical order to create a line.<br>
+		Feel free to start from any point.<br>
+		<br>
+		Made by H******s.
+	</div>
+
+	<div class="canvas-container" style="background-color: blue;">
+		<canvas class="bg" id="bg"></canvas>
+		<canvas class="diagram diagram1" id="canvas1" width="570" height="720"></canvas>
+	</div>
+	<div class="canvas-container" id="canvas-container" style="background-color: blue;">
+		<canvas class="diagram diagram2" id="canvas2" width="700" height="700"></canvas>
+	</div>
+
+
+	<script>
+
+
+
+		
+		function showInfo(){
+
+			var popup = document.getElementById('info-pop');
+			if (popup.style.display === 'none') {
+				popup.style.display = 'block';
+			} else {
+				popup.style.display = 'none';
+			}
+		};
+
+		function setupCanvas(canvas) {
+			var dpr = window.devicePixelRatio || 1;
+			var rect = canvas.getBoundingClientRect();
+			canvas.width = rect.width * dpr;
+			canvas.height = rect.height * dpr;
+			var ctx = canvas.getContext('2d');
+			ctx.scale(dpr, dpr);
+			return ctx;
+		}
+
+		const bgcanvas = document.getElementById('bg');
+			
+		function drawPoints() {
+			
+			const bgctx = setupCanvas(bgcanvas);
+			for (let i = 0; i < 1500; i++) {
+				const x = Math.random() * bgcanvas.width;
+				const y = Math.random() * bgcanvas.height;
+				bgctx.beginPath();
+				bgctx.arc(x, y, 1, 0, 2 * Math.PI); 
+				bgctx.fill();
+				bgctx.font = '6px Arial';
+				const textWidth = bgctx.measureText(i).width;
+				bgctx.fillText(i, x - textWidth / 2, y - 3);
+			}
+		}
+
+		drawPoints();
+		window.addEventListener('resize', drawPoints);
+		var myButton = document.getElementsByClassName('myButton')[0];
+		myButton.addEventListener('mouseenter', showInfo);
+		myButton.addEventListener('mouseleave', showInfo);
+
+		const dotDataForCanvas1 =
+			[
+				{"index":1,"coordinates":[38,28]},{"index":2,"coordinates":[37,37]},{"index":3,"coordinates":[42,52]},{"index":4,"coordinates":[50,74]},{"index":5,"coordinates":[60,95]},{"index":6,"coordinates":[67,115]},{"index":7,"coordinates":[73,133]},{"index":8,"coordinates":[86,161]},{"index":9,"coordinates":[99,185]},{"index":10,"coordinates":[112,209]},{"index":11,"coordinates":[124,233]},{"index":12,"coordinates":[114,245]},{"index":13,"coordinates":[108,260]},{"index":14,"coordinates":[91,259]},{"index":15,"coordinates":[69,258]},{"index":16,"coordinates":[44,253]},{"index":17,"coordinates":[25,254]},{"index":18,"coordinates":[12,257]},{"index":19,"coordinates":[8,269]},{"index":20,"coordinates":[21,278]},{"index":21,"coordinates":[34,280]},{"index":22,"coordinates":[48,283]},{"index":23,"coordinates":[73,284]},{"index":24,"coordinates":[91,286]},{"index":25,"coordinates":[105,286]},{"index":26,"coordinates":[106,291]},{"index":27,"coordinates":[58,300]},{"index":28,"coordinates":[21,311]},{"index":29,"coordinates":[21,321]},{"index":30,"coordinates":[32,320]},{"index":31,"coordinates":[46,318]},{"index":32,"coordinates":[82,310]},{"index":33,"coordinates":[111,302]},{"index":34,"coordinates":[123,321]},{"index":35,"coordinates":[132,335]},{"index":36,"coordinates":[142,341]},{"index":37,"coordinates":[167,349]},{"index":38,"coordinates":[172,376]},{"index":39,"coordinates":[177,389]},{"index":40,"coordinates":[184,404]},{"index":41,"coordinates":[171,428]},{"index":42,"coordinates":[161,444]},{"index":43,"coordinates":[146,468]},{"index":44,"coordinates":[133,485]},{"index":45,"coordinates":[117,514]},{"index":46,"coordinates":[102,536]},{"index":47,"coordinates":[92,555]},{"index":48,"coordinates":[85,568]},{"index":49,"coordinates":[72,571]},{"index":50,"coordinates":[60,565]},{"index":51,"coordinates":[53,550]},{"index":52,"coordinates":[46,535]},{"index":53,"coordinates":[47,527]},{"index":54,"coordinates":[48,520]},{"index":55,"coordinates":[36,511]},{"index":56,"coordinates":[18,516]},{"index":57,"coordinates":[8,528]},{"index":58,"coordinates":[11,546]},{"index":59,"coordinates":[10,570]},{"index":60,"coordinates":[19,591]},{"index":61,"coordinates":[28,627]},{"index":62,"coordinates":[41,651]},{"index":63,"coordinates":[66,671]},{"index":64,"coordinates":[110,647]},{"index":65,"coordinates":[132,614]},{"index":66,"coordinates":[159,571]},{"index":67,"coordinates":[189,525]},{"index":68,"coordinates":[232,442]},{"index":69,"coordinates":[235,438]},{"index":70,"coordinates":[255,439]},{"index":71,"coordinates":[251,463]},{"index":72,"coordinates":[248,487]},{"index":73,"coordinates":[241,526]},{"index":74,"coordinates":[236,553]},{"index":75,"coordinates":[231,582]},{"index":76,"coordinates":[224,615]},{"index":77,"coordinates":[220,622]},{"index":78,"coordinates":[195,628]},{"index":79,"coordinates":[162,628]},{"index":80,"coordinates":[136,636]},{"index":81,"coordinates":[136,654]},{"index":82,"coordinates":[162,677]},{"index":83,"coordinates":[195,684]},{"index":84,"coordinates":[220,683]},{"index":85,"coordinates":[250,685]},{"index":86,"coordinates":[275,681]},{"index":87,"coordinates":[284,668]},{"index":88,"coordinates":[287,637]},{"index":89,"coordinates":[296,566]},{"index":90,"coordinates":[302,521]},{"index":91,"coordinates":[310,466]},{"index":92,"coordinates":[313,450]},{"index":93,"coordinates":[449,443]},{"index":94,"coordinates":[450,588]},{"index":95,"coordinates":[450,610]},{"index":96,"coordinates":[446,623]},{"index":97,"coordinates":[421,632]},{"index":98,"coordinates":[376,640]},{"index":99,"coordinates":[360,649]},{"index":100,"coordinates":[358,665]},{"index":101,"coordinates":[368,676]},{"index":102,"coordinates":[390,686]},{"index":103,"coordinates":[431,686]},{"index":104,"coordinates":[465,686]},{"index":105,"coordinates":[500,685]},{"index":106,"coordinates":[512,674]},{"index":107,"coordinates":[522,648]},{"index":108,"coordinates":[523,616]},{"index":109,"coordinates":[522,559]},{"index":110,"coordinates":[518,481]},{"index":111,"coordinates":[516,440]},{"index":112,"coordinates":[555,494]},{"index":113,"coordinates":[591,547]},{"index":114,"coordinates":[613,571]},{"index":115,"coordinates":[614,585]},{"index":116,"coordinates":[609,614]},{"index":117,"coordinates":[575,650]},{"index":118,"coordinates":[563,662]},{"index":119,"coordinates":[574,681]},{"index":120,"coordinates":[603,682]},{"index":121,"coordinates":[634,673]},{"index":122,"coordinates":[661,638]},{"index":123,"coordinates":[682,579]},{"index":124,"coordinates":[683,549]},{"index":125,"coordinates":[670,524]},{"index":126,"coordinates":[565,373]},{"index":127,"coordinates":[560,351]},{"index":128,"coordinates":[603,269]},{"index":129,"coordinates":[680,92]},{"index":130,"coordinates":[694,36]},{"index":131,"coordinates":[685,14]},{"index":132,"coordinates":[668,15]},{"index":133,"coordinates":[651,33]},{"index":134,"coordinates":[498,315]},{"index":135,"coordinates":[515,286]},{"index":136,"coordinates":[531,263]},{"index":137,"coordinates":[541,243]},{"index":138,"coordinates":[548,226]},{"index":139,"coordinates":[556,213]},{"index":140,"coordinates":[563,205]},{"index":141,"coordinates":[571,190]},{"index":142,"coordinates":[583,163]},{"index":143,"coordinates":[588,144]},{"index":144,"coordinates":[596,128]},{"index":145,"coordinates":[600,116]},{"index":146,"coordinates":[613,100]},{"index":147,"coordinates":[619,81]},{"index":148,"coordinates":[634,56]},{"index":149,"coordinates":[645,41]},{"index":150,"coordinates":[502,308]},{"index":151,"coordinates":[494,316]},{"index":152,"coordinates":[453,324]},{"index":153,"coordinates":[369,326]},{"index":154,"coordinates":[314,328]},{"index":155,"coordinates":[269,329]},{"index":156,"coordinates":[285,316]},{"index":157,"coordinates":[291,306]},{"index":158,"coordinates":[297,288]},{"index":159,"coordinates":[422,288]},{"index":160,"coordinates":[425,276]},{"index":161,"coordinates":[414,267]},{"index":162,"coordinates":[367,266]},{"index":163,"coordinates":[298,267]},{"index":164,"coordinates":[298,263]},{"index":165,"coordinates":[340,249]},{"index":166,"coordinates":[368,242]},{"index":167,"coordinates":[401,234]},{"index":168,"coordinates":[419,230]},{"index":169,"coordinates":[421,222]},{"index":170,"coordinates":[410,220]},{"index":171,"coordinates":[297,251]},{"index":172,"coordinates":[295,234]},{"index":173,"coordinates":[287,220]},{"index":174,"coordinates":[294,197]},{"index":175,"coordinates":[314,165]},{"index":176,"coordinates":[336,127]},{"index":177,"coordinates":[351,89]},{"index":178,"coordinates":[369,58]},{"index":179,"coordinates":[373,33]},{"index":180,"coordinates":[370,25]},{"index":181,"coordinates":[351,38]},{"index":182,"coordinates":[299,85]},{"index":183,"coordinates":[268,119]},{"index":184,"coordinates":[248,154]},{"index":185,"coordinates":[215,191]},{"index":186,"coordinates":[186,194]},{"index":187,"coordinates":[167,169]},{"index":188,"coordinates":[142,137]},{"index":189,"coordinates":[108,88]},{"index":190,"coordinates":[85,57]},{"index":191,"coordinates":[62,37]},{"index":192,"coordinates":[42,27]}
+			];
+		const dotDataForCanvas2 =
+			[
+			];
+
+		function setupAndDrawCanvas(canvasId, dotDatas) {
+
+			const canvas = document.getElementById(canvasId);
+
+			var ctx = setupCanvas(canvas);
+
+			let lastConnectedDot = null;
+
+			const dots = dotDatas.map(dot => ({
+				x: dot.coordinates[0],
+				y: dot.coordinates[1],
+				connected: false,
+				color: dot.color,
+				index: dot.index
+			}));
+
+			const connections = []; // Array to store connections between dots
+			const otherCursors = {};// Object to track other users' cursor positions
+			
+
+			// Function to draw other users' cursors
+			function drawCursors() {
+				for (let id in otherCursors) {
+					const cursor = otherCursors[id];
+					ctx.beginPath();
+					ctx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
+					ctx.fillStyle = cursor.color; // Use the color assigned by the server
+					ctx.fill();
+
+					// Draw the username next to the cursor
+					ctx.font = '12px Arial';
+					ctx.fillStyle = cursor.color; // Use the same color for the username
+					const textWidth = ctx.measureText(cursor.username).width;
+					const height = 16;
+					const margin = 6;
+					const distance = 15;
+					ctx.beginPath();
+					ctx.roundRect(cursor.position.x + distance, cursor.position.y - height/2, textWidth + margin*2, height, height/2);
+					ctx.fill();
+					ctx.fillStyle = 'white';
+					ctx.fillText(cursor.username, cursor.position.x + distance + margin, cursor.position.y + 4);
+				}
+			}
+
+			let myCursorColor = 'black'; // Default color, updated upon 'assign color' event
+			
+			// let offsetX = 0;
+			// let offsetY = 0;
+
+			// function handleScroll(e) {
+			// 	offsetX += e.deltaX;
+			// 	offsetY += e.deltaY;
+			// 	console.log("offsetX:"+offsetX)
+			// 	draw();
+			// }
+
+			// Draw initial dots and connections
+			function draw() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redraw
+
+				// Draw all connections
+				connections.forEach(connection => {
+					if (connection.canvas !== canvasId) return;
+					ctx.beginPath();
+					ctx.moveTo(connection.from.x , connection.from.y);
+					ctx.lineTo(connection.to.x , connection.to.y);
+					ctx.strokeStyle = connection.color; // Use the connection's color
+					ctx.stroke();
+				});
+
+				// Draw all dots
+				dots.forEach(dot => {
+					ctx.beginPath();
+					ctx.arc(dot.x , dot.y, 1, 0, Math.PI * 2);
+					ctx.fillStyle = dot.connected ? dot.color : 'black'; // Use the dot's color if connected
+					ctx.fill();
+
+					// Draw index number above each dot
+					ctx.font = '6px Arial';
+					const textWidth = ctx.measureText(dot.index).width;
+					ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 3);
+					console.log("dot.index:"+ dot.index);
+					console.log("dot.x:"+ dot.x);
+					console.log("dot.y:"+ dot.y);
+				});
+
+				drawCursors(); // Draw cursors last so they're on top
+
+			}
+
+			draw(); // Initial draw
+
+			//canvas.addEventListener('wheel', handleScroll);
+
+			canvas.addEventListener('mousemove', (event) => {
+				const rect = canvas.getBoundingClientRect();
+				const position = {
+					x: Math.round((event.clientX - rect.left) * 100) / 100,
+					y: Math.round((event.clientY - rect.top) * 100) / 100
+				};
+				socket.emit('cursor move', position); // Send our cursor position to the server
+			});
+
+			// Listen for cursor updates from other clients
+			socket.on('cursor update', (data) => {
+				otherCursors[data.socketId] = { position: data.position, color: data.color, username: data.username };
+				draw(); // Redraw the canvas to show the updated cursor positions
+			});
+
+			// Clear cursor data for users who disconnect
+			socket.on('user disconnected', (socketId) => {
+				console.log(`Before deletion:`, otherCursors);
+				delete otherCursors[socketId];
+				console.log(`After deletion:`, otherCursors);
+				draw(); // Redraw the canvas to remove the cursor
+			});
+
+
+			// Check if a position is close to a dot
+			function closeToDot(x, y) {
+				return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 5);
+			}
+
+			// Add connection between two dots
+			function connectDots(dot1, dot2, userColor) {
+				connections.push({ from: dot1, to: dot2, color: userColor, canvas: canvasId }); // Store the connection
+				dot1.connected = dot2.connected = true;
+				dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
+				socket.emit('connect dot', { from: dot1, to: dot2, color: userColor, canvas: canvasId }); // Send connection with color
+			}
+
+			// Handle canvas click events
+			canvas.addEventListener('click', (event) => {
+				const rect = canvas.getBoundingClientRect();
+				const x = event.clientX - rect.left;
+				const y = event.clientY - rect.top;
+				console.log("clickX:"+ x);
+				const closeDot = closeToDot(x, y);
+
+				if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
+					if (lastConnectedDot !== null) {
+						// connectDots(lastConnectedDot, closeDot);
+						connectDots(lastConnectedDot, closeDot, myCursorColor);
+						socket.emit('connect dot', { from: lastConnectedDot, to: closeDot });
+					}
+					lastConnectedDot = closeDot;
+					draw(); // Redraw to update connections and dot colors
+				}
+			});
+
+			// Listen for dot connections from other users
+			socket.on('dot connected', (data) => {
+				if (data.canvas !== canvasId) return;
+				connections.push({ from: data.from, to: data.to, color: data.color, canvas: data.canvas});
+				const dot1 = dots.find(dot => dot.index === data.from.index);
+				const dot2 = dots.find(dot => dot.index === data.to.index);
+				if (dot1 && dot2) {
+					dot1.connected = dot2.connected = true;
+					dot1.color = dot2.color = data.color;
+				}
+				draw();
+			});
+
+
+
+			socket.on('assign color', (color) => {
+				myCursorColor = color; // Update this user's cursor color
+			});
+
+		}
+
+		setupAndDrawCanvas('canvas1', dotDataForCanvas1);
+		setupAndDrawCanvas('canvas2', dotDataForCanvas2);
+
+	</script>
+
+
+</body>
+
+</html>

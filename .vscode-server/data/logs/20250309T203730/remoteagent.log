@@ -1,0 +1,36 @@
+2025-03-09 20:37:30.720 [info] 
+
+
+
+
+2025-03-09 20:37:30.735 [info] Extension host agent started.
+2025-03-09 20:37:30.809 [info] [<unknown>][1ff69d4a][ManagementConnection] New connection established.
+2025-03-09 20:37:30.812 [info] [<unknown>][48c39ba9][ExtensionHostConnection] New connection established.
+2025-03-09 20:37:31.019 [info] [<unknown>][48c39ba9][ExtensionHostConnection] <282144> Launched Extension Host Process.
+2025-03-09 20:37:49.343 [error] [File Watcher] Unexpected error: inotify_add_watch on '/root/.vscode-server/data/logs/20250225T011617/exthost1/vscode.typescript-language-features' failed: No such file or directory (EUNKNOWN) (path: /root)
+2025-03-09 20:37:49.347 [error] [File Watcher (universal)] inotify_add_watch on '/root/.vscode-server/data/logs/20250225T011617/exthost1/vscode.typescript-language-features' failed: No such file or directory
+2025-03-09 20:40:47.603 [info] [<unknown>][1ff69d4a][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-03-09 20:40:47.757 [info] [<unknown>][48c39ba9][ExtensionHostConnection] <282144> Extension Host Process exited with code: 0, signal: null.
+2025-03-09 20:40:47.760 [info] Cancelling previous shutdown timeout
+2025-03-09 20:40:47.760 [info] Last EH closed, waiting before shutting down
+2025-03-09 20:40:58.714 [info] [<unknown>][c22cb727][ManagementConnection] New connection established.
+2025-03-09 20:40:58.721 [info] [<unknown>][4e1d326e][ExtensionHostConnection] New connection established.
+2025-03-09 20:40:58.727 [info] [<unknown>][4e1d326e][ExtensionHostConnection] <282688> Launched Extension Host Process.
+2025-03-09 20:41:01.083 [error] CodeExpectedError: Could not find pty 1 on pty host
+    at I.W (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12275)
+    at I.updateTitle (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:45:7722)
+    at O.s.<computed> (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4204)
+    at el.s (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80918)
+    at el.q (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80441)
+    at ds.value (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:26:79843)
+    at x.B (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at x.fire (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.C (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29877)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-03-09 20:45:47.762 [info] New EH opened, aborting shutdown
+2025-03-09 20:45:47.764 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (file:///root/.vscode-server/cli/servers/Stable-6609ac3d66f4eade5cf376d1cb76f13985724bcb/server/out/server-main.js:183:1060)
+    at process.emit (node:events:530:35)

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+
+        var socket;
+
+        //testing
+        function saveVideoToDisk(videoData) {
+            const fileName = `${uuidv4()}.mp4`;
+            fs.writeFileSync(fileName, videoData, 'binary');
+            return fileName;
+        }
+
+        window.addEventListener("load", function () {
+            let video = document.getElementById('thevideo');
+            let thecanvas = document.getElementById('thecanvas');
+            let thecontext = thecanvas.getContext("2d");
+            let constraints = { audio: false, video: true };
+
+            navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                video.srcObject = stream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
+            }).catch(function (err) {
+                alert(err);
+            });
+
+            // Set up the click event listener for the record button
+            mediaRecorder.onstop = function () {
+    let blob = new Blob(chunks, { 'type': 'video/mp4' });
+    document.getElementById('recorded').src = window.URL.createObjectURL(blob);
+    document.getElementById('sendVideoButton').addEventListener("click", function () {
+        socket.emit('video', chunks);
+        console.log('emitted' + window.URL.createObjectURL(blob));
+
+        // Create a new div element
+        let videoDiv = document.createElement('div');
+        videoDiv.classList.add('video-container');
+
+        // Create and append the text node
+        var content = document.createTextNode("hello");
+        videoDiv.appendChild(content);
+
+        // Create a new video element
+        let videoElement = document.createElement('video');
+        videoElement.src = window.URL.createObjectURL(blob);
+        videoElement.controls = true;
+        videoElement.autoplay = true;
+
+        // Append the video element to the div
+        videoDiv.appendChild(videoElement);
+
+        // Append the new div to a parent element
+        document.getElementById('videos').appendChild(videoDiv);
+    });
+};
+
+            socket = io.connect();
+
+            socket.on('connect', function () {
+                console.log("Connected");
+            });
+
+            /*
+            socket.on('video', function(data) {
+                let blob = new Blob(data, { 'type' : 'video/mp4' });
+                // document.getElementById('recorded').src = window.URL.createObjectURL(blob);
+                let recordedVideo = document.getElementById('recorded');
+                recordedVideo.src = window.URL.createObjectURL(blob);;
+                // console.log('received' + window.URL.createObjectURL(data));
+                recordedVideo.controls = true;
+            });
+            */
+
+            socket.on('video', function (data) {
+                let blob = new Blob(data, { 'type': 'video/mp4' });
+                let url = window.URL.createObjectURL(blob);
+
+                // Create a new div element
+                let videoDiv = document.createElement('div');
+                videoDiv.classList.add('video-container'); // Optional: add a class for styling
+
+                // Create a new video element
+                let videoElement = document.createElement('video');
+                videoElement.src = url;
+                videoElement.controls = true;
+                videoElement.autoplay = true; // Optional: if you want the video to play automatically
+
+                // Append the video element to the div
+                videoDiv.appendChild(videoElement);
+
+                // Append the new div to a parent element, e.g., a div with id 'videos'
+                document.getElementById('videos').appendChild(videoDiv);
+            });
+
+            socket.on('chatmessage', function (data) {
+                console.log(data);
+                document.getElementById('messages').innerHTML = data.senderId + ": " + data.message + "<br />" + document.getElementById('messages').innerHTML;
+            });
+
+
+            window.sendmessage = function (message) {
+                console.log("chatmessage: " + message);
+                if (message == '') {
+                    alert("Please type something...");
+                } else {
+                    socket.emit('chatmessage', { message: message, senderId: socket.id });
+                    document.getElementById('messages').innerHTML = socket.id + ": " + message + "<br />" + document.getElementById('messages').innerHTML;
+                    document.getElementById('message').value = '';
+                }
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <div class="chat" id="messages">
+    </div>
+    <div id="videos">
+        test
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="message" name="message">
+        <input type="submit" value="send text" onclick="sendmessage(document.getElementById('message').value);">
+        <button id="recordButton">record video</button>
+        <button id="sendVideoButton">send video</button>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <video id="thevideo" width="400" height="250" muted></video>
+        </div>
+
+        <div class="column"> </div>
+        <canvas id="thecanvas" width="400" height="250"> </canvas>
+        <video id="recorded" width="400" height="250" controls>
+        </video>
+    </div>
+
+</body>
+
+</html>

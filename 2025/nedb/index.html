@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+		
+			var socket = io.connect();
+			
+			socket.on('connect', function() {
+				console.log("Connected");
+
+				// Once we are connected, request the history
+				socket.emit('history', null);
+			});
+
+			// Receive from any event
+			socket.on('chatmessage', function (data) {
+				document.getElementById('messages').innerHTML = "" + data + "\n<br />"
+ + "" + document.getElementById('messages').innerHTML;
+			});
+			
+			var sendmessage = function(message) {
+				console.log("chatmessage: " + message);
+				socket.emit('chatmessage', message);
+			};
+
+		</script>	
+	</head>
+ <body>
+ 	<input type="button" value="Push Me" onclick="sendBlink();">
+ <input type="text" id="message" name="message">
+ <input type="submit" value="submit" onclick="sendmessage(document.getElementById('message').value);">
+ <div id="messages">
+ No Messages Yet
+ </div>
+ </body>
+</html>

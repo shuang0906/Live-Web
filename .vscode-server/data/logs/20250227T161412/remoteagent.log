@@ -1,0 +1,20 @@
+2025-02-27 16:14:12.335 [info] 
+
+
+
+
+2025-02-27 16:14:12.353 [info] Extension host agent started.
+2025-02-27 16:14:12.452 [info] [<unknown>][9c3efe3c][ExtensionHostConnection] New connection established.
+2025-02-27 16:14:12.464 [info] [<unknown>][b0852fb6][ManagementConnection] New connection established.
+2025-02-27 16:14:12.820 [info] [<unknown>][9c3efe3c][ExtensionHostConnection] <141514> Launched Extension Host Process.
+2025-02-27 16:14:27.401 [error] [File Watcher] Unexpected error: inotify_add_watch on '/root/.vscode-server/data/logs/20250219T054958/exthost1/vscode.json-language-features' failed: No such file or directory (EUNKNOWN) (path: /root)
+2025-02-27 16:14:27.402 [error] [File Watcher (universal)] inotify_add_watch on '/root/.vscode-server/data/logs/20250219T054958/exthost1/vscode.json-language-features' failed: No such file or directory
+2025-02-27 16:19:12.356 [info] New EH opened, aborting shutdown
+2025-02-27 17:02:25.446 [info] [<unknown>][b0852fb6][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2025-02-27 17:02:25.453 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (file:///root/.vscode-server/cli/servers/Stable-e54c774e0add60467559eb0d1e229c6452cf8447/server/out/server-main.js:181:1060)
+    at process.emit (node:events:530:35)
+2025-02-27 20:02:08.490 [info] [<unknown>][9c3efe3c][ExtensionHostConnection] <141514> Extension Host Process exited with code: 0, signal: null.
+2025-02-27 20:02:08.491 [info] Last EH closed, waiting before shutting down
+2025-02-27 20:02:35.564 [info] [<unknown>][b0852fb6][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+2025-02-27 20:07:08.493 [info] Last EH closed, shutting down

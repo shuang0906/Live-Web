@@ -1,0 +1,222 @@
+2025-03-09 20:41:03.535 [info] [main] Log level: Info
+2025-03-09 20:41:03.535 [info] [main] Validating found git in: "git"
+2025-03-09 20:41:03.535 [info] [main] Using git "2.40.1" from "git"
+2025-03-09 20:41:03.535 [info] [Model][doInitialScan] Initial repository scan started
+2025-03-09 20:41:03.535 [info] > git rev-parse --show-toplevel [51ms]
+2025-03-09 20:41:03.535 [info] > git rev-parse --git-dir --git-common-dir [144ms]
+2025-03-09 20:41:03.535 [info] [Model][openRepository] Opened repository: /root
+2025-03-09 20:41:03.715 [info] > git config --get commit.template [152ms]
+2025-03-09 20:41:03.728 [info] > git fetch [211ms]
+2025-03-09 20:41:03.730 [info] > git rev-parse --show-toplevel [163ms]
+2025-03-09 20:41:03.745 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:41:03.788 [info] > git config --get commit.template [27ms]
+2025-03-09 20:41:03.788 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [43ms]
+2025-03-09 20:41:03.789 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:03.850 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [28ms]
+2025-03-09 20:41:03.850 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:03.851 [error] [GitHistoryProvider][resolveHEADMergeBase] Failed to resolve merge base for main: Error: No such branch: main.
+2025-03-09 20:41:03.860 [info] > git rev-parse --show-toplevel [90ms]
+2025-03-09 20:41:03.881 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:41:03.931 [info] > git config --get commit.template [90ms]
+2025-03-09 20:41:03.941 [info] > git rev-parse --show-toplevel [29ms]
+2025-03-09 20:41:03.943 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [62ms]
+2025-03-09 20:41:03.943 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:03.997 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:41:04.012 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [16ms]
+2025-03-09 20:41:04.013 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:04.041 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [57ms]
+2025-03-09 20:41:04.042 [info] fatal: your current branch 'main' does not have any commits yet
+2025-03-09 20:41:04.267 [info] > git hash-object -t tree /dev/null [33ms]
+2025-03-09 20:41:04.268 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [228ms]
+2025-03-09 20:41:04.269 [info] > git rev-parse --show-toplevel [263ms]
+2025-03-09 20:41:04.331 [info] > git rev-parse --show-toplevel [25ms]
+2025-03-09 20:41:04.365 [info] > git rev-parse --show-toplevel [11ms]
+2025-03-09 20:41:04.400 [info] > git rev-parse --show-toplevel [15ms]
+2025-03-09 20:41:04.418 [info] > git check-ignore -v -z --stdin [184ms]
+2025-03-09 20:41:04.429 [info] > git rev-parse --show-toplevel [12ms]
+2025-03-09 20:41:04.458 [info] > git rev-parse --show-toplevel [13ms]
+2025-03-09 20:41:04.483 [info] > git rev-parse --show-toplevel [11ms]
+2025-03-09 20:41:04.521 [info] > git rev-parse --show-toplevel [29ms]
+2025-03-09 20:41:04.542 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [23ms]
+2025-03-09 20:41:04.542 [info] fatal: your current branch 'main' does not have any commits yet
+2025-03-09 20:41:04.551 [info] > git rev-parse --show-toplevel [10ms]
+2025-03-09 20:41:04.650 [info] > git rev-parse --show-toplevel [85ms]
+2025-03-09 20:41:04.744 [info] > git status -z -uall [714ms] (cancelled)
+2025-03-09 20:41:04.746 [info] > git rev-parse --show-toplevel [82ms]
+2025-03-09 20:41:04.786 [info] > git check-ignore -v -z --stdin [50ms]
+2025-03-09 20:41:05.705 [info] > git rev-parse --show-toplevel [936ms]
+2025-03-09 20:41:05.724 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-03-09 20:41:11.060 [info] > git show --textconv :2025/connect-the-dot/public/index.html [5307ms]
+2025-03-09 20:41:11.082 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [5305ms]
+2025-03-09 20:41:11.175 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [85ms]
+2025-03-09 20:41:11.177 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [271ms]
+2025-03-09 20:41:11.190 [info] fatal: bad revision 'refs/heads/main'
+2025-03-09 20:41:11.191 [error] [GitHistoryProvider][provideHistoryItems] Failed to get history items with options '{"historyItemRefs":["refs/heads/main"],"limit":50,"skip":0}': Failed to execute git {
+  "exitCode": 128,
+  "gitCommand": "log",
+  "stdout": "",
+  "stderr": "fatal: bad revision 'refs/heads/main'\n"
+}
+2025-03-09 20:41:12.385 [info] > git check-ignore -v -z --stdin [33ms]
+2025-03-09 20:41:20.984 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:41:20.985 [info] > git config --get commit.template [6ms]
+2025-03-09 20:41:20.988 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-09 20:41:20.988 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:21.050 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [50ms]
+2025-03-09 20:41:21.258 [info] > git status -z -uall [265ms] (cancelled)
+2025-03-09 20:41:21.273 [info] > git show --textconv :2025/connect-the-dot/public/index.html [35ms]
+2025-03-09 20:41:21.279 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [30ms]
+2025-03-09 20:41:21.301 [info] > git check-ignore -v -z --stdin [44ms]
+2025-03-09 20:41:24.244 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [2955ms]
+2025-03-09 20:41:24.485 [info] > git check-ignore -v -z --stdin [192ms]
+2025-03-09 20:41:26.600 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:41:26.601 [info] > git config --get commit.template [7ms]
+2025-03-09 20:41:26.603 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-09 20:41:26.603 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:26.629 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-09 20:41:26.715 [info] > git show --textconv :.gitignore [27ms]
+2025-03-09 20:41:26.716 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/.gitignore.git?%7B%22path%22%3A%22%2Froot%2F.gitignore%22%2C%22ref%22%3A%22%22%7D
+2025-03-09 20:41:26.728 [info] > git ls-files --stage -- .gitignore [31ms]
+2025-03-09 20:41:26.729 [warning] [GitFileSystemProvider][stat] File not found - git:/root/.gitignore.git?%7B%22path%22%3A%22%2Froot%2F.gitignore%22%2C%22ref%22%3A%22%22%7D
+2025-03-09 20:41:26.799 [info] > git status -z -uall [189ms] (cancelled)
+2025-03-09 20:41:26.807 [info] > git check-ignore -v -z --stdin [8ms]
+2025-03-09 20:41:28.822 [info] > git check-ignore -v -z --stdin [89ms]
+2025-03-09 20:41:29.342 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:41:29.350 [info] > git config --get commit.template [15ms]
+2025-03-09 20:41:29.353 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [11ms]
+2025-03-09 20:41:29.354 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:41:29.381 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-09 20:41:29.627 [info] > git status -z -uall [267ms] (cancelled)
+2025-03-09 20:41:29.643 [info] > git check-ignore -v -z --stdin [17ms]
+2025-03-09 20:41:32.662 [info] > git check-ignore -v -z --stdin [122ms]
+2025-03-09 20:41:37.607 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/.gitignore [10ms]
+2025-03-09 20:41:37.607 [info] fatal: your current branch 'main' does not have any commits yet
+2025-03-09 20:41:38.120 [info] > git check-ignore -v -z --stdin [33ms]
+2025-03-09 20:41:49.164 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [18ms]
+2025-03-09 20:41:49.164 [info] fatal: your current branch 'main' does not have any commits yet
+2025-03-09 20:41:49.321 [info] > git show --textconv :2025/connect-the-dot/public/index.html [23ms]
+2025-03-09 20:41:49.325 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [19ms]
+2025-03-09 20:41:49.332 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [2ms]
+2025-03-09 20:41:53.314 [info] > git check-ignore -v -z --stdin [46ms]
+2025-03-09 20:42:10.428 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [5ms]
+2025-03-09 20:42:10.428 [info] fatal: bad revision 'refs/heads/main'
+2025-03-09 20:42:10.429 [error] [GitHistoryProvider][provideHistoryItems] Failed to get history items with options '{"historyItemRefs":["refs/heads/main"],"limit":50,"skip":0}': Failed to execute git {
+  "exitCode": 128,
+  "gitCommand": "log",
+  "stdout": "",
+  "stderr": "fatal: bad revision 'refs/heads/main'\n"
+}
+2025-03-09 20:42:14.962 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [80ms]
+2025-03-09 20:42:14.962 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2025-03-09 20:42:14.967 [info] > git config --get-all user.name [2ms]
+2025-03-09 20:42:14.979 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:42:14.979 [info] > git config --get commit.template [7ms]
+2025-03-09 20:42:14.982 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-09 20:42:14.982 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:42:14.997 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [5ms]
+2025-03-09 20:42:17.214 [info] > git status -z -uall [2229ms] (cancelled)
+2025-03-09 20:42:21.335 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [7ms]
+2025-03-09 20:42:21.341 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [2ms]
+2025-03-09 20:42:21.384 [info] > git show --textconv :2025/connect-the-dot/public/index.html [9ms]
+2025-03-09 20:42:26.553 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [3ms]
+2025-03-09 20:42:26.553 [info] fatal: your current branch 'main' does not have any commits yet
+2025-03-09 20:42:39.909 [info] > git check-ignore -v -z --stdin [27ms]
+2025-03-09 20:42:46.853 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [11ms]
+2025-03-09 20:42:46.853 [info] fatal: bad revision 'refs/heads/main'
+2025-03-09 20:42:46.854 [error] [GitHistoryProvider][provideHistoryItems] Failed to get history items with options '{"historyItemRefs":["refs/heads/main"],"limit":50,"skip":0}': Failed to execute git {
+  "exitCode": 128,
+  "gitCommand": "log",
+  "stdout": "",
+  "stderr": "fatal: bad revision 'refs/heads/main'\n"
+}
+2025-03-09 20:42:49.791 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [84ms]
+2025-03-09 20:42:49.791 [info] Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: no email was given and auto-detection is disabled
+2025-03-09 20:42:49.797 [info] > git config --get-all user.name [2ms]
+2025-03-09 20:42:49.810 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:42:49.811 [info] > git config --get commit.template [8ms]
+2025-03-09 20:42:49.813 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-09 20:42:49.814 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:42:49.843 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [14ms]
+2025-03-09 20:42:52.201 [info] > git status -z -uall [2379ms] (cancelled)
+2025-03-09 20:43:35.202 [info] > git check-ignore -v -z --stdin [16ms]
+2025-03-09 20:43:36.911 [info] > git check-ignore -v -z --stdin [13ms]
+2025-03-09 20:43:38.202 [info] > git check-ignore -v -z --stdin [12ms]
+2025-03-09 20:43:48.667 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [3ms]
+2025-03-09 20:43:48.667 [info] fatal: bad revision 'refs/heads/main'
+2025-03-09 20:43:48.668 [error] [GitHistoryProvider][provideHistoryItems] Failed to get history items with options '{"historyItemRefs":["refs/heads/main"],"limit":50,"skip":0}': Failed to execute git {
+  "exitCode": 128,
+  "gitCommand": "log",
+  "stdout": "",
+  "stderr": "fatal: bad revision 'refs/heads/main'\n"
+}
+2025-03-09 20:52:27.963 [info] > git fetch [13ms]
+2025-03-09 20:52:27.973 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:52:27.974 [info] > git config --get commit.template [5ms]
+2025-03-09 20:52:27.977 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-09 20:52:27.977 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:52:27.995 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-09 20:52:30.402 [info] > git status -z -uall [2422ms] (cancelled)
+2025-03-09 20:52:31.053 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [11ms]
+2025-03-09 20:52:31.062 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [4ms]
+2025-03-09 20:52:31.136 [info] > git show --textconv :2025/connect-the-dot/public/index.html [10ms]
+2025-03-09 20:52:41.789 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [5ms]
+2025-03-09 20:52:41.789 [info] fatal: your current branch 'main' does not have any commits yet
+2025-03-09 20:54:40.590 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [10ms]
+2025-03-09 20:54:40.596 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [3ms]
+2025-03-09 20:54:40.656 [info] > git show --textconv :2025/connect-the-dot/public/index.html [8ms]
+2025-03-09 20:56:38.545 [info] > git fetch [12ms]
+2025-03-09 20:56:38.559 [info] [Git][getRemotes] No remotes found in the git config file
+2025-03-09 20:56:38.560 [info] > git config --get commit.template [9ms]
+2025-03-09 20:56:38.563 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-09 20:56:38.563 [warning] [Git][getBranch] No such branch: main
+2025-03-09 20:56:38.589 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [11ms]
+2025-03-09 20:56:41.682 [info] > git status -z -uall [3114ms] (cancelled)
+2025-03-09 20:56:42.578 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [13ms]
+2025-03-09 20:56:42.589 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [3ms]
+2025-03-09 20:56:42.615 [info] > git show --textconv :2025/connect-the-dot/public/index.html [11ms]
+2025-03-09 20:57:02.817 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [14ms]
+2025-03-09 20:57:02.828 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [4ms]
+2025-03-09 20:57:02.889 [info] > git show --textconv :2025/connect-the-dot/public/index.html [11ms]
+2025-03-09 20:58:11.207 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [13ms]
+2025-03-09 20:58:11.219 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [5ms]
+2025-03-09 20:58:11.282 [info] > git show --textconv :2025/connect-the-dot/public/index.html [14ms]
+2025-03-09 21:00:27.709 [info] > git fetch [266ms]
+2025-03-09 21:00:27.709 [info] Missing or invalid credentials.
+Skip silent fetch commands
+Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-09 21:00:27.724 [info] > git config --get commit.template [8ms]
+2025-03-09 21:00:27.728 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-09 21:00:27.728 [warning] [Git][getBranch] No such branch: main
+2025-03-09 21:00:27.756 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-09 21:00:32.769 [info] > git status -z -uall [5035ms] (cancelled)
+2025-03-09 21:00:33.633 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [13ms]
+2025-03-09 21:00:33.646 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [5ms]
+2025-03-09 21:00:33.717 [info] > git show --textconv :2025/connect-the-dot/public/index.html [25ms]

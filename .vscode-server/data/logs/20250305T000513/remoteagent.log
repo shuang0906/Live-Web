@@ -1,0 +1,26 @@
+2025-03-05 00:05:13.499 [info] 
+
+
+
+
+2025-03-05 00:05:13.519 [info] Extension host agent started.
+2025-03-05 00:05:13.656 [info] [<unknown>][d8a95df3][ManagementConnection] New connection established.
+2025-03-05 00:05:13.714 [info] [<unknown>][a30a603f][ExtensionHostConnection] New connection established.
+2025-03-05 00:05:13.877 [info] [<unknown>][a30a603f][ExtensionHostConnection] <227284> Launched Extension Host Process.
+2025-03-05 00:05:31.288 [error] [File Watcher] Unexpected error: inotify_add_watch on '/root/.vscode-server/data/logs/20250224T035009/exthost1/output_logging_20250224T035013' failed: No such file or directory (EUNKNOWN) (path: /root)
+2025-03-05 00:05:31.300 [error] [File Watcher (universal)] inotify_add_watch on '/root/.vscode-server/data/logs/20250224T035009/exthost1/output_logging_20250224T035013' failed: No such file or directory
+2025-03-05 00:10:13.521 [info] New EH opened, aborting shutdown
+2025-03-05 00:11:56.664 [info] [<unknown>][f4a79014][ExtensionHostConnection] New connection established.
+2025-03-05 00:11:56.673 [info] [<unknown>][f4a79014][ExtensionHostConnection] <227821> Launched Extension Host Process.
+2025-03-05 00:11:56.690 [info] [<unknown>][55592159][ManagementConnection] New connection established.
+2025-03-05 00:13:14.488 [info] [<unknown>][d8a95df3][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2025-03-05 01:05:22.307 [info] [<unknown>][55592159][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2025-03-05 01:05:22.320 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (file:///root/.vscode-server/cli/servers/Stable-e54c774e0add60467559eb0d1e229c6452cf8447/server/out/server-main.js:181:1060)
+    at process.emit (node:events:530:35)
+2025-03-05 03:12:56.215 [info] [<unknown>][a30a603f][ExtensionHostConnection] <227284> Extension Host Process exited with code: 0, signal: null.
+2025-03-05 03:13:19.540 [info] [<unknown>][d8a95df3][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+2025-03-05 04:05:04.437 [info] [<unknown>][f4a79014][ExtensionHostConnection] <227821> Extension Host Process exited with code: 0, signal: null.
+2025-03-05 04:05:04.438 [info] Last EH closed, waiting before shutting down
+2025-03-05 04:05:27.895 [info] [<unknown>][55592159][ManagementConnection] The reconnection grace time of 3h has expired, so the connection will be disposed.
+2025-03-05 04:10:04.443 [info] Last EH closed, shutting down

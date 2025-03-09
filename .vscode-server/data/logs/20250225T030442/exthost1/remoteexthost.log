@@ -1,0 +1,23 @@
+2025-02-25 03:04:45.674 [info] Extension host with pid 85474 started
+2025-02-25 03:04:45.674 [error] Error: EEXIST: file already exists, open '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock'
+2025-02-25 03:04:45.903 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-02-25 03:04:45.972 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: false, activationEvent: '*', root cause: vscode.git
+2025-02-25 03:04:45.974 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-02-25 03:04:45.974 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:javascript'
+2025-02-25 03:04:45.983 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2025-02-25 03:04:47.131 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2025-02-25 03:04:47.514 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': The pid 84047 appears to be gone.
+2025-02-25 03:04:47.514 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': Deleting a stale lock.
+2025-02-25 03:04:47.541 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': Lock acquired.
+2025-02-25 03:04:48.558 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: '*'
+2025-02-25 03:04:48.558 [info] ExtensionService#_doActivateExtension vscode.github, startup: false, activationEvent: '*'
+2025-02-25 03:04:52.909 [info] Eager extensions activated
+2025-02-25 03:04:52.909 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-02-25 03:04:52.910 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-02-25 03:04:58.734 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-02-25 03:04:58.755 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-02-25 03:04:58.763 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-02-25 03:05:07.024 [warning] vscode.json-language-features - Code actions of kind 'quickfix' requested but returned code action is of kind 'source.sort.json'. Code action will be dropped. Please check 'CodeActionContext.only' to only return requested code actions.
+2025-02-25 04:55:22.610 [info] Extension host terminating: renderer disconnected for too long (2)
+2025-02-25 04:55:22.611 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-02-25 04:55:22.709 [info] Extension host with pid 85474 exiting with code 0

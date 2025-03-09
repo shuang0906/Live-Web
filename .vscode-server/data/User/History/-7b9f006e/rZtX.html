@@ -1,0 +1,85 @@
+<html>
+
+<head>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		let submit;
+		window.addEventListener('load', function () {
+			submit = document.getElementById('submit');
+			submit.addEventListener('click', function () {
+				let data = {
+					message: document.getElementById('message').value,
+					color: document.getElementById('color').value
+				};
+				socket.emit('chatmessage', data);
+			})
+
+			document.addEventListener('click', function () {
+				socket.emit('click', {});
+			})
+
+		})
+
+		var socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Connected");
+		});
+
+		socket.on('click', function () {
+			console.log('Got a click');
+			document.body.style.backgroundColor = "#000000";
+			setTimeout(function () {
+				document.body.style.backgroundColor = "#ffffff";
+			}, 100);
+		});
+
+		socket.on('v', function () {
+			console.log("v");
+
+			var thecanvas = document.getElementById('theCanvas');
+			var thecontext = thecanvas.getContext('2d');
+
+			var draw = function () {
+				// Draw the video onto the canvas
+				thecontext.drawImage(video, 0, 0, video.width, video.height);
+				document.getElementById('imagefile').src = dataUrl;
+
+				// Draw again in 3 seconds
+				setTimeout(draw, 3000);
+			};
+
+			draw();
+			var dataUrl = thecanvas.toDataURL('image/webp', 1);
+
+			// Optionally draw it to an image object to make sure it works
+			document.getElementById('imagefile').src = dataUrl;
+
+			// Send it via our socket server the same way as we send the image
+			socket.emit('image', dataUrl);
+		});
+
+		socket.on('chatmessage', function (data) {
+			console.log(data);
+			let newelement = document.createElement('div');
+			newelement.style.color = data.color;
+			newelement.innerHTML = data.message;
+			document.body.appendChild(newelement);
+		});
+
+	</script>
+</head>
+
+<body>
+	<div id="messages">
+		No Messages Yet
+	</div>
+	<input type="text" id="message" name="message">
+	<input type="color" id="color">
+	<input id="submit" type="submit" value="submit">
+	<video id="theVideo"></video>
+	<canvas id="theCanvas"></canvas>
+	<img id="imagefile">
+</body>
+
+</html>

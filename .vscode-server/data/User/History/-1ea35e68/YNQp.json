@@ -1,0 +1,26 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "editor.inlineSuggest.enabled": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "git.autofetch": true,
+    "remote.SSH.remotePlatform": {
+        "143.198.24.8": "linux",
+        "167.71.246.148": "linux"
+    },
+    "editor.minimap.enabled": false,
+    "python.defaultInterpreterPath": "C:\\Users\\Shun\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "javascript.updateImportsOnFileMove.enabled": "always"
+}

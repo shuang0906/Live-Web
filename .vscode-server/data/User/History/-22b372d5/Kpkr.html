@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect the Dots</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .canvas-container {
+            position: relative;
+            overflow: hidden;
+        }
+        canvas {
+            border: 1px solid black;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title">connect • the • dots</div>
+    <div class="info">
+        <button class="myButton"><span>info</span></button>
+    </div>
+    <div class="info-pop" id="info-pop" style="display: none;">
+        Connect the dots in numerical order to create a line.<br>
+        Feel free to start from any point.<br><br>
+        Made by H******s.
+    </div>
+
+    <div class="canvas-container" id="canvas-container1" style="background-color: silver;">
+        <canvas class="diagram diagram1" id="canvas1" width="570" height="720"></canvas>
+    </div>
+    <div class="canvas-container" id="canvas-container2" style="background-color: blue;">
+        <canvas class="diagram diagram2" id="canvas2" width="700" height="700"></canvas>
+    </div>
+
+    <script>
+        var socket = io.connect();
+        socket.on('connect', function () {
+            console.log("Connected");
+            socket.emit('history', null);
+        });
+
+        function showInfo(){
+            var popup = document.getElementById('info-pop');
+            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+        }
+
+        var myButton = document.getElementsByClassName('myButton')[0];
+        myButton.addEventListener('mouseenter', showInfo);
+        myButton.addEventListener('mouseleave', showInfo);
+
+        function setupCanvas(canvas) {
+            var dpr = window.devicePixelRatio || 1;
+            var rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            var ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+            return ctx;
+        }
+
+        function setupAndDrawCanvas(canvasId, dotDatas) {
+            const canvas = document.getElementById(canvasId);
+            var ctx = setupCanvas(canvas);
+
+            let scale = 1;
+            let offsetX = 0, offsetY = 0;
+            let isDragging = false;
+            let startX, startY;
+
+            const dots = dotDatas.map(dot => ({
+                x: dot.coordinates[0],
+                y: dot.coordinates[1],
+                connected: false,
+                color: dot.color,
+                index: dot.index
+            }));
+
+            const connections = [];
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.save();
+                ctx.translate(offsetX, offsetY);
+                ctx.scale(scale, scale);
+
+                connections.forEach(connection => {
+                    ctx.beginPath();
+                    ctx.moveTo(connection.from.x, connection.from.y);
+                    ctx.lineTo(connection.to.x, connection.to.y);
+                    ctx.strokeStyle = connection.color;
+                    ctx.stroke();
+                });
+
+                dots.forEach(dot => {
+                    ctx.beginPath();
+                    ctx.arc(dot.x, dot.y, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = dot.connected ? dot.color : 'black';
+                    ctx.fill();
+
+                    ctx.font = '8px Arial';
+                    const textWidth = ctx.measureText(dot.index).width;
+                    ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 3);
+                });
+
+                ctx.restore();
+            }
+
+            function zoom(event) {
+                event.preventDefault();
+                const zoomFactor = 1.1;
+                const mouseX = event.offsetX;
+                const mouseY = event.offsetY;
+
+                const scaleFactor = event.deltaY < 0 ? zoomFactor : 1 / zoomFactor;
+                const newScale = scale * scaleFactor;
+
+                if (newScale < 0.5 || newScale > 5) return;
+
+                offsetX = mouseX - (mouseX - offsetX) * scaleFactor;
+                offsetY = mouseY - (mouseY - offsetY) * scaleFactor;
+
+                scale = newScale;
+                draw();
+            }
+
+            function startDrag(event) {
+                isDragging = true;
+                startX = event.clientX - offsetX;
+                startY = event.clientY - offsetY;
+                canvas.style.cursor = "grabbing";
+            }
+
+            function drag(event) {
+                if (!isDragging) return;
+                offsetX = event.clientX - startX;
+                offsetY = event.clientY - startY;
+                draw();
+            }
+
+            function stopDrag() {
+                isDragging = false;
+                canvas.style.cursor = "grab";
+            }
+
+            canvas.addEventListener("wheel", zoom);
+            canvas.addEventListener("mousedown", startDrag);
+            canvas.addEventListener("mousemove", drag);
+            canvas.addEventListener("mouseup", stopDrag);
+            canvas.addEventListener("mouseleave", stopDrag);
+
+            draw();
+        }
+
+        fetch('dot_datas/dotDataForCanvas1.json')
+        .then(response => response.json())
+        .then(dotDataForCanvas1 => {
+            setupAndDrawCanvas('canvas1', dotDataForCanvas1);
+        })
+        .catch(error => console.error('Error loading the JSON file:', error));
+
+        fetch('dot_datas/dotDataForCanvas2.json')
+        .then(response => response.json())
+        .then(dotDataForCanvas2 => {
+            setupAndDrawCanvas('canvas2', dotDataForCanvas2);
+        })
+        .catch(error => console.error('Error loading the JSON file:', error));
+    </script>
+
+</body>
+</html>

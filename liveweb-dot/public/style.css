@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "MetaballsTrial";
+    src: url('fonts/MetaballsTrial-Black.otf');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: "MetaballsTrial";
+    src: url("fonts/MetaballsTrial-Bold.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "MetaballsTrial";
+    src: url("fonts/MetaballsTrial-Light.otf");
+    font-weight: light;
+}
+
+@font-face {
+    font-family: "MetaballsTrial";
+    src: url("fonts/MetaballsTrial-Regular.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "MetaballsTrial";
+    src: url("fonts/MetaballsTrial-Thin.otf");
+    font-weight: thin;
+}
+
+body {
+    top: 0;
+    left: 0;
+    margin: 0 !important;
+}
+
+.title {
+    position: fixed;
+    top: 28px;
+    left: 40px;
+    z-index: 1000;
+    color: #FFF;
+    -webkit-text-stroke-width: thin;
+    -webkit-text-stroke-color: #000;
+    font-family: "MetaballsTrial";
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.info {
+    position: fixed;
+    top: 28px;
+    right: 40px;
+    z-index: 1000;
+}
+
+#info-pop{
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    z-index: 1000;
+    width: 400px;
+    /* height: 126px; */
+    padding:10px;
+    border: 1px dashed #000;
+    background: #F8F8F8;
+    /* font-family: Arial; */
+    font-family: 18px;
+}
+
+.myButton:hover ~ #info-pop {
+    display: block; /* Show #info-pop when .myButton is hovered */
+}
+
+.myButton {
+    border-radius: 32px;
+    border: 1px dashed #000;
+    background: #F2F2F2;
+	display:inline-block;
+	cursor:pointer;
+    color: #FFF;
+    -webkit-text-stroke-width: thin;
+    -webkit-text-stroke-color: #000;    
+    font-family: "MetaballsTrial";
+    font-weight: bolder;	
+    font-size:28px;
+	/* padding:10px 50px; */
+	padding:10px 50px 4px 50px;
+	text-decoration:none;
+}
+
+.myButton:hover {
+	background-color:#ED7DFF;
+    color:#000;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.canvas-container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.diagram {
+    background-color: white;
+    padding: 0;
+    margin: auto;
+    display: block;
+    z-index: 999;
+    border: 1px solid black;
+}
+
+.diagram1 {
+    width: 570px;
+    height: 720px;
+}
+
+.diagram2 {
+    width: 700px;
+    height: 700px;
+}
+
+.bg {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%
+}
+
+.cursor {
+    position: absolute;
+    pointer-events: none;
+}

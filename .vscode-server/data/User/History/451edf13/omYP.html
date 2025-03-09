@@ -1,0 +1,243 @@
+<html>
+
+<head>
+	<title>Connect the Dots</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+	<!-- <script defer src="sketch.js"></script> -->
+	<script type="text/javascript">
+		let submit;
+
+		// let background = "white";
+		// let dotArray = [];
+		// let mouseArray = [];
+		// let color = "red";
+
+		window.addEventListener('load', function () {
+			submit = document.getElementById('submit');
+			submit.addEventListener('click', function () {
+				let data = {
+					message: document.getElementById('message').value,
+					color: document.getElementById('color').value
+				};
+				socket.emit('chatmessage', data);
+			})
+			document.addEventListener('click', function () {
+				socket.emit('click', {});
+			})
+		})
+
+
+		var socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Connected");
+		});
+
+		// Receive from any event
+		socket.on('chatmessage', function (data) {
+			console.log(data);
+			let newelement = document.createElement('div');
+			newelement.style.color = data.color;
+			newelement.innerHTML = data.message;
+			document.body.appendChild(newelement);
+		});
+
+	</script>
+</head>
+
+<body>
+	<div id="messages">
+		No Messages Yet
+	</div>
+	<input type="text" id="message" name="message">
+	<input type="color" id="color">
+	<input id="submit" type="submit" value="submit">
+
+	<!-- =============================== IRIS AND SHUN =============================== -->
+	<div class="canvas-container" style="background-color: red;">
+		<canvas id="canvas" width="570" height="720"></canvas>
+	</div>
+	<div class="canvas-container" style="background-color: blue;">
+		<canvas id="canvas2" width="570" height="720"></canvas>
+	</div>
+
+	<script>
+		function setupCanvas(canvas) {
+			var dpr = window.devicePixelRatio || 1;
+			var rect = canvas.getBoundingClientRect();
+			canvas.width = rect.width * dpr;
+			canvas.height = rect.height * dpr;
+			var ctx = canvas.getContext('2d');
+			ctx.scale(dpr, dpr);
+			return ctx;
+		}
+		const canvas = document.getElementById('canvas');
+		var ctx = setupCanvas(canvas);
+		// const cursors = {};
+
+		//============================================================dot start
+		let lastConnectedDot = null;
+
+		const dotData =
+			[
+				{ "index": 1, "coordinates": [240, 248], "connected": false, "color": null },
+				{ "index": 2, "coordinates": [387, 291], "connected": false, "color": null },
+				{ "index": 3, "coordinates": [417, 452], "connected": false, "color": null },
+				{ "index": 4, "coordinates": [644, 516], "connected": false, "color": null },
+				{ "index": 5, "coordinates": [689, 228], "connected": false, "color": null },
+				{ "index": 6, "coordinates": [286, 644], "connected": false, "color": null },
+				{ "index": 7, "coordinates": [149, 467], "connected": false, "color": null },
+				{ "index": 8, "coordinates": [93, 262], "connected": false, "color": null },
+				{ "index": 9, "coordinates": [167, 64], "connected": false, "color": null },
+				{ "index": 10, "coordinates": [556, 188], "connected": false, "color": null },
+				{ "index": 11, "coordinates": [647, 451], "connected": false, "color": null },
+				{ "index": 12, "coordinates": [543, 535], "connected": false, "color": null },
+				{ "index": 13, "coordinates": [713, 629], "connected": false, "color": null },
+				{ "index": 14, "coordinates": [125, 648], "connected": false, "color": null },
+				{ "index": 15, "coordinates": [97, 555], "connected": false, "color": null }
+			];
+
+		const dots = dotData.map(dot => ({
+			x: dot.coordinates[0],
+			y: dot.coordinates[1],
+			connected: false,
+			color: dot.color,
+			index: dot.index
+		}));
+
+		const connections = []; // Array to store connections between dots
+
+		const otherCursors = {};// Object to track other users' cursor positions
+
+		// Function to draw other users' cursors
+		function drawCursors() {
+			for (let id in otherCursors) {
+				const cursor = otherCursors[id];
+				ctx.beginPath();
+				ctx.arc(cursor.position.x, cursor.position.y, 10, 0, 2 * Math.PI);
+				ctx.fillStyle = cursor.color; // Use the color assigned by the server
+				ctx.fill();
+
+				// Draw the username next to the cursor
+				ctx.font = '12px Arial';
+				ctx.fillStyle = cursor.color; // Use the same color for the username
+				ctx.fillText(cursor.username, cursor.position.x + 15, cursor.position.y);
+			}
+		}
+
+		let myCursorColor = 'black'; // Default color, updated upon 'assign color' event
+
+		// Draw initial dots and connections
+		function draw() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redraw
+
+			// Draw all connections
+			connections.forEach(connection => {
+				ctx.beginPath();
+				ctx.moveTo(connection.from.x, connection.from.y);
+				ctx.lineTo(connection.to.x, connection.to.y);
+				ctx.strokeStyle = connection.color; // Use the connection's color
+				ctx.stroke();
+			});
+
+			// Draw all dots
+			dots.forEach(dot => {
+				ctx.beginPath();
+				ctx.arc(dot.x, dot.y, 5, 0, Math.PI * 2);
+				ctx.fillStyle = dot.connected ? dot.color : 'black'; // Use the dot's color if connected
+				ctx.fill();
+
+				// Draw index number above each dot
+				ctx.font = '12px Arial';
+				const textWidth = ctx.measureText(dot.index).width;
+				// ctx.fillStyle = 'blue';
+				ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 10);
+			});
+
+			drawCursors(); // Draw cursors last so they're on top
+
+		}
+
+		canvas.addEventListener('mousemove', (event) => {
+			const rect = canvas.getBoundingClientRect();
+			const position = {
+				x: Math.round((event.clientX - rect.left) * 100) / 100,
+				y: Math.round((event.clientY - rect.top) * 100) / 100
+			};
+			socket.emit('cursor move', position); // Send our cursor position to the server
+		});
+
+		// Listen for cursor updates from other clients
+		socket.on('cursor update', (data) => {
+			otherCursors[data.socketId] = { position: data.position, color: data.color, username: data.username };
+			draw(); // Redraw the canvas to show the updated cursor positions
+		});
+
+		// Clear cursor data for users who disconnect
+		socket.on('user disconnected', (socketId) => {
+			console.log(`Before deletion:`, otherCursors);
+			delete otherCursors[socketId];
+			console.log(`After deletion:`, otherCursors);
+			draw(); // Redraw the canvas to remove the cursor
+		});
+
+
+		// Check if a position is close to a dot
+		function closeToDot(x, y) {
+		  	// return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 10 && !dot.connected);
+			return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 10);
+		}
+
+		// Add connection between two dots
+		function connectDots(dot1, dot2, userColor) {
+			connections.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
+			dot1.connected = dot2.connected = true;
+			dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
+			socket.emit('connect dot', { from: dot1, to: dot2, color: userColor }); // Send connection with color
+		}
+
+		// Handle canvas click events
+		canvas.addEventListener('click', (event) => {
+			const rect = canvas.getBoundingClientRect();
+			const x = event.clientX - rect.left;
+			const y = event.clientY - rect.top;
+			const closeDot = closeToDot(x, y);
+
+			if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
+				if (lastConnectedDot !== null) {
+					// connectDots(lastConnectedDot, closeDot);
+					connectDots(lastConnectedDot, closeDot, myCursorColor);
+					socket.emit('connect dot', { from: lastConnectedDot, to: closeDot });
+				}
+				lastConnectedDot = closeDot;
+				draw(); // Redraw to update connections and dot colors
+			}
+		});
+
+		// Listen for dot connections from other users
+		socket.on('dot connected', (data) => {
+			connections.push({ from: data.from, to: data.to, color: data.color });
+			const dot1 = dots.find(dot => dot.index === data.from.index);
+			const dot2 = dots.find(dot => dot.index === data.to.index);
+			if (dot1 && dot2) {
+				dot1.connected = dot2.connected = true;
+				dot1.color = dot2.color = data.color;
+			}
+			draw();
+		});
+
+
+		draw(); // Initial draw
+
+		socket.on('assign color', (color) => {
+			myCursorColor = color; // Update this user's cursor color
+		});
+
+		//<!-- =============================== END =============================== -->
+	</script>
+
+</body>
+
+</html>

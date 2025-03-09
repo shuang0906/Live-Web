@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoomable Canvas</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            border: 1px solid black;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="number" id="resolution" placeholder="Set Resolution (e.g. 800)" value="800">
+    <button onclick="updateResolution()">Update Resolution</button>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let resolution = 800; // Default resolution
+        let scale = 1; // Zoom level
+        let offsetX = 0, offsetY = 0; // Panning offsets
+
+        function updateResolution() {
+            resolution = parseInt(document.getElementById("resolution").value) || 800;
+            canvas.width = resolution;
+            canvas.height = resolution;
+            drawContent();
+        }
+
+        function drawContent() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(canvas.width / 2 + offsetX, canvas.height / 2 + offsetY);
+            ctx.scale(scale, scale);
+            ctx.translate(-canvas.width / 2, -canvas.height / 2);
+
+            // Example drawing (A simple grid)
+            ctx.fillStyle = "lightgray";
+            for (let x = 0; x < canvas.width; x += 50) {
+                for (let y = 0; y < canvas.height; y += 50) {
+                    ctx.fillRect(x, y, 45, 45);
+                }
+            }
+
+            ctx.restore();
+        }
+
+        // Zoom functionality
+        canvas.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            const zoomFactor = 1.1;
+            if (event.deltaY < 0) {
+                scale *= zoomFactor; // Zoom in
+            } else {
+                scale /= zoomFactor; // Zoom out
+            }
+            drawContent();
+        });
+
+        // Panning functionality
+        let isDragging = false;
+        let startX, startY;
+
+        canvas.addEventListener("mousedown", (event) => {
+            isDragging = true;
+            startX = event.clientX - offsetX;
+            startY = event.clientY - offsetY;
+            canvas.style.cursor = "grabbing";
+        });
+
+        canvas.addEventListener("mousemove", (event) => {
+            if (isDragging) {
+                offsetX = event.clientX - startX;
+                offsetY = event.clientY - startY;
+                drawContent();
+            }
+        });
+
+        canvas.addEventListener("mouseup", () => {
+            isDragging = false;
+            canvas.style.cursor = "grab";
+        });
+
+        // Initialize
+        updateResolution();
+    </script>
+
+</body>
+</html>

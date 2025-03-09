@@ -1,0 +1,12 @@
+#videos{
+    display: flex;
+    direction: row;
+}
+#videos video {
+    width:100px;
+}
+
+.video-container{
+    display: flex;
+    direction: column;
+}

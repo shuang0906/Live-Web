@@ -1,0 +1,159 @@
+<html>
+
+<head>
+	<title>Connect the Dots</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+	<!-- <script defer src="sketch.js"></script> -->
+	<script type="text/javascript">
+		let submit;
+
+		// let background = "white";
+		// let dotArray = [];
+		// let mouseArray = [];
+		// let color = "red";
+
+		window.addEventListener('load', function () {
+			submit = document.getElementById('submit');
+			submit.addEventListener('click', function () {
+				let data = {
+					message: document.getElementById('message').value,
+					color: document.getElementById('color').value
+				};
+				socket.emit('chatmessage', data);
+			})
+			document.addEventListener('click', function () {
+				socket.emit('click', {});
+			})
+		})
+
+
+		var socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Connected");
+		});
+
+		// Receive from any event
+		socket.on('chatmessage', function (data) {
+			console.log(data);
+			let newelement = document.createElement('div');
+			newelement.style.color = data.color;
+			newelement.innerHTML = data.message;
+			document.body.appendChild(newelement);
+		});
+
+	</script>
+</head>
+
+<body>
+	<div id="messages">
+		No Messages Yet
+	</div>
+	<input type="text" id="message" name="message">
+	<input type="color" id="color">
+	<input id="submit" type="submit" value="submit">
+
+	<!-- =============================== IRIS AND SHUN =============================== -->
+	<canvas id="canvas" width="800" height="600"></canvas>
+
+	<script>
+		const canvas = document.getElementById('canvas');
+		const ctx = canvas.getContext('2d');
+		const cursors = {};
+
+		//============================================================dot start
+		let lastConnectedDot = null;
+
+		// Example dots
+		const dots = [{ x: 100, y: 100, connected: false }, { x: 200, y: 200, connected: false }, /* more dots here */];
+		const connections = []; // Array to store connections between dots
+
+
+		// Draw initial dots
+		function drawDots() {
+			dots.forEach(dot => {
+				ctx.beginPath();
+				ctx.arc(dot.x, dot.y, 5, 0, Math.PI * 2);
+				ctx.fillStyle = dot.connected ? 'red' : 'black';
+				ctx.fill();
+			});
+		}
+
+		// Check if a position is close to a dot
+		function closeToDot(x, y) {
+			return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 10 && !dot.connected);
+		}
+
+		// Draw line between two dots
+		function connectDots(dot1, dot2) {
+			ctx.beginPath();
+			ctx.moveTo(dot1.x, dot1.y);
+			ctx.lineTo(dot2.x, dot2.y);
+			ctx.stroke();
+			dot1.connected = dot2.connected = true;
+		}
+
+		// Handle canvas click events
+		canvas.addEventListener('click', (event) => {
+			const rect = canvas.getBoundingClientRect();
+			const x = event.clientX - rect.left;
+			const y = event.clientY - rect.top;
+			const closeDot = closeToDot(x, y);
+
+			if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
+				if (lastConnectedDot !== null) {
+					connectDots(lastConnectedDot, closeDot);
+					socket.emit('connect dot', { from: lastConnectedDot, to: closeDot });
+				}
+				lastConnectedDot = closeDot;
+				drawDots(); // Redraw dots to update their colors
+			}
+		});
+
+		// Listen for dot connections from other users
+		socket.on('dot connected', (data) => {
+			connectDots(data.from, data.to);
+			drawDots();
+		});
+
+		drawDots(); // Initial draw
+		//============================================================dot end
+
+
+		//Track and broadcast cursor movement, not working now
+		canvas.addEventListener('mousemove', (event) => {
+			const rect = canvas.getBoundingClientRect();
+			const position = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+			socket.emit('move cursor', position);
+		});
+
+		function drawCursors() {
+			Object.values(cursors).forEach(cursor => {
+				ctx.beginPath();
+				ctx.arc(cursor.x, cursor.y, 5, 0, 2 * Math.PI); // Draw cursor as a small circle
+				ctx.fillStyle = 'rgba(0, 0, 255, 0.5)'; // Semi-transparent blue
+				ctx.fill();
+			});
+		}
+
+		socket.on('cursor moved', (data) => {
+			cursors[data.socketId] = data.position; // Update cursor position
+			// Clear the canvas and redraw everything to avoid cursor trails
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			drawDots(); // Assuming you have a function to redraw all the dots
+			drawCursors(); // Redraw cursors with updated positions
+		});
+
+		document.addEventListener('mousemove', (event) => {
+			// Emit the cursor position to the server
+			socket.emit('movecursor', { x: event.clientX, y: event.clientY });
+		});
+
+		//<!-- =============================== END =============================== -->
+	</script>
+
+</body>
+
+</html>
