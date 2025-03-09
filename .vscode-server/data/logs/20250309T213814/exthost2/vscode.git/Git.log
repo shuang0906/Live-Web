@@ -1,0 +1,74 @@
+2025-03-09 21:41:42.112 [info] [main] Log level: Info
+2025-03-09 21:41:42.112 [info] [main] Validating found git in: "git"
+2025-03-09 21:41:42.112 [info] [main] Using git "2.40.1" from "git"
+2025-03-09 21:41:42.112 [info] [Model][doInitialScan] Initial repository scan started
+2025-03-09 21:41:42.112 [info] > git rev-parse --show-toplevel [63ms]
+2025-03-09 21:41:42.112 [info] > git rev-parse --git-dir --git-common-dir [69ms]
+2025-03-09 21:41:42.112 [info] [Model][openRepository] Opened repository: /root
+2025-03-09 21:41:42.244 [info] > git rev-parse --show-toplevel [155ms]
+2025-03-09 21:41:42.245 [info] > git config --get commit.template [164ms]
+2025-03-09 21:41:42.375 [info] > git fetch [342ms]
+2025-03-09 21:41:42.381 [info] git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-09 21:41:42.398 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [26ms]
+2025-03-09 21:41:42.441 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [24ms]
+2025-03-09 21:41:42.453 [info] > git config --get commit.template [61ms]
+2025-03-09 21:41:42.491 [info] > git config --get commit.template [42ms]
+2025-03-09 21:41:42.509 [info] > git config --get --local branch.main.vscode-merge-base [56ms]
+2025-03-09 21:41:42.509 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-09 21:41:42.601 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [93ms]
+2025-03-09 21:41:42.629 [info] > git rev-parse --show-toplevel [133ms]
+2025-03-09 21:41:42.662 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [33ms]
+2025-03-09 21:41:42.685 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [153ms]
+2025-03-09 21:41:42.717 [info] > git reflog main --grep-reflog=branch: Created from *. [196ms]
+2025-03-09 21:41:42.737 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [21ms]
+2025-03-09 21:41:42.738 [info] > git config --get --local branch.main.vscode-merge-base [52ms]
+2025-03-09 21:41:42.738 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-09 21:41:42.813 [info] > git rev-parse --show-toplevel [153ms]
+2025-03-09 21:41:42.848 [info] > git check-ignore -v -z --stdin [199ms]
+2025-03-09 21:41:42.849 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [126ms]
+2025-03-09 21:41:42.849 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-09 21:41:42.849 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-09 21:41:43.512 [info] > git rev-parse --show-toplevel [679ms]
+2025-03-09 21:41:43.524 [info] > git reflog main --grep-reflog=branch: Created from *. [711ms]
+2025-03-09 21:41:43.568 [info] > git status -z -uall [868ms]
+2025-03-09 21:41:43.639 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [1159ms]
+2025-03-09 21:41:43.734 [info] > git hash-object -t tree /dev/null [33ms]
+2025-03-09 21:41:43.739 [info] > git rev-parse --show-toplevel [182ms]
+2025-03-09 21:41:43.740 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [211ms]
+2025-03-09 21:41:43.740 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-09 21:41:43.740 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-09 21:41:43.858 [info] > git rev-parse --show-toplevel [99ms]
+2025-03-09 21:41:44.462 [info] > git rev-parse --show-toplevel [515ms]
+2025-03-09 21:41:44.528 [info] > git rev-parse --show-toplevel [22ms]
+2025-03-09 21:41:44.600 [info] > git rev-parse --show-toplevel [47ms]
+2025-03-09 21:41:44.641 [info] > git rev-parse --show-toplevel [20ms]
+2025-03-09 21:41:45.145 [info] > git rev-parse --show-toplevel [481ms]
+2025-03-09 21:41:45.249 [info] > git rev-parse --show-toplevel [76ms]
+2025-03-09 21:41:45.291 [info] > git check-ignore -v -z --stdin [94ms]
+2025-03-09 21:41:45.295 [info] > git rev-parse --show-toplevel [14ms]
+2025-03-09 21:41:45.315 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-03-09 21:41:45.673 [info] > git show --textconv :2025/connect-the-dot/public/index.html [341ms]
+2025-03-09 21:41:45.674 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [324ms]
+2025-03-09 21:41:45.731 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [23ms]
+2025-03-09 21:41:45.828 [info] > git blame --root --incremental 1d28a3445bf4e4695fb1ca06fb22775d7ab7a8d3 -- 2025/connect-the-dot/public/index.html [45ms]
+2025-03-09 21:41:54.844 [info] > git config --get commit.template [10ms]
+2025-03-09 21:41:54.847 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-09 21:41:54.886 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [23ms]
+2025-03-09 21:41:55.095 [info] > git status -z -uall [245ms]
+2025-03-09 21:42:00.118 [info] > git config --get commit.template [9ms]
+2025-03-09 21:42:00.122 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-09 21:42:00.144 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-09 21:42:00.265 [info] > git rev-list --count 1d28a3445bf4e4695fb1ca06fb22775d7ab7a8d3.. -- /root/2025/connect-the-dot/public/index.html [4ms]
+2025-03-09 21:42:00.426 [info] > git status -z -uall [299ms]
+2025-03-09 21:42:00.567 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n2 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [294ms]
+2025-03-09 21:42:00.868 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [11ms]
+2025-03-09 21:42:00.876 [info] > git cat-file -s f3e58ef770f4a4f06405358a827bdf35052751b0 [3ms]
+2025-03-09 21:42:00.897 [info] > git show --textconv :2025/connect-the-dot/public/index.html [10ms]
+2025-03-09 21:42:06.687 [info] > git config --get commit.template [4ms]
+2025-03-09 21:42:06.689 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-09 21:42:06.705 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [5ms]
+2025-03-09 21:42:06.862 [info] > git status -z -uall [170ms]

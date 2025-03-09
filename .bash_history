@@ -437,3 +437,30 @@ node server.js
 cd 2025
 cd connect-the-dot
 node server.js
+git init
+git remote add origin git@github.com:shuang0906/Live-Web.git
+git add .
+git commit -m "Initial commit"
+git config --global user.name "shuang0906"
+git config --global user.email "shunhuang0906@gmail.com"
+git config --global --list
+git add .
+git commit -m "Initial commit"
+git branch -M main  # Rename the default branch to 'main'
+git push -u origin main
+ls -al ~/.ssh
+ssh-keygen -t ed25519 -C "shunhuang0906@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+git config --global user.name "shuang0906"
+ssh -T git@github.com
+ssh -vT git@github.com
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+eval "$(ssh-agent -s)"  # Start SSH agent
+ssh-add ~/.ssh/id_ed25519
+ssh -T git@github.com
+nano ~/.ssh/config
+ssh -T git@github.com
