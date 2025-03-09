@@ -259,9 +259,9 @@ function loadAndDrawCanvas(canvasId, jsonPath) {
         .catch(error => console.error(`Error loading the JSON file (${jsonPath}):`, error));
 }
 
-const canvasConfigs = [
+const canvases = [
     { id: 'canvas1', path: 'dot_datas/dotDataForCanvas1.json' },
     { id: 'canvas2', path: 'dot_datas/dotDataForCanvas2.json' }
 ];
 
-canvasConfigs.forEach(({ id, path }) => loadAndDrawCanvas(id, path));
+canvases.forEach(({ id, path }) => loadAndDrawCanvas(id, path));

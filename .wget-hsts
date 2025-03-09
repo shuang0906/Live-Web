@@ -2,4 +2,4 @@
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
 update.code.visualstudio.com	0	1	1741552646	31536000
-repos-droplet.digitalocean.com	0	1	1741555553	15552000
+repos-droplet.digitalocean.com	0	1	1741558925	15552000
