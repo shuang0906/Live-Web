@@ -464,3 +464,14 @@ ssh-add ~/.ssh/id_ed25519
 ssh -T git@github.com
 nano ~/.ssh/config
 ssh -T git@github.com
+git init
+git add -A
+git commit -m 'Added my project'
+git remote add origin git@github.com:shuang0906/Live-Web.git
+git push -u -f origin main
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+git push -u -f origin main
+cd 2025
+cd connect-the-dot
+node server.js

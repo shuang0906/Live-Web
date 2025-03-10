@@ -1,0 +1,18 @@
+2025-03-10 22:40:19.067 [info] Extension host with pid 342452 started
+2025-03-10 22:40:19.067 [error] Error: EEXIST: file already exists, open '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock'
+2025-03-10 22:40:19.092 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-03-10 22:40:19.146 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-03-10 22:40:19.157 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: false, activationEvent: '*', root cause: vscode.git
+2025-03-10 22:40:19.165 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:javascript'
+2025-03-10 22:40:20.387 [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+2025-03-10 22:40:20.700 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454/vscode.lock': The lock does not look stale, elapsed: 811 ms, giving up.
+2025-03-10 22:40:20.775 [info] Lock '/root/.vscode-server/data/User/workspaceStorage/234f782b3d05d84fc5ed43b28cb66454-1/vscode.lock': Lock acquired.
+2025-03-10 22:40:21.865 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: '*'
+2025-03-10 22:40:21.874 [info] ExtensionService#_doActivateExtension vscode.github, startup: false, activationEvent: '*'
+2025-03-10 22:40:28.306 [info] Eager extensions activated
+2025-03-10 22:40:28.330 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-03-10 22:40:28.342 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-03-10 22:40:37.135 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-03-10 22:40:37.152 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-03-10 22:40:37.164 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:json'
+2025-03-10 23:26:20.620 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
