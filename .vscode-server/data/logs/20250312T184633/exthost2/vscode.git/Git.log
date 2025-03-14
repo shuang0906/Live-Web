@@ -1,0 +1,63 @@
+2025-03-12 19:35:47.831 [info] [main] Log level: Info
+2025-03-12 19:35:47.831 [info] [main] Validating found git in: "git"
+2025-03-12 19:35:47.831 [info] [main] Using git "2.40.1" from "git"
+2025-03-12 19:35:47.831 [info] [Model][doInitialScan] Initial repository scan started
+2025-03-12 19:35:47.831 [info] > git rev-parse --show-toplevel [1101ms]
+2025-03-12 19:35:47.831 [info] > git rev-parse --git-dir --git-common-dir [680ms]
+2025-03-12 19:35:47.831 [info] [Model][openRepository] Opened repository: /root
+2025-03-12 19:35:48.957 [info] > git rev-parse --show-toplevel [1001ms]
+2025-03-12 19:35:48.979 [info] > git config --get commit.template [1067ms]
+2025-03-12 19:35:49.182 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [143ms]
+2025-03-12 19:35:49.359 [info] > git check-ignore -v -z --stdin [535ms]
+2025-03-12 19:35:49.361 [info] > git rev-parse --show-toplevel [127ms]
+2025-03-12 19:35:49.532 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [194ms]
+2025-03-12 19:35:49.669 [info] > git rev-parse --show-toplevel [172ms]
+2025-03-12 19:35:49.804 [info] > git rev-parse --show-toplevel [21ms]
+2025-03-12 19:35:49.902 [info] > git rev-parse --show-toplevel [39ms]
+2025-03-12 19:35:50.005 [info] > git rev-parse --show-toplevel [41ms]
+2025-03-12 19:35:50.088 [info] > git rev-parse --show-toplevel [16ms]
+2025-03-12 19:35:50.157 [info] > git rev-parse --show-toplevel [37ms]
+2025-03-12 19:35:50.246 [info] > git rev-parse --show-toplevel [9ms]
+2025-03-12 19:35:50.378 [info] > git rev-parse --show-toplevel [22ms]
+2025-03-12 19:35:50.465 [info] > git rev-parse --show-toplevel [34ms]
+2025-03-12 19:35:50.537 [info] > git rev-parse --show-toplevel [32ms]
+2025-03-12 19:35:50.624 [info] > git rev-parse --show-toplevel [38ms]
+2025-03-12 19:35:50.654 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-03-12 19:35:50.891 [info] > git show --textconv :2025/connect-the-dot/server.js [143ms]
+2025-03-12 19:35:50.892 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [135ms]
+2025-03-12 19:35:50.927 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [23ms]
+2025-03-12 19:35:51.016 [info] > git blame --root --incremental bbe70dc5b0f28b4054541ff4338dcebcd2e0b532 -- 2025/connect-the-dot/server.js [37ms]
+2025-03-12 19:35:51.936 [info] > git status -z -uall [2657ms]
+2025-03-12 19:35:54.784 [info] > git fetch [2422ms]
+2025-03-12 19:35:54.785 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 19:35:54.792 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2456ms]
+2025-03-12 19:35:54.817 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [5639ms]
+2025-03-12 19:35:55.286 [info] > git hash-object -t tree /dev/null [432ms]
+2025-03-12 19:35:55.315 [info] > git config --get --local branch.main.vscode-merge-base [499ms]
+2025-03-12 19:35:55.315 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-12 19:35:55.340 [info] > git config --get commit.template [646ms]
+2025-03-12 19:35:55.358 [info] > git config --get commit.template [100ms]
+2025-03-12 19:35:55.389 [info] > git rev-list origin/main..main [68ms]
+2025-03-12 19:35:55.428 [info] > git reflog main --grep-reflog=branch: Created from *. [102ms]
+2025-03-12 19:35:55.516 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [105ms]
+2025-03-12 19:35:55.519 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [138ms]
+2025-03-12 19:35:56.836 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [1376ms]
+2025-03-12 19:35:56.836 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-12 19:35:56.836 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-12 19:35:56.968 [info] > git merge-base refs/heads/main refs/remotes/origin/main [110ms]
+2025-03-12 19:35:57.390 [info] > git merge-base refs/heads/main refs/remotes/origin/main [325ms]
+2025-03-12 19:35:57.430 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [385ms]
+2025-03-12 19:35:57.435 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [451ms]
+2025-03-12 19:35:57.505 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [76ms]
+2025-03-12 19:35:58.532 [info] > git status -z -uall [1515ms]
+2025-03-12 19:36:55.355 [info] > git check-ignore -v -z --stdin [65ms]

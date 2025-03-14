@@ -475,3 +475,34 @@ git push -u -f origin main
 cd 2025
 cd connect-the-dot
 node server.js
+cd 2025
+cd connect-the-dot
+node server.js
+cd 2025
+cd connect-the-dot
+node server.js
+cd  ..
+cd ..
+npm install -g nodemon
+cd 2025
+cd connect-the-dot
+nodemon server.js
+ls
+cd  2025
+ls
+cd connect-the-dot/
+ls
+cd   2025
+ls
+tar -czvf o.tar.gz ./connect-the-dot/
+zip -r  p.zip  ./connect-the-dot/
+cd 2025
+cd connect-the-dot
+node server.js
+ls
+cd public
+ls
+cat test.html
+clear
+cd ..
+node server.js

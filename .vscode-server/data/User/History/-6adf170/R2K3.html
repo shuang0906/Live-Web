@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<title>Connect the Dots</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+
+		var socket = io.connect();
+
+		socket.on('connect', function () {
+			console.log("Connected");
+			// Once we are connected, request the history
+			socket.emit('history', null);
+			//draw(); // Initial draw
+		});
+
+	</script>
+</head>
+
+<body>
+	<div class="title">connect • the • dots</div>
+	<div class="info"><button class="myButton"><span>info</span></button></div>
+	<div class="info-pop" id="info-pop" style="display: none;">
+		Connect the dots in numerical order to create a line.<br>
+		Feel free to start from any point.<br>
+		<br>
+		Made by H******s.
+	</div>
+
+	<div class="canvas-container" style="background-color: silver;">
+		<canvas class="bg" id="bg"></canvas>
+		<canvas class="diagram diagram1" id="canvas1" width="570" height="720"></canvas>
+	</div>
+	<div class="canvas-container" id="canvas-container" style="background-color: blue;">
+		<canvas class="diagram diagram2" id="canvas2" width="700" height="700"></canvas>
+	</div>
+
+	<script type="text/javascript" src="/src/script.js"></script>
+
+</body>
+
+</html>

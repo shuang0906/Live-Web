@@ -1,0 +1,106 @@
+2025-03-12 18:04:54.627 [info] [main] Log level: Info
+2025-03-12 18:04:54.627 [info] [main] Validating found git in: "git"
+2025-03-12 18:04:54.627 [info] [main] Using git "2.40.1" from "git"
+2025-03-12 18:04:54.627 [info] [Model][doInitialScan] Initial repository scan started
+2025-03-12 18:04:54.627 [info] > git rev-parse --show-toplevel [1409ms]
+2025-03-12 18:04:54.627 [info] > git rev-parse --git-dir --git-common-dir [568ms]
+2025-03-12 18:04:54.627 [info] [Model][openRepository] Opened repository: /root
+2025-03-12 18:04:55.210 [info] > git rev-parse --show-toplevel [529ms]
+2025-03-12 18:04:55.232 [info] > git config --get commit.template [573ms]
+2025-03-12 18:04:55.573 [info] > git check-ignore -v -z --stdin [291ms]
+2025-03-12 18:04:55.593 [info] > git fetch [1013ms]
+2025-03-12 18:04:55.593 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 18:04:55.769 [info] > git rev-parse --show-toplevel [435ms]
+2025-03-12 18:04:55.829 [info] > git config --get commit.template [174ms]
+2025-03-12 18:04:55.829 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [202ms]
+2025-03-12 18:04:56.135 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [105ms]
+2025-03-12 18:04:56.177 [info] > git rev-parse --show-toplevel [206ms]
+2025-03-12 18:04:56.193 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [267ms]
+2025-03-12 18:04:56.244 [info] > git config --get --local branch.main.vscode-merge-base [68ms]
+2025-03-12 18:04:56.245 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-12 18:04:56.271 [info] > git config --get commit.template [138ms]
+2025-03-12 18:04:56.272 [info] > git rev-parse --show-toplevel [55ms]
+2025-03-12 18:04:57.185 [info] > git rev-parse --show-toplevel [822ms]
+2025-03-12 18:04:57.209 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [898ms]
+2025-03-12 18:04:57.213 [info] > git reflog main --grep-reflog=branch: Created from *. [943ms]
+2025-03-12 18:04:57.293 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [143ms]
+2025-03-12 18:04:57.331 [info] > git rev-parse --show-toplevel [62ms]
+2025-03-12 18:04:57.331 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [82ms]
+2025-03-12 18:04:57.331 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-12 18:04:57.331 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-12 18:04:57.509 [info] > git config --get --local branch.main.vscode-merge-base [201ms]
+2025-03-12 18:04:57.509 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-12 18:04:57.721 [info] > git rev-parse --show-toplevel [315ms]
+2025-03-12 18:04:57.769 [info] > git merge-base refs/heads/main refs/remotes/origin/main [397ms]
+2025-03-12 18:04:57.888 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [296ms]
+2025-03-12 18:04:57.889 [info] > git reflog main --grep-reflog=branch: Created from *. [329ms]
+2025-03-12 18:04:57.945 [info] > git rev-parse --show-toplevel [118ms]
+2025-03-12 18:04:57.948 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [142ms]
+2025-03-12 18:04:57.993 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [83ms]
+2025-03-12 18:04:57.993 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-12 18:04:57.993 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-12 18:04:58.012 [info] > git rev-parse --show-toplevel [20ms]
+2025-03-12 18:04:58.074 [info] > git rev-parse --show-toplevel [13ms]
+2025-03-12 18:04:58.108 [info] > git rev-parse --show-toplevel [18ms]
+2025-03-12 18:04:58.747 [info] > git status -z -uall [1171ms]
+2025-03-12 18:04:58.747 [info] > git rev-parse --show-toplevel [610ms]
+2025-03-12 18:05:01.533 [info] > git rev-parse --show-toplevel [2762ms]
+2025-03-12 18:05:01.632 [info] > git rev-parse --show-toplevel [58ms]
+2025-03-12 18:05:01.652 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-03-12 18:05:01.894 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [213ms]
+2025-03-12 18:05:01.925 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [212ms]
+2025-03-12 18:05:02.091 [info] > git cat-file -s 8c101ec6f922bf7dd9283363a95da8675e162d02 [53ms]
+2025-03-12 18:05:02.655 [info] > git blame --root --incremental bbe70dc5b0f28b4054541ff4338dcebcd2e0b532 -- 2025/connect-the-dot/public/src/script.js [251ms]
+2025-03-12 18:05:08.389 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [12472ms]
+2025-03-12 18:05:08.540 [info] > git hash-object -t tree /dev/null [95ms]
+2025-03-12 18:05:08.589 [info] > git rev-list origin/main..main [39ms]
+2025-03-12 18:05:17.387 [info] > git config --get commit.template [13ms]
+2025-03-12 18:05:17.396 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [10ms]
+2025-03-12 18:05:17.435 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [17ms]
+2025-03-12 18:05:18.312 [info] > git status -z -uall [905ms]
+2025-03-12 18:05:23.749 [info] > git config --get commit.template [8ms]
+2025-03-12 18:05:23.756 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [8ms]
+2025-03-12 18:05:23.810 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [17ms]
+2025-03-12 18:05:24.318 [info] > git status -z -uall [547ms]
+2025-03-12 18:07:57.620 [info] > git fetch [464ms]
+2025-03-12 18:07:57.620 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 18:07:57.629 [info] > git config --get commit.template [5ms]
+2025-03-12 18:07:57.632 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-12 18:07:57.651 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+2025-03-12 18:07:57.816 [info] > git status -z -uall [180ms]
+2025-03-12 18:11:05.046 [info] > git fetch [508ms]
+2025-03-12 18:11:05.047 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 18:11:05.063 [info] > git config --get commit.template [8ms]
+2025-03-12 18:11:05.067 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-12 18:11:05.091 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-12 18:11:05.335 [info] > git status -z -uall [261ms]

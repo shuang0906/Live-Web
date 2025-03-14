@@ -1,0 +1,172 @@
+2025-03-12 18:46:43.100 [info] [main] Log level: Info
+2025-03-12 18:46:43.100 [info] [main] Validating found git in: "git"
+2025-03-12 18:46:43.100 [info] [main] Using git "2.40.1" from "git"
+2025-03-12 18:46:43.100 [info] [Model][doInitialScan] Initial repository scan started
+2025-03-12 18:46:43.100 [info] > git rev-parse --show-toplevel [861ms]
+2025-03-12 18:46:43.100 [info] > git rev-parse --git-dir --git-common-dir [509ms]
+2025-03-12 18:46:43.100 [info] [Model][openRepository] Opened repository: /root
+2025-03-12 18:46:43.798 [info] > git rev-parse --show-toplevel [649ms]
+2025-03-12 18:46:43.833 [info] > git config --get commit.template [666ms]
+2025-03-12 18:46:43.889 [info] > git fetch [836ms]
+2025-03-12 18:46:43.889 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 18:46:44.017 [info] > git config --get commit.template [49ms]
+2025-03-12 18:46:44.018 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [77ms]
+2025-03-12 18:46:44.241 [info] > git check-ignore -v -z --stdin [233ms]
+2025-03-12 18:46:44.242 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [182ms]
+2025-03-12 18:46:44.278 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [65ms]
+2025-03-12 18:46:44.332 [info] > git rev-parse --show-toplevel [190ms]
+2025-03-12 18:46:44.362 [info] > git config --get --local branch.main.vscode-merge-base [32ms]
+2025-03-12 18:46:44.363 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-12 18:46:44.413 [info] > git config --get commit.template [137ms]
+2025-03-12 18:46:44.434 [info] > git rev-parse --show-toplevel [74ms]
+2025-03-12 18:46:45.175 [info] > git reflog main --grep-reflog=branch: Created from *. [762ms]
+2025-03-12 18:46:45.276 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [86ms]
+2025-03-12 18:46:45.276 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-12 18:46:45.277 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-12 18:46:45.325 [info] > git rev-parse --show-toplevel [776ms]
+2025-03-12 18:46:45.325 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [804ms]
+2025-03-12 18:46:45.365 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [891ms]
+2025-03-12 18:46:45.390 [info] > git merge-base refs/heads/main refs/remotes/origin/main [66ms]
+2025-03-12 18:46:45.533 [info] > git rev-parse --show-toplevel [153ms]
+2025-03-12 18:46:45.535 [info] > git config --get --local branch.main.vscode-merge-base [171ms]
+2025-03-12 18:46:45.535 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-12 18:46:45.573 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [140ms]
+2025-03-12 18:46:45.626 [info] > git reflog main --grep-reflog=branch: Created from *. [79ms]
+2025-03-12 18:46:45.718 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [73ms]
+2025-03-12 18:46:45.718 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-12 18:46:45.718 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-12 18:46:45.746 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [93ms]
+2025-03-12 18:46:45.748 [info] > git rev-parse --show-toplevel [176ms]
+2025-03-12 18:46:45.782 [info] > git rev-parse --show-toplevel [4ms]
+2025-03-12 18:46:45.839 [info] > git rev-parse --show-toplevel [19ms]
+2025-03-12 18:46:46.375 [info] > git rev-parse --show-toplevel [501ms]
+2025-03-12 18:46:46.407 [info] > git rev-parse --show-toplevel [4ms]
+2025-03-12 18:46:46.443 [info] > git status -z -uall [844ms]
+2025-03-12 18:46:46.444 [info] > git rev-parse --show-toplevel [15ms]
+2025-03-12 18:46:48.931 [info] > git rev-parse --show-toplevel [127ms]
+2025-03-12 18:46:48.991 [info] > git rev-parse --show-toplevel [31ms]
+2025-03-12 18:46:48.994 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-03-12 18:46:49.160 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [131ms]
+2025-03-12 18:46:49.160 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [96ms]
+2025-03-12 18:46:49.215 [info] > git cat-file -s 8c101ec6f922bf7dd9283363a95da8675e162d02 [29ms]
+2025-03-12 18:46:49.397 [info] > git blame --root --incremental bbe70dc5b0f28b4054541ff4338dcebcd2e0b532 -- 2025/connect-the-dot/public/src/script.js [74ms]
+2025-03-12 18:46:53.179 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [9047ms]
+2025-03-12 18:46:53.214 [info] > git hash-object -t tree /dev/null [6ms]
+2025-03-12 18:46:53.277 [info] > git rev-list origin/main..main [52ms]
+2025-03-12 18:47:26.036 [info] > git config --get commit.template [9ms]
+2025-03-12 18:47:26.049 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [14ms]
+2025-03-12 18:47:26.075 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-12 18:47:26.336 [info] > git status -z -uall [281ms]
+2025-03-12 18:47:31.401 [info] > git config --get commit.template [6ms]
+2025-03-12 18:47:31.408 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [9ms]
+2025-03-12 18:47:31.430 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-12 18:47:31.649 [info] > git status -z -uall [236ms]
+2025-03-12 18:48:09.886 [info] > git show --textconv :2025/connect-the-dot/server.js [82ms]
+2025-03-12 18:48:09.897 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [53ms]
+2025-03-12 18:48:09.944 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [25ms]
+2025-03-12 18:48:10.061 [info] > git blame --root --incremental bbe70dc5b0f28b4054541ff4338dcebcd2e0b532 -- 2025/connect-the-dot/server.js [63ms]
+2025-03-12 18:48:10.608 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [926ms]
+2025-03-12 18:48:10.632 [info] > git rev-list origin/main..main [12ms]
+2025-03-12 18:48:16.583 [info] > git config --get commit.template [17ms]
+2025-03-12 18:48:16.592 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [11ms]
+2025-03-12 18:48:16.636 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [26ms]
+2025-03-12 18:48:17.115 [info] > git status -z -uall [514ms]
+2025-03-12 18:49:30.323 [info] > git check-ignore -v -z --stdin [11ms]
+2025-03-12 18:49:31.327 [info] > git show --textconv :2025/connect-the-dot/public/index.html [72ms]
+2025-03-12 18:49:31.328 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [63ms]
+2025-03-12 18:49:31.343 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index.html [494ms]
+2025-03-12 18:49:31.367 [info] > git cat-file -s 2036a95a1e2ad6a559696f3fcc7f763eaa7d905a [22ms]
+2025-03-12 18:49:31.374 [info] > git rev-list origin/main..main [18ms]
+2025-03-12 18:49:31.412 [info] > git blame --root --incremental bbe70dc5b0f28b4054541ff4338dcebcd2e0b532 -- 2025/connect-the-dot/public/index.html [22ms]
+2025-03-12 18:49:32.339 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/index copy.html [103ms]
+2025-03-12 18:49:32.404 [info] > git show --textconv :2025/connect-the-dot/public/index copy.html [37ms]
+2025-03-12 18:49:32.405 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/index%20copy.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Findex%20copy.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-12 18:49:32.419 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index copy.html [37ms]
+2025-03-12 18:49:32.420 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/index%20copy.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Findex%20copy.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-12 18:49:32.631 [info] > git check-ignore -v -z --stdin [74ms]
+2025-03-12 18:49:36.716 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [42ms]
+2025-03-12 18:49:36.880 [info] > git show --textconv :2025/connect-the-dot/public/test.html [24ms]
+2025-03-12 18:49:36.881 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/test.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Ftest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-12 18:49:36.889 [info] > git ls-files --stage -- 2025/connect-the-dot/public/test.html [21ms]
+2025-03-12 18:49:36.890 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/test.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Ftest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-12 18:49:37.150 [info] > git check-ignore -v -z --stdin [9ms]
+2025-03-12 18:49:47.964 [info] > git fetch [392ms]
+2025-03-12 18:49:47.964 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 18:49:47.979 [info] > git config --get commit.template [8ms]
+2025-03-12 18:49:47.983 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2025-03-12 18:49:48.006 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-12 18:49:48.319 [info] > git status -z -uall [329ms]
+2025-03-12 18:49:49.280 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [179ms]
+2025-03-12 18:49:49.373 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [243ms]
+2025-03-12 18:49:49.429 [info] > git cat-file -s 8c101ec6f922bf7dd9283363a95da8675e162d02 [22ms]
+2025-03-12 18:49:51.117 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [2198ms]
+2025-03-12 18:49:51.127 [info] > git rev-list origin/main..main [4ms]
+2025-03-12 18:49:53.965 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [209ms]
+2025-03-12 18:49:53.973 [info] > git show --textconv :2025/connect-the-dot/server.js [44ms]
+2025-03-12 18:49:53.976 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [27ms]
+2025-03-12 18:49:53.981 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [3ms]
+2025-03-12 18:49:58.084 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [7ms]
+2025-03-12 18:49:59.438 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [208ms]
+2025-03-12 18:49:59.447 [info] > git show --textconv :2025/connect-the-dot/server.js [34ms]
+2025-03-12 18:49:59.452 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [27ms]
+2025-03-12 18:49:59.462 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [4ms]
+2025-03-12 18:50:23.158 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [25ms]
+2025-03-12 18:51:19.947 [info] > git show --textconv :2025/connect-the-dot/server.js [27ms]
+2025-03-12 18:51:19.950 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [22ms]
+2025-03-12 18:51:19.964 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [8ms]
+2025-03-12 18:51:19.991 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [251ms]
+2025-03-12 18:51:34.281 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [16ms]
+2025-03-12 18:51:45.115 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [31ms]
+2025-03-12 18:51:45.119 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [27ms]
+2025-03-12 18:51:45.141 [info] > git cat-file -s 8c101ec6f922bf7dd9283363a95da8675e162d02 [15ms]
+2025-03-12 18:51:46.432 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [1513ms]
+2025-03-12 18:51:47.319 [info] > git show --textconv :2025/connect-the-dot/server.js [30ms]
+2025-03-12 18:51:47.325 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [228ms]
+2025-03-12 18:51:47.330 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [30ms]
+2025-03-12 18:51:47.336 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [3ms]
+2025-03-12 18:52:47.203 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [7ms]
+2025-03-12 18:52:48.913 [info] > git fetch [508ms]
+2025-03-12 18:52:48.913 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-12 18:52:48.924 [info] > git config --get commit.template [6ms]
+2025-03-12 18:52:48.926 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-12 18:52:48.944 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+2025-03-12 18:52:49.146 [info] > git status -z -uall [216ms]
+2025-03-12 18:53:40.337 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [44ms]
+2025-03-12 18:53:40.339 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [34ms]
+2025-03-12 18:53:40.350 [info] > git cat-file -s 8c101ec6f922bf7dd9283363a95da8675e162d02 [8ms]
+2025-03-12 18:53:41.661 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [1564ms]
+2025-03-12 18:53:41.671 [info] > git rev-list origin/main..main [4ms]
+2025-03-12 18:53:42.035 [info] > git show --textconv :2025/connect-the-dot/server.js [40ms]
+2025-03-12 18:53:42.040 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [31ms]
+2025-03-12 18:53:42.078 [info] > git cat-file -s df9aeb5ebda4f733920f1a49e2f764ed656bb953 [29ms]
+2025-03-12 18:53:42.179 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [350ms]

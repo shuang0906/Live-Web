@@ -1,0 +1,5 @@
+2025-03-10 23:46:34.350 [info] Log level: Info
+2025-03-10 23:46:40.828 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for shuang0906/Live-Web/3b9b01c6eac91ce69f967a4b2be17c926da62931: TypeError: Cannot read properties of null (reading 'author')
+2025-03-10 23:54:45.847 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for shuang0906/Live-Web/3b9b01c6eac91ce69f967a4b2be17c926da62931: TypeError: Cannot read properties of null (reading 'author')
+2025-03-10 23:58:28.973 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for shuang0906/Live-Web/3b9b01c6eac91ce69f967a4b2be17c926da62931: TypeError: Cannot read properties of null (reading 'author')
+2025-03-11 00:07:43.251 [warning] [GitHubSourceControlHistoryItemDetailsProvider][_getCommitAuthor] Failed to get commit author for shuang0906/Live-Web/3b9b01c6eac91ce69f967a4b2be17c926da62931: TypeError: Cannot read properties of null (reading 'author')
