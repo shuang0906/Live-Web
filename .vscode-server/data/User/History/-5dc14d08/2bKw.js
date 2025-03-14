@@ -17,12 +17,12 @@ function resizeCanvas() {
     overlayCanvas.height = window.innerHeight;
 }
 window.addEventListener('resize', resizeCanvas);
-let myCursorColor = 'black';
 
 
 function setupCursorOverlay(canvasId) {
     
     const cursorsList = {};
+    let myCursorColor = 'black';
 
     function drawCursors() {
         overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height); // Only clear overlay
@@ -67,6 +67,12 @@ function setupCursorOverlay(canvasId) {
         delete cursorsList[socketId];
         drawCursors();
     });
+
+    // socket.on('remove cursor', (data) => {
+    //     if (data.canvasId !== canvasId) return;
+    //     delete cursorsList[data.socketId];
+    //     drawCursors();
+    // });
 
     socket.on('assign color', (color) => {
         myCursorColor = color;
