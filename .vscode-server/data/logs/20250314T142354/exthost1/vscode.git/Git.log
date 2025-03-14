@@ -809,3 +809,713 @@ and the repository exists.
 2025-03-14 20:38:44.063 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
 2025-03-14 20:38:44.407 [info] > git status -z -uall [366ms]
 2025-03-14 20:38:54.503 [info] > git check-ignore -v -z --stdin [22ms]
+2025-03-14 20:39:03.729 [info] > git add -A -- . [916ms]
+2025-03-14 20:39:04.127 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [391ms]
+2025-03-14 20:39:04.135 [info] > git config --get commit.template [2ms]
+2025-03-14 20:39:04.195 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 20:39:04.195 [info] > git config --get commit.template [30ms]
+2025-03-14 20:39:04.277 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [25ms]
+2025-03-14 20:39:05.041 [info] > git status -z -uall [797ms]
+2025-03-14 20:39:05.112 [info] > git merge-base refs/heads/main refs/remotes/origin/main [27ms]
+2025-03-14 20:39:05.123 [info] > git blame --root --incremental 0b71143f26952758a8fdfdbbfd8ffcbbf01648f4 -- 2025/connect-the-dot/public/style.css [69ms]
+2025-03-14 20:39:05.173 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [51ms]
+2025-03-14 20:39:05.246 [info] > git config --get commit.template [62ms]
+2025-03-14 20:39:05.251 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [9ms]
+2025-03-14 20:39:05.279 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [13ms]
+2025-03-14 20:39:05.583 [info] > git status -z -uall [326ms]
+2025-03-14 20:40:56.865 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [31ms]
+2025-03-14 20:40:56.871 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [24ms]
+2025-03-14 20:40:56.880 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 20:40:56.947 [info] > git blame --root --incremental 0b71143f26952758a8fdfdbbfd8ffcbbf01648f4 -- 2025/connect-the-dot/public/src/script.js [13ms]
+2025-03-14 20:41:44.918 [info] > git fetch [503ms]
+2025-03-14 20:41:44.919 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 20:41:44.927 [info] > git config --get commit.template [4ms]
+2025-03-14 20:41:44.930 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 20:41:44.951 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2025-03-14 20:41:45.108 [info] > git status -z -uall [169ms]
+2025-03-14 20:41:45.753 [info] > git check-ignore -v -z --stdin [10ms]
+2025-03-14 20:42:42.267 [info] > git show --textconv :2025/connect-the-dot/public/index.html [20ms]
+2025-03-14 20:42:42.274 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [17ms]
+2025-03-14 20:42:42.280 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [2ms]
+2025-03-14 20:42:42.302 [info] > git blame --root --incremental 0b71143f26952758a8fdfdbbfd8ffcbbf01648f4 -- 2025/connect-the-dot/public/index.html [6ms]
+2025-03-14 20:43:26.023 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [28ms]
+2025-03-14 20:43:26.028 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [22ms]
+2025-03-14 20:43:26.037 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [4ms]
+2025-03-14 20:45:12.513 [info] > git fetch [399ms]
+2025-03-14 20:45:12.513 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 20:45:12.543 [info] > git config --get commit.template [22ms]
+2025-03-14 20:45:12.544 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2025-03-14 20:45:12.570 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [8ms]
+2025-03-14 20:45:12.796 [info] > git status -z -uall [244ms]
+2025-03-14 20:45:13.462 [info] > git check-ignore -v -z --stdin [14ms]
+2025-03-14 20:45:22.084 [info] > git show --textconv :2025/connect-the-dot/public/index.html [24ms]
+2025-03-14 20:45:22.090 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [20ms]
+2025-03-14 20:45:22.099 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [4ms]
+2025-03-14 20:45:25.491 [info] > git show --textconv :2025/connect-the-dot/public/style.css [23ms]
+2025-03-14 20:45:25.499 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [20ms]
+2025-03-14 20:45:25.506 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 20:45:26.159 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 20:45:26.171 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 20:45:26.179 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 20:45:49.176 [info] > git show --textconv :2025/connect-the-dot/public/index.html [25ms]
+2025-03-14 20:45:49.180 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [18ms]
+2025-03-14 20:45:49.188 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [4ms]
+2025-03-14 20:45:53.191 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [33ms]
+2025-03-14 20:45:53.199 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [34ms]
+2025-03-14 20:45:53.209 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [7ms]
+2025-03-14 20:46:14.220 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [21ms]
+2025-03-14 20:46:14.226 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [16ms]
+2025-03-14 20:46:14.233 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [3ms]
+2025-03-14 20:46:16.187 [info] > git show --textconv :2025/connect-the-dot/public/style.css [17ms]
+2025-03-14 20:46:16.189 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [13ms]
+2025-03-14 20:46:16.196 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 20:46:27.653 [info] > git show --textconv :2025/connect-the-dot/public/index.html [20ms]
+2025-03-14 20:46:27.655 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [10ms]
+2025-03-14 20:46:27.665 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [7ms]
+2025-03-14 20:46:29.223 [info] > git show --textconv :2025/connect-the-dot/public/style.css [21ms]
+2025-03-14 20:46:29.228 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [19ms]
+2025-03-14 20:46:29.237 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [5ms]
+2025-03-14 20:46:33.225 [info] > git show --textconv :2025/connect-the-dot/public/index.html [23ms]
+2025-03-14 20:46:33.227 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [18ms]
+2025-03-14 20:46:33.234 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 20:46:40.700 [info] > git show --textconv :2025/connect-the-dot/public/style.css [19ms]
+2025-03-14 20:46:40.707 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [18ms]
+2025-03-14 20:46:40.712 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 20:46:53.811 [info] > git show --textconv :2025/connect-the-dot/public/index.html [25ms]
+2025-03-14 20:46:53.815 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [17ms]
+2025-03-14 20:46:53.823 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [4ms]
+2025-03-14 20:47:18.013 [info] > git show --textconv :2025/connect-the-dot/public/style.css [31ms]
+2025-03-14 20:47:18.018 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [24ms]
+2025-03-14 20:47:18.026 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 20:47:18.418 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [19ms]
+2025-03-14 20:47:18.421 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [12ms]
+2025-03-14 20:47:18.426 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [2ms]
+2025-03-14 20:47:20.051 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [31ms]
+2025-03-14 20:47:20.056 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [25ms]
+2025-03-14 20:47:20.066 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [5ms]
+2025-03-14 20:47:22.115 [info] > git show --textconv :2025/connect-the-dot/public/style.css [26ms]
+2025-03-14 20:47:22.118 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [17ms]
+2025-03-14 20:47:22.128 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [5ms]
+2025-03-14 20:47:47.247 [info] > git show --textconv :2025/connect-the-dot/public/index.html [23ms]
+2025-03-14 20:47:47.251 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [18ms]
+2025-03-14 20:47:47.257 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 20:48:13.306 [info] > git fetch [502ms]
+2025-03-14 20:48:13.306 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 20:48:13.321 [info] > git config --get commit.template [8ms]
+2025-03-14 20:48:13.325 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-14 20:48:13.348 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-14 20:48:13.513 [info] > git status -z -uall [182ms]
+2025-03-14 20:48:14.173 [info] > git check-ignore -v -z --stdin [15ms]
+2025-03-14 20:48:26.906 [info] > git show --textconv :2025/connect-the-dot/public/style.css [21ms]
+2025-03-14 20:48:26.908 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [15ms]
+2025-03-14 20:48:26.913 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 20:48:27.940 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [23ms]
+2025-03-14 20:48:27.943 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [17ms]
+2025-03-14 20:48:27.952 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [6ms]
+2025-03-14 20:49:55.239 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [1367ms]
+2025-03-14 20:49:55.247 [info] > git rev-list origin/main..main [3ms]
+2025-03-14 20:51:13.885 [info] > git fetch [362ms]
+2025-03-14 20:51:13.885 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 20:51:13.899 [info] > git config --get commit.template [8ms]
+2025-03-14 20:51:13.903 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-14 20:51:13.927 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-14 20:51:14.148 [info] > git status -z -uall [239ms]
+2025-03-14 20:52:38.123 [info] > git show --textconv :2025/connect-the-dot/public/index.html [19ms]
+2025-03-14 20:52:38.127 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [15ms]
+2025-03-14 20:52:38.134 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 20:52:42.833 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [15ms]
+2025-03-14 20:52:42.837 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [13ms]
+2025-03-14 20:52:42.845 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [4ms]
+2025-03-14 20:54:25.847 [info] > git fetch [356ms]
+2025-03-14 20:54:25.847 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 20:54:25.861 [info] > git config --get commit.template [8ms]
+2025-03-14 20:54:25.876 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [16ms]
+2025-03-14 20:54:25.900 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-14 20:54:26.063 [info] > git status -z -uall [180ms]
+2025-03-14 20:57:27.298 [info] > git fetch [509ms]
+2025-03-14 20:57:27.298 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 20:57:27.314 [info] > git config --get commit.template [10ms]
+2025-03-14 20:57:27.320 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2025-03-14 20:57:27.347 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-14 20:57:28.445 [info] > git status -z -uall [1119ms]
+2025-03-14 21:00:28.994 [info] > git fetch [538ms]
+2025-03-14 21:00:28.994 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:00:29.032 [info] > git config --get commit.template [13ms]
+2025-03-14 21:00:29.036 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2025-03-14 21:00:29.062 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [8ms]
+2025-03-14 21:00:29.281 [info] > git status -z -uall [238ms]
+2025-03-14 21:02:19.514 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [25ms]
+2025-03-14 21:02:19.517 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [19ms]
+2025-03-14 21:02:19.528 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [6ms]
+2025-03-14 21:02:21.119 [info] > git show --textconv :2025/connect-the-dot/public/style.css [27ms]
+2025-03-14 21:02:21.123 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [21ms]
+2025-03-14 21:02:21.137 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [7ms]
+2025-03-14 21:02:23.074 [info] > git show --textconv :2025/connect-the-dot/public/index.html [26ms]
+2025-03-14 21:02:23.081 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [23ms]
+2025-03-14 21:02:23.090 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [4ms]
+2025-03-14 21:02:24.336 [info] > git show --textconv :2025/connect-the-dot/public/style.css [27ms]
+2025-03-14 21:02:24.345 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [28ms]
+2025-03-14 21:02:24.353 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 21:02:25.511 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [21ms]
+2025-03-14 21:02:25.517 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 21:02:25.524 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 21:02:52.557 [info] > git show --textconv :2025/connect-the-dot/public/style.css [30ms]
+2025-03-14 21:02:52.559 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [22ms]
+2025-03-14 21:02:52.568 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 21:02:54.204 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [24ms]
+2025-03-14 21:02:54.214 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [24ms]
+2025-03-14 21:02:54.224 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 21:03:39.644 [info] > git fetch [416ms]
+2025-03-14 21:03:39.644 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:03:39.660 [info] > git config --get commit.template [9ms]
+2025-03-14 21:03:39.665 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-14 21:03:39.690 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [8ms]
+2025-03-14 21:03:39.905 [info] > git status -z -uall [234ms]
+2025-03-14 21:03:53.264 [info] > git show --textconv :2025/connect-the-dot/public/style.css [26ms]
+2025-03-14 21:03:53.267 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [20ms]
+2025-03-14 21:03:53.273 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 21:05:03.402 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [99ms]
+2025-03-14 21:05:03.555 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [267ms]
+2025-03-14 21:05:03.555 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [52ms]
+2025-03-14 21:05:13.675 [info] > git show --textconv :2025/connect-the-dot/public/style.css [43ms]
+2025-03-14 21:05:13.682 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [40ms]
+2025-03-14 21:05:13.691 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 21:05:16.361 [info] > git show --textconv :2025/connect-the-dot/public/index.html [43ms]
+2025-03-14 21:05:16.370 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [38ms]
+2025-03-14 21:05:16.380 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [4ms]
+2025-03-14 21:05:17.461 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [51ms]
+2025-03-14 21:05:17.466 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [48ms]
+2025-03-14 21:05:17.478 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [6ms]
+2025-03-14 21:09:20.950 [info] > git fetch [369ms]
+2025-03-14 21:09:20.950 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:09:20.960 [info] > git config --get commit.template [6ms]
+2025-03-14 21:09:20.963 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-14 21:09:20.982 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-14 21:09:21.139 [info] > git status -z -uall [172ms]
+2025-03-14 21:12:21.528 [info] > git fetch [375ms]
+2025-03-14 21:12:21.529 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:12:21.549 [info] > git config --get commit.template [12ms]
+2025-03-14 21:12:21.558 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [14ms]
+2025-03-14 21:12:21.582 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [8ms]
+2025-03-14 21:12:21.796 [info] > git status -z -uall [231ms]
+2025-03-14 21:15:36.641 [info] > git fetch [501ms]
+2025-03-14 21:15:36.641 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:15:36.650 [info] > git config --get commit.template [4ms]
+2025-03-14 21:15:36.652 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 21:15:36.668 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-14 21:15:36.811 [info] > git status -z -uall [155ms]
+2025-03-14 21:30:11.989 [info] > git fetch [519ms]
+2025-03-14 21:30:11.989 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:30:12.006 [info] > git config --get commit.template [10ms]
+2025-03-14 21:30:12.025 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [20ms]
+2025-03-14 21:30:12.080 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [31ms]
+2025-03-14 21:30:12.342 [info] > git status -z -uall [311ms]
+2025-03-14 21:35:30.738 [info] > git fetch [507ms]
+2025-03-14 21:35:30.738 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:35:30.754 [info] > git config --get commit.template [8ms]
+2025-03-14 21:35:30.758 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-14 21:35:30.782 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-14 21:35:30.985 [info] > git status -z -uall [222ms]
+2025-03-14 21:38:31.507 [info] > git fetch [511ms]
+2025-03-14 21:38:31.507 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:38:31.522 [info] > git config --get commit.template [9ms]
+2025-03-14 21:38:31.526 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-14 21:38:31.588 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [21ms]
+2025-03-14 21:38:31.842 [info] > git status -z -uall [288ms]
+2025-03-14 21:41:32.234 [info] > git fetch [381ms]
+2025-03-14 21:41:32.234 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:41:32.243 [info] > git config --get commit.template [4ms]
+2025-03-14 21:41:32.245 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 21:41:32.262 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-14 21:41:32.398 [info] > git status -z -uall [149ms]
+2025-03-14 21:44:32.770 [info] > git fetch [361ms]
+2025-03-14 21:44:32.770 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 21:44:32.792 [info] > git config --get commit.template [15ms]
+2025-03-14 21:44:32.797 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-14 21:44:32.826 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [12ms]
+2025-03-14 21:44:33.046 [info] > git status -z -uall [244ms]
+2025-03-14 22:06:14.538 [info] > git fetch [416ms]
+2025-03-14 22:06:14.538 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:06:14.554 [info] > git config --get commit.template [10ms]
+2025-03-14 22:06:14.558 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2025-03-14 22:06:14.584 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-14 22:06:14.772 [info] > git status -z -uall [208ms]
+2025-03-14 22:18:14.896 [info] > git fetch [511ms]
+2025-03-14 22:18:14.896 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:18:14.912 [info] > git config --get commit.template [9ms]
+2025-03-14 22:18:14.915 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2025-03-14 22:18:14.938 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-14 22:18:15.151 [info] > git status -z -uall [230ms]
+2025-03-14 22:20:00.941 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [25ms]
+2025-03-14 22:20:00.949 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [24ms]
+2025-03-14 22:20:00.956 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [2ms]
+2025-03-14 22:20:02.767 [info] > git blame --root --incremental 0b71143f26952758a8fdfdbbfd8ffcbbf01648f4 -- 2025/connect-the-dot/public/src/background.js [48ms]
+2025-03-14 22:20:05.219 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [209ms]
+2025-03-14 22:20:05.219 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [168ms]
+2025-03-14 22:20:05.289 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [51ms]
+2025-03-14 22:21:15.553 [info] > git fetch [385ms]
+2025-03-14 22:21:15.553 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:21:15.568 [info] > git config --get commit.template [9ms]
+2025-03-14 22:21:15.572 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-14 22:21:15.600 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-14 22:21:15.780 [info] > git status -z -uall [202ms]
+2025-03-14 22:22:05.655 [info] > git show --textconv :2025/connect-the-dot/public/style.css [21ms]
+2025-03-14 22:22:05.657 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [17ms]
+2025-03-14 22:22:05.663 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 22:22:07.311 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [17ms]
+2025-03-14 22:22:07.316 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [15ms]
+2025-03-14 22:22:07.322 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [2ms]
+2025-03-14 22:24:16.151 [info] > git fetch [362ms]
+2025-03-14 22:24:16.151 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:24:16.175 [info] > git config --get commit.template [17ms]
+2025-03-14 22:24:16.186 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [12ms]
+2025-03-14 22:24:16.214 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [13ms]
+2025-03-14 22:24:16.439 [info] > git status -z -uall [246ms]
+2025-03-14 22:27:16.811 [info] > git fetch [362ms]
+2025-03-14 22:27:16.811 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:27:16.830 [info] > git config --get commit.template [11ms]
+2025-03-14 22:27:16.833 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-14 22:27:16.858 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [8ms]
+2025-03-14 22:27:17.065 [info] > git status -z -uall [225ms]
+2025-03-14 22:28:18.457 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [27ms]
+2025-03-14 22:28:18.464 [info] > git show --textconv :2025/connect-the-dot/public/style.css [46ms]
+2025-03-14 22:28:18.469 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [6ms]
+2025-03-14 22:28:46.839 [info] > git show --textconv :2025/connect-the-dot/public/index.html [22ms]
+2025-03-14 22:28:46.844 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [18ms]
+2025-03-14 22:28:46.852 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 22:28:49.672 [info] > git show --textconv :2025/connect-the-dot/public/style.css [19ms]
+2025-03-14 22:28:49.676 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [15ms]
+2025-03-14 22:28:49.682 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 22:28:50.692 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [34ms]
+2025-03-14 22:28:50.697 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [27ms]
+2025-03-14 22:28:50.706 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [4ms]
+2025-03-14 22:30:40.200 [info] > git fetch [534ms]
+2025-03-14 22:30:40.200 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:30:40.214 [info] > git config --get commit.template [8ms]
+2025-03-14 22:30:40.217 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-14 22:30:40.241 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [11ms]
+2025-03-14 22:30:40.434 [info] > git status -z -uall [213ms]
+2025-03-14 22:30:41.195 [info] > git show --textconv :2025/connect-the-dot/public/style.css [24ms]
+2025-03-14 22:30:41.201 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [19ms]
+2025-03-14 22:30:41.210 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 22:30:56.012 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 22:30:56.015 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [14ms]
+2025-03-14 22:30:56.024 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [6ms]
+2025-03-14 22:35:20.154 [info] > git fetch [356ms]
+2025-03-14 22:35:20.154 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:35:20.172 [info] > git config --get commit.template [10ms]
+2025-03-14 22:35:20.175 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2025-03-14 22:35:20.198 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-14 22:35:20.414 [info] > git status -z -uall [233ms]
+2025-03-14 22:35:23.279 [info] > git show --textconv :2025/connect-the-dot/public/style.css [30ms]
+2025-03-14 22:35:23.283 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [25ms]
+2025-03-14 22:35:23.292 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 22:35:29.428 [info] > git show --textconv :2025/connect-the-dot/public/index.html [26ms]
+2025-03-14 22:35:29.432 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [17ms]
+2025-03-14 22:35:29.440 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 22:35:30.575 [info] > git show --textconv :2025/connect-the-dot/public/style.css [22ms]
+2025-03-14 22:35:30.577 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [16ms]
+2025-03-14 22:35:30.585 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 22:35:31.571 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [21ms]
+2025-03-14 22:35:31.575 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [18ms]
+2025-03-14 22:35:31.582 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 22:36:30.219 [info] > git show --textconv :2025/connect-the-dot/public/style.css [31ms]
+2025-03-14 22:36:30.221 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [23ms]
+2025-03-14 22:36:30.231 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 22:36:32.179 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [22ms]
+2025-03-14 22:36:32.182 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [17ms]
+2025-03-14 22:36:32.195 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [7ms]
+2025-03-14 22:36:40.156 [info] > git show --textconv :2025/connect-the-dot/server.js [60ms]
+2025-03-14 22:36:40.159 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [45ms]
+2025-03-14 22:36:40.180 [info] > git cat-file -s 5068bcefd1ef063c30acdb52f957d59c5b921a13 [15ms]
+2025-03-14 22:36:40.243 [info] > git blame --root --incremental 0b71143f26952758a8fdfdbbfd8ffcbbf01648f4 -- 2025/connect-the-dot/server.js [32ms]
+2025-03-14 22:36:40.648 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/server.js [710ms]
+2025-03-14 22:36:40.678 [info] > git rev-list origin/main..main [15ms]
+2025-03-14 22:36:49.243 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [17ms]
+2025-03-14 22:36:49.247 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [14ms]
+2025-03-14 22:36:49.252 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [2ms]
+2025-03-14 22:39:34.301 [info] > git fetch [496ms]
+2025-03-14 22:39:34.301 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:39:34.312 [info] > git config --get commit.template [6ms]
+2025-03-14 22:39:34.315 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 22:39:34.331 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-14 22:39:34.466 [info] > git status -z -uall [148ms]
+2025-03-14 22:39:35.242 [info] > git show --textconv :2025/connect-the-dot/public/style.css [19ms]
+2025-03-14 22:39:35.245 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [16ms]
+2025-03-14 22:39:35.255 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [5ms]
+2025-03-14 22:40:13.115 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [26ms]
+2025-03-14 22:40:13.124 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [26ms]
+2025-03-14 22:40:13.133 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [4ms]
+2025-03-14 22:40:52.641 [info] > git show --textconv :2025/connect-the-dot/public/style.css [18ms]
+2025-03-14 22:40:52.646 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [12ms]
+2025-03-14 22:40:52.651 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 22:40:53.509 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [28ms]
+2025-03-14 22:40:53.510 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [21ms]
+2025-03-14 22:40:53.520 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [6ms]
+2025-03-14 22:40:53.872 [info] > git show --textconv :2025/connect-the-dot/server.js [22ms]
+2025-03-14 22:40:53.876 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [20ms]
+2025-03-14 22:40:53.884 [info] > git cat-file -s 5068bcefd1ef063c30acdb52f957d59c5b921a13 [3ms]
+2025-03-14 22:40:56.784 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [34ms]
+2025-03-14 22:40:56.786 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [28ms]
+2025-03-14 22:40:56.795 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [3ms]
+2025-03-14 22:40:57.403 [info] > git show --textconv :2025/connect-the-dot/public/style.css [16ms]
+2025-03-14 22:40:57.408 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [16ms]
+2025-03-14 22:40:57.414 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 22:42:38.243 [info] > git fetch [369ms]
+2025-03-14 22:42:38.243 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:42:38.251 [info] > git config --get commit.template [4ms]
+2025-03-14 22:42:38.254 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 22:42:38.271 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-14 22:42:38.405 [info] > git status -z -uall [147ms]
+2025-03-14 22:42:39.425 [info] > git show --textconv :2025/connect-the-dot/public/index.html [15ms]
+2025-03-14 22:42:39.429 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [13ms]
+2025-03-14 22:42:39.435 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 22:42:40.263 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [17ms]
+2025-03-14 22:42:40.267 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [15ms]
+2025-03-14 22:42:40.272 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [2ms]
+2025-03-14 22:42:48.798 [info] > git show --textconv :2025/connect-the-dot/server.js [16ms]
+2025-03-14 22:42:48.803 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [15ms]
+2025-03-14 22:42:48.808 [info] > git cat-file -s 5068bcefd1ef063c30acdb52f957d59c5b921a13 [2ms]
+2025-03-14 22:42:49.937 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [18ms]
+2025-03-14 22:42:49.939 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [10ms]
+2025-03-14 22:42:49.945 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [2ms]
+2025-03-14 22:42:51.710 [info] > git show --textconv :2025/connect-the-dot/public/style.css [18ms]
+2025-03-14 22:42:51.723 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [22ms]
+2025-03-14 22:42:51.731 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [5ms]
+2025-03-14 22:46:54.308 [info] > git fetch [375ms]
+2025-03-14 22:46:54.308 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:46:54.318 [info] > git config --get commit.template [6ms]
+2025-03-14 22:46:54.321 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-14 22:46:54.335 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+2025-03-14 22:46:54.464 [info] > git status -z -uall [140ms]
+2025-03-14 22:47:02.163 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [26ms]
+2025-03-14 22:47:02.165 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [23ms]
+2025-03-14 22:47:02.173 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [4ms]
+2025-03-14 22:47:04.539 [info] > git show --textconv :2025/connect-the-dot/server.js [36ms]
+2025-03-14 22:47:04.542 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [31ms]
+2025-03-14 22:47:04.554 [info] > git cat-file -s 5068bcefd1ef063c30acdb52f957d59c5b921a13 [5ms]
+2025-03-14 22:47:05.411 [info] > git show --textconv :2025/connect-the-dot/public/src/background.js [22ms]
+2025-03-14 22:47:05.414 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/background.js [16ms]
+2025-03-14 22:47:05.420 [info] > git cat-file -s c703b699a487211cd5ecf71ce3cc817cb5ccbb78 [2ms]
+2025-03-14 22:47:06.564 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 22:47:06.566 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [13ms]
+2025-03-14 22:47:06.573 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 22:47:06.902 [info] > git show --textconv :2025/connect-the-dot/server.js [16ms]
+2025-03-14 22:47:06.906 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [14ms]
+2025-03-14 22:47:06.913 [info] > git cat-file -s 5068bcefd1ef063c30acdb52f957d59c5b921a13 [2ms]
+2025-03-14 22:47:07.369 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [26ms]
+2025-03-14 22:47:07.372 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 22:47:07.386 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [8ms]
+2025-03-14 22:47:08.229 [info] > git show --textconv :2025/connect-the-dot/public/style.css [26ms]
+2025-03-14 22:47:08.233 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [22ms]
+2025-03-14 22:47:08.242 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [3ms]
+2025-03-14 22:47:12.568 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [20ms]
+2025-03-14 22:47:12.570 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [13ms]
+2025-03-14 22:47:12.576 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [3ms]
+2025-03-14 22:47:41.039 [info] > git show --textconv :2025/connect-the-dot/public/style.css [28ms]
+2025-03-14 22:47:41.044 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [23ms]
+2025-03-14 22:47:41.052 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 22:48:22.839 [info] > git show --textconv :2025/connect-the-dot/public/index.html [20ms]
+2025-03-14 22:48:22.844 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [15ms]
+2025-03-14 22:48:22.851 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [3ms]
+2025-03-14 22:48:26.965 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [16ms]
+2025-03-14 22:48:26.969 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [12ms]
+2025-03-14 22:48:26.975 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [2ms]
+2025-03-14 22:48:29.148 [info] > git show --textconv :2025/connect-the-dot/public/style.css [18ms]
+2025-03-14 22:48:29.152 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [15ms]
+2025-03-14 22:48:29.157 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 22:48:31.619 [info] > git show --textconv :2025/connect-the-dot/public/index.html [20ms]
+2025-03-14 22:48:31.632 [info] > git ls-files --stage -- 2025/connect-the-dot/public/index.html [27ms]
+2025-03-14 22:48:31.637 [info] > git cat-file -s 449bc05323cfae14329baccb5ea98d72fa74061e [2ms]
+2025-03-14 22:48:39.115 [info] > git show --textconv :2025/connect-the-dot/public/style.css [17ms]
+2025-03-14 22:48:39.119 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [14ms]
+2025-03-14 22:48:39.126 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [2ms]
+2025-03-14 22:48:39.979 [info] > git show --textconv :2025/connect-the-dot/server.js [21ms]
+2025-03-14 22:48:39.984 [info] > git ls-files --stage -- 2025/connect-the-dot/server.js [19ms]
+2025-03-14 22:48:40.000 [info] > git cat-file -s 5068bcefd1ef063c30acdb52f957d59c5b921a13 [11ms]
+2025-03-14 22:48:41.581 [info] > git show --textconv :2025/connect-the-dot/public/style.css [29ms]
+2025-03-14 22:48:41.587 [info] > git ls-files --stage -- 2025/connect-the-dot/public/style.css [25ms]
+2025-03-14 22:48:41.596 [info] > git cat-file -s 951c5bdc5f34ae425f29ca4a21fb9cc92952b623 [4ms]
+2025-03-14 22:48:45.450 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [74ms]
+2025-03-14 22:48:45.468 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [82ms]
+2025-03-14 22:48:45.476 [info] > git cat-file -s 3f7ab5741acaf856660c2ee1cab8ae8da548d15f [2ms]
+2025-03-14 22:49:54.998 [info] > git fetch [520ms]
+2025-03-14 22:49:54.998 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-14 22:49:55.010 [info] > git config --get commit.template [7ms]
+2025-03-14 22:49:55.013 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-14 22:49:55.036 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [11ms]
+2025-03-14 22:49:55.186 [info] > git status -z -uall [168ms]
+2025-03-14 22:51:20.272 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [1486ms]
+2025-03-14 22:51:20.297 [info] > git rev-list origin/main..main [16ms]
+2025-03-14 22:51:23.863 [info] > git check-ignore -v -z --stdin [38ms]
+2025-03-14 22:51:24.412 [info] > git check-ignore -v -z --stdin [12ms]

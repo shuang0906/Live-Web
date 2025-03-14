@@ -141,8 +141,9 @@ body {
 #cursorCanvas{
     position: absolute;
     pointer-events: none;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 233, 210, 0.3);
-    z-index: 1000;
+}
+
+.cursor {
+    position: absolute;
+    pointer-events: none;
 }

@@ -124,7 +124,47 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
             const textWidth = ctx.measureText(dot.index).width;
             ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 3);
         });
+
+        //drawCursors(); // Draw cursors last so they're on top
+
     }
+
+    // canvas.addEventListener('mousemove', (event) => {
+    //     const rect = canvas.getBoundingClientRect();
+    //     const position = {
+    //         x: Math.round((event.clientX - rect.left) * 100) / 100,
+    //         y: Math.round((event.clientY - rect.top) * 100) / 100
+    //     };
+    //     socket.emit('cursor move', { position, canvasId: event.srcElement.id }); 
+    // });
+
+
+    // canvas.addEventListener('mouseleave', () => {
+    //     socket.emit('cursor leave', { canvasId: canvasId });
+    // });
+
+    // // Listen for cursor updates from other clients
+    // socket.on('cursor update', (data) => {
+    //     if (data.canvasId !== canvasId) return;
+    //     cursorsList[data.socketId] = { position: data.position, color: data.color, username: data.username };
+    //     draw(); // Redraw the canvas to show the updated cursor positions
+    // });
+
+    // // Clear cursor data for users who disconnect
+    // socket.on('user disconnected', (socketId) => {
+    //     console.log(`Before deletion:`, cursorsList);
+    //     delete cursorsList[socketId];
+    //     console.log(`After deletion:`, cursorsList);
+    //     draw(); // Redraw the canvas to remove the cursor
+    // });
+
+    // // Clear cursor data for users who are not on the canvas
+    // socket.on('remove cursor', (data) => {
+    //     if (data.canvasId !== canvasId) return; // Ensure we remove only from the correct canvas
+    //     delete cursorsList[data.socketId];
+    //     draw(); // Redraw the canvas to remove the cursor
+    // });
+
 
     // Check if a position is close to a dot
     function closeToDot(x, y) {

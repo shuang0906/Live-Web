@@ -146,3 +146,8 @@ body {
     background-color: rgba(0, 233, 210, 0.3);
     z-index: 1000;
 }
+
+.cursor {
+    position: absolute;
+    /* pointer-events: none; */
+}

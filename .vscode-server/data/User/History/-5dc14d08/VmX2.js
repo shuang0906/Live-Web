@@ -1,5 +1,6 @@
 // request animation frame to make 
 // draw cursor on a canvas on a top canvas that is not interactable
+
 function setupCanvas(canvas) {
     var dpr = window.devicePixelRatio || 1;
     var rect = canvas.getBoundingClientRect();
@@ -10,17 +11,11 @@ function setupCanvas(canvas) {
     return ctx;
 }
 
-const overlayCanvas = document.getElementById('cursorCanvas');
-const overlayCtx = setupCanvas(overlayCanvas);
-function resizeCanvas() {
-    overlayCanvas.width = window.innerWidth;
-    overlayCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-
-
 function setupCursorOverlay(canvasId) {
-    
+    const mainCanvas = document.getElementById(canvasId);
+    const overlayCanvas = document.getElementById("cursorCanvas");
+
+    const overlayCtx = setupCanvas(overlayCanvas); // Set up the overlay canvas
     const cursorsList = {};
     let myCursorColor = 'black';
 
@@ -48,9 +43,8 @@ function setupCursorOverlay(canvasId) {
         }
     }
 
-    document.addEventListener('mousemove', (event) => {
-        console.log('mouse move')
-        const rect = overlayCanvas.getBoundingClientRect();
+    mainCanvas.addEventListener('mousemove', (event) => {
+        const rect = mainCanvas.getBoundingClientRect();
         const position = {
             x: Math.round((event.clientX - rect.left) * 100) / 100,
             y: Math.round((event.clientY - rect.top) * 100) / 100
@@ -58,7 +52,12 @@ function setupCursorOverlay(canvasId) {
         socket.emit('cursor move', { position, canvasId: event.srcElement.id });
     });
 
+    mainCanvas.addEventListener('mouseleave', () => {
+        socket.emit('cursor leave', { canvasId: canvasId });
+    });
+
     socket.on('cursor update', (data) => {
+        if (data.canvasId !== canvasId) return;
         cursorsList[data.socketId] = { position: data.position, color: data.color, username: data.username };
         drawCursors();
     });
@@ -96,6 +95,33 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
     }));
 
     const connections = []; // Array to store connections between dots
+    const cursorsList = {};// Object to track other users' cursor positions
+
+    // Function to draw other users' cursors
+    // function drawCursors() {
+    //     for (let id in cursorsList) {
+    //         const cursor = cursorsList[id];
+    //         ctx.beginPath();
+    //         ctx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
+    //         ctx.fillStyle = cursor.color; // Use the color assigned by the server
+    //         ctx.fill();
+
+    //         // Draw the username next to the cursor
+    //         ctx.font = '12px Arial';
+    //         ctx.fillStyle = cursor.color; // Use the same color for the username
+    //         const textWidth = ctx.measureText(cursor.username).width;
+    //         const height = 16;
+    //         const margin = 6;
+    //         const distance = 15;
+    //         ctx.beginPath();
+    //         ctx.roundRect(cursor.position.x + distance, cursor.position.y - height / 2, textWidth + margin * 2, height, height / 2);
+    //         ctx.fill();
+    //         ctx.fillStyle = 'white';
+    //         ctx.fillText(cursor.username, cursor.position.x + distance + margin, cursor.position.y + 4);
+    //     }
+    // }
+
+    // let myCursorColor = 'black'; // Default color, updated upon 'assign color' event
 
     // Draw initial dots and connections
     function draw() {
@@ -124,7 +150,47 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
             const textWidth = ctx.measureText(dot.index).width;
             ctx.fillText(dot.index, dot.x - textWidth / 2, dot.y - 3);
         });
+
+        //drawCursors(); // Draw cursors last so they're on top
+
     }
+
+    // canvas.addEventListener('mousemove', (event) => {
+    //     const rect = canvas.getBoundingClientRect();
+    //     const position = {
+    //         x: Math.round((event.clientX - rect.left) * 100) / 100,
+    //         y: Math.round((event.clientY - rect.top) * 100) / 100
+    //     };
+    //     socket.emit('cursor move', { position, canvasId: event.srcElement.id }); 
+    // });
+
+
+    // canvas.addEventListener('mouseleave', () => {
+    //     socket.emit('cursor leave', { canvasId: canvasId });
+    // });
+
+    // // Listen for cursor updates from other clients
+    // socket.on('cursor update', (data) => {
+    //     if (data.canvasId !== canvasId) return;
+    //     cursorsList[data.socketId] = { position: data.position, color: data.color, username: data.username };
+    //     draw(); // Redraw the canvas to show the updated cursor positions
+    // });
+
+    // // Clear cursor data for users who disconnect
+    // socket.on('user disconnected', (socketId) => {
+    //     console.log(`Before deletion:`, cursorsList);
+    //     delete cursorsList[socketId];
+    //     console.log(`After deletion:`, cursorsList);
+    //     draw(); // Redraw the canvas to remove the cursor
+    // });
+
+    // // Clear cursor data for users who are not on the canvas
+    // socket.on('remove cursor', (data) => {
+    //     if (data.canvasId !== canvasId) return; // Ensure we remove only from the correct canvas
+    //     delete cursorsList[data.socketId];
+    //     draw(); // Redraw the canvas to remove the cursor
+    // });
+
 
     // Check if a position is close to a dot
     function closeToDot(x, y) {
@@ -175,12 +241,13 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
         draw();
     });
 
-    setupCursorOverlay(canvasId);
     draw(); // Initial draw
 
     socket.on('assign color', (color) => {
         myCursorColor = color; // Update this user's cursor color
     });
+
+    setupCursorOverlay(canvasId);
 
 }
 
