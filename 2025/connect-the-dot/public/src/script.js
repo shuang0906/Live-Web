@@ -1,5 +1,4 @@
-// request animation frame to make 
-// draw cursor on a canvas on a top canvas that is not interactable
+// request animation frame to improve performance?
 function setupCanvas(canvas) {
     var dpr = window.devicePixelRatio || 1;
     var rect = canvas.getBoundingClientRect();
@@ -17,61 +16,55 @@ function resizeCanvas() {
     overlayCanvas.height = window.innerHeight;
 }
 window.addEventListener('resize', resizeCanvas);
+
 let myCursorColor = 'black';
+const cursorsMap = new Map();
 
-
-function setupCursorOverlay(canvasId) {
+function drawCursors() {
+    overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
     
-    const cursorsList = {};
+    cursorsMap.forEach(cursor => {
+        overlayCtx.beginPath();
+        overlayCtx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
+        overlayCtx.fillStyle = cursor.color;
+        overlayCtx.fill();
 
-    function drawCursors() {
-        overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height); // Only clear overlay
+        overlayCtx.font = '12px Arial';
+        overlayCtx.fillStyle = cursor.color;
+        const textWidth = overlayCtx.measureText(cursor.username).width;
+        overlayCtx.beginPath();
+        overlayCtx.roundRect(cursor.position.x + 15, cursor.position.y - 8, textWidth + 12, 16, 8);
+        overlayCtx.fill();
+        overlayCtx.fillStyle = 'white';
+        overlayCtx.fillText(cursor.username, cursor.position.x + 21, cursor.position.y + 4);
+    });
+    requestAnimationFrame(drawCursors);
+}
+requestAnimationFrame(drawCursors);
 
-        for (let id in cursorsList) {
-            const cursor = cursorsList[id];
-            overlayCtx.beginPath();
-            overlayCtx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
-            overlayCtx.fillStyle = cursor.color;
-            overlayCtx.fill();
-
-            overlayCtx.font = '12px Arial';
-            overlayCtx.fillStyle = cursor.color;
-            const textWidth = overlayCtx.measureText(cursor.username).width;
-            const height = 16;
-            const margin = 6;
-            const distance = 15;
-            overlayCtx.beginPath();
-            overlayCtx.roundRect(cursor.position.x + distance, cursor.position.y - height / 2, textWidth + margin * 2, height, height / 2);
-            overlayCtx.fill();
-            overlayCtx.fillStyle = 'white';
-            overlayCtx.fillText(cursor.username, cursor.position.x + distance + margin, cursor.position.y + 4);
-        }
-    }
-
+function setupCursorOverlay() {
     document.addEventListener('mousemove', (event) => {
-        console.log('mouse move')
         const rect = overlayCanvas.getBoundingClientRect();
         const position = {
             x: Math.round((event.clientX - rect.left) * 100) / 100,
             y: Math.round((event.clientY - rect.top) * 100) / 100
         };
-        socket.emit('cursor move', { position, canvasId: event.srcElement.id });
+        socket.emit('cursor move', { position, canvasId: event.target.id });
     });
 
     socket.on('cursor update', (data) => {
-        cursorsList[data.socketId] = { position: data.position, color: data.color, username: data.username };
-        drawCursors();
+        cursorsMap.set(data.socketId, { position: data.position, color: data.color, username: data.username });
     });
 
     socket.on('user disconnected', (socketId) => {
-        delete cursorsList[socketId];
-        drawCursors();
+        cursorsMap.delete(socketId);
     });
 
     socket.on('assign color', (color) => {
         myCursorColor = color;
     });
 }
+
 
 function setupAndDrawCanvas(canvasId, dotDatas) {
 
