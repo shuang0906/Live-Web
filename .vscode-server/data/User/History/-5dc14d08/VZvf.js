@@ -1,3 +1,4 @@
+// request animation frame to improve performance?
 function setupCanvas(canvas) {
     var dpr = window.devicePixelRatio || 1;
     var rect = canvas.getBoundingClientRect();
@@ -16,7 +17,7 @@ function resizeCanvas() {
 }
 window.addEventListener('resize', resizeCanvas);
 
-let cursorColor = 'black';
+let myCursorColor = 'black';
 const cursorsMap = new Map();
 
 function drawCursors() {
@@ -26,9 +27,12 @@ function drawCursors() {
         overlayCtx.beginPath();
         overlayCtx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
         overlayCtx.fillStyle = cursor.color;
+        overlayCtx.fill();
 
         overlayCtx.font = '12px Arial';
+        overlayCtx.fillStyle = cursor.color;
         const textWidth = overlayCtx.measureText(cursor.username).width;
+        overlayCtx.beginPath();
         overlayCtx.roundRect(cursor.position.x + 15, cursor.position.y - 8, textWidth + 12, 16, 8);
         overlayCtx.fill();
         overlayCtx.fillStyle = 'white';
@@ -57,7 +61,7 @@ function setupCursorOverlay() {
     });
 
     socket.on('assign color', (color) => {
-        cursorColor = color;
+        myCursorColor = color;
     });
 }
 
@@ -84,7 +88,7 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redraw cursor
         ctx.save();
-        //ctx.rect(0, 0, canvas.width, canvas.height);
+        ctx.rect(0, 0, canvas.width, canvas.height);
 
         // Draw all connections
         connections.forEach(connection => {
@@ -109,33 +113,61 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
         });
     }
 
+    const state = {
+        dots: [],
+        connections: [],
+        lastConnectedDot: null,
+        activeConnections: new Set() // Keep track of existing connections
+    };
+
     // Check if a position is close to a dot
     function closeToDot(x, y) {
-        return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 5);
+        //return dots.find(dot => Math.sqrt((dot.x - x) ** 2 + (dot.y - y) ** 2) < 5);
+        return state.dots.find(dot => Math.hypot(dot.x - x, dot.y - y) < 5);
     }
 
     // Add connection between two dots
     function connectDots(dot1, dot2, userColor) {
-        connections.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
-        dot1.connected = dot2.connected = true;
-        dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
+        // connections.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
+        // dot1.connected = dot2.connected = true;
+        // dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
+        const connectionKey = `${dot1.index}-${dot2.index}`;
+        if (!state.activeConnections.has(connectionKey)) {
+            state.connections.push({ from: dot1, to: dot2, color: userColor });
+            dot1.connected = dot2.connected = true;
+            dot1.color = dot2.color = userColor;
+            state.activeConnections.add(connectionKey); // Store the connection
+        }
     }
 
     // Handle canvas click events
     canvas.addEventListener('click', (event) => {
-        console.log('canvas id', event.srcElement.id);
-        const rect = canvas.getBoundingClientRect();
-        const x = (event.clientX - rect.left);
-        const y = (event.clientY - rect.top);
-        const closeDot = closeToDot(x, y);
+        // console.log('canvas id', event.srcElement.id);
+        // const rect = canvas.getBoundingClientRect();
+        // const x = (event.clientX - rect.left);
+        // const y = (event.clientY - rect.top);
+        // const closeDot = closeToDot(x, y);
 
-        if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
-            if (lastConnectedDot !== null) {
-                connectDots(lastConnectedDot, closeDot, cursorColor);
-                socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id, color: cursorColor });
+        // if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
+        //     if (lastConnectedDot !== null) {
+        //         connectDots(lastConnectedDot, closeDot, myCursorColor);
+        //         //socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id});
+        //         socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id, color: myCursorColor });
+        //     }
+        //     lastConnectedDot = closeDot;
+        //     draw(); // Redraw to update connections and dot colors
+        // }
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const closeDot = closeToDot(x, y);
+    
+        if (closeDot) {
+            if (state.lastConnectedDot) {
+                connectDots(state.lastConnectedDot, closeDot, myCursorColor);
+                socket.emit('connect dot', { from: state.lastConnectedDot, to: closeDot, canvasId: event.target.id, color: myCursorColor });
             }
-            lastConnectedDot = closeDot;
-            draw(); // Redraw to update connections and dot colors
+            state.lastConnectedDot = closeDot; // Always update last connected dot
         }
     });
 
@@ -155,11 +187,11 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
         draw();
     });
 
-    setupCursorOverlay();
+    setupCursorOverlay(canvasId);
     draw(); // Initial draw
 
     socket.on('assign color', (color) => {
-        cursorColor = color; // Update this user's cursor color
+        myCursorColor = color; // Update this user's cursor color
     });
 
 }

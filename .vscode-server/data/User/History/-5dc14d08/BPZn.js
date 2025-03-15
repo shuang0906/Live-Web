@@ -16,7 +16,7 @@ function resizeCanvas() {
 }
 window.addEventListener('resize', resizeCanvas);
 
-let cursorColor = 'black';
+let myCursorColor = 'black';
 const cursorsMap = new Map();
 
 function drawCursors() {
@@ -26,9 +26,12 @@ function drawCursors() {
         overlayCtx.beginPath();
         overlayCtx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
         overlayCtx.fillStyle = cursor.color;
+        overlayCtx.fill();
 
         overlayCtx.font = '12px Arial';
+        overlayCtx.fillStyle = cursor.color;
         const textWidth = overlayCtx.measureText(cursor.username).width;
+        overlayCtx.beginPath();
         overlayCtx.roundRect(cursor.position.x + 15, cursor.position.y - 8, textWidth + 12, 16, 8);
         overlayCtx.fill();
         overlayCtx.fillStyle = 'white';
@@ -57,7 +60,7 @@ function setupCursorOverlay() {
     });
 
     socket.on('assign color', (color) => {
-        cursorColor = color;
+        myCursorColor = color;
     });
 }
 
@@ -116,7 +119,7 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
 
     // Add connection between two dots
     function connectDots(dot1, dot2, userColor) {
-        connections.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
+        connectionsList.push({ from: dot1, to: dot2, color: userColor }); // Store the connection
         dot1.connected = dot2.connected = true;
         dot1.color = dot2.color = userColor; // Assign the user's color to the connected dots
     }
@@ -131,8 +134,8 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
 
         if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
             if (lastConnectedDot !== null) {
-                connectDots(lastConnectedDot, closeDot, cursorColor);
-                socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id, color: cursorColor });
+                connectDots(lastConnectedDot, closeDot, myCursorColor);
+                socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id, color: myCursorColor });
             }
             lastConnectedDot = closeDot;
             draw(); // Redraw to update connections and dot colors
@@ -159,7 +162,7 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
     draw(); // Initial draw
 
     socket.on('assign color', (color) => {
-        cursorColor = color; // Update this user's cursor color
+        myCursorColor = color; // Update this user's cursor color
     });
 
 }

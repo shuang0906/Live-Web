@@ -26,9 +26,12 @@ function drawCursors() {
         overlayCtx.beginPath();
         overlayCtx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
         overlayCtx.fillStyle = cursor.color;
+        overlayCtx.fill();
 
         overlayCtx.font = '12px Arial';
+        //overlayCtx.fillStyle = cursor.color;
         const textWidth = overlayCtx.measureText(cursor.username).width;
+        overlayCtx.beginPath();
         overlayCtx.roundRect(cursor.position.x + 15, cursor.position.y - 8, textWidth + 12, 16, 8);
         overlayCtx.fill();
         overlayCtx.fillStyle = 'white';

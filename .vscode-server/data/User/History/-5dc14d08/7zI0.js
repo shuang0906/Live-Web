@@ -1,3 +1,4 @@
+// request animation frame to improve performance?
 function setupCanvas(canvas) {
     var dpr = window.devicePixelRatio || 1;
     var rect = canvas.getBoundingClientRect();
@@ -16,7 +17,7 @@ function resizeCanvas() {
 }
 window.addEventListener('resize', resizeCanvas);
 
-let cursorColor = 'black';
+let myCursorColor = 'black';
 const cursorsMap = new Map();
 
 function drawCursors() {
@@ -26,9 +27,12 @@ function drawCursors() {
         overlayCtx.beginPath();
         overlayCtx.arc(cursor.position.x, cursor.position.y, 4, 0, 2 * Math.PI);
         overlayCtx.fillStyle = cursor.color;
+        overlayCtx.fill();
 
         overlayCtx.font = '12px Arial';
+        overlayCtx.fillStyle = cursor.color;
         const textWidth = overlayCtx.measureText(cursor.username).width;
+        overlayCtx.beginPath();
         overlayCtx.roundRect(cursor.position.x + 15, cursor.position.y - 8, textWidth + 12, 16, 8);
         overlayCtx.fill();
         overlayCtx.fillStyle = 'white';
@@ -57,7 +61,7 @@ function setupCursorOverlay() {
     });
 
     socket.on('assign color', (color) => {
-        cursorColor = color;
+        myCursorColor = color;
     });
 }
 
@@ -84,7 +88,7 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before redraw cursor
         ctx.save();
-        //ctx.rect(0, 0, canvas.width, canvas.height);
+        ctx.rect(0, 0, canvas.width, canvas.height);
 
         // Draw all connections
         connections.forEach(connection => {
@@ -125,14 +129,17 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
     canvas.addEventListener('click', (event) => {
         console.log('canvas id', event.srcElement.id);
         const rect = canvas.getBoundingClientRect();
+        // const x = event.clientX - rect.left;
+        // const y = event.clientY - rect.top;
         const x = (event.clientX - rect.left);
         const y = (event.clientY - rect.top);
         const closeDot = closeToDot(x, y);
 
         if (closeDot && (lastConnectedDot === null || dots.indexOf(closeDot) === dots.indexOf(lastConnectedDot) + 1)) {
             if (lastConnectedDot !== null) {
-                connectDots(lastConnectedDot, closeDot, cursorColor);
-                socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id, color: cursorColor });
+                connectDots(lastConnectedDot, closeDot, myCursorColor);
+                //socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id});
+                socket.emit('connect dot', { from: lastConnectedDot, to: closeDot, canvasId: event.srcElement.id, color: myCursorColor });
             }
             lastConnectedDot = closeDot;
             draw(); // Redraw to update connections and dot colors
@@ -155,11 +162,11 @@ function setupAndDrawCanvas(canvasId, dotDatas) {
         draw();
     });
 
-    setupCursorOverlay();
+    setupCursorOverlay(canvasId);
     draw(); // Initial draw
 
     socket.on('assign color', (color) => {
-        cursorColor = color; // Update this user's cursor color
+        myCursorColor = color; // Update this user's cursor color
     });
 
 }
@@ -170,7 +177,7 @@ function loadAndDrawCanvas(canvasId, jsonPath) {
         .then(dotData => {
             setupAndDrawCanvas(canvasId, dotData);
         })
-        .catch(error => console.error(`Error loading the JSON file (${jsonPath}):`, error));
+        //.catch(error => console.error(Error loading the JSON file (${jsonPath}):, error));
 }
 
 const canvasConfigs = [
