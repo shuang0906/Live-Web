@@ -1,0 +1,12 @@
+2025-03-16 23:31:43.945 [info] 
+
+
+
+
+2025-03-16 23:31:43.957 [info] Extension host agent started.
+2025-03-16 23:31:44.023 [info] [<unknown>][0646d84f][ExtensionHostConnection] New connection established.
+2025-03-16 23:31:44.031 [info] [<unknown>][b06a938e][ManagementConnection] New connection established.
+2025-03-16 23:31:44.149 [info] [<unknown>][0646d84f][ExtensionHostConnection] <475990> Launched Extension Host Process.
+2025-03-16 23:32:02.977 [error] [File Watcher] Unexpected error: inotify_add_watch on '/root/.vscode-server/data/logs/20250304T035537/exthost1/vscode.typescript-language-features' failed: No such file or directory (EUNKNOWN) (path: /root)
+2025-03-16 23:32:02.980 [error] [File Watcher (universal)] inotify_add_watch on '/root/.vscode-server/data/logs/20250304T035537/exthost1/vscode.typescript-language-features' failed: No such file or directory
+2025-03-16 23:36:43.958 [info] New EH opened, aborting shutdown

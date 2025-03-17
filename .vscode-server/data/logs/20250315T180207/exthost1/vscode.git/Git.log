@@ -1,0 +1,582 @@
+2025-03-15 18:02:17.725 [info] [main] Log level: Info
+2025-03-15 18:02:17.725 [info] [main] Validating found git in: "git"
+2025-03-15 18:02:17.725 [info] [main] Using git "2.40.1" from "git"
+2025-03-15 18:02:17.725 [info] [Model][doInitialScan] Initial repository scan started
+2025-03-15 18:02:17.725 [info] > git rev-parse --show-toplevel [1013ms]
+2025-03-15 18:02:17.725 [info] > git rev-parse --git-dir --git-common-dir [713ms]
+2025-03-15 18:02:17.725 [info] [Model][openRepository] Opened repository: /root
+2025-03-15 18:02:18.805 [info] > git rev-parse --show-toplevel [1012ms]
+2025-03-15 18:02:18.806 [info] > git config --get commit.template [1042ms]
+2025-03-15 18:02:18.835 [info] > git fetch [1155ms]
+2025-03-15 18:02:18.835 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 18:02:18.908 [info] > git config --get commit.template [52ms]
+2025-03-15 18:02:19.008 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [122ms]
+2025-03-15 18:02:19.054 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:02:19.060 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [82ms]
+2025-03-15 18:02:19.113 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:02:19.130 [info] > git rev-parse --show-toplevel [29ms]
+2025-03-15 18:02:19.131 [info] > git rev-parse refs/remotes/origin/main [85ms]
+2025-03-15 18:02:19.267 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [69ms]
+2025-03-15 18:02:19.334 [info] > git rev-parse refs/remotes/origin/main [221ms]
+2025-03-15 18:02:19.421 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [43ms]
+2025-03-15 18:02:19.469 [info] > git config --get --local branch.main.vscode-merge-base [136ms]
+2025-03-15 18:02:19.470 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-15 18:02:19.498 [info] > git config --get commit.template [241ms]
+2025-03-15 18:02:19.498 [info] > git rev-parse --show-toplevel [257ms]
+2025-03-15 18:02:20.029 [info] > git check-ignore -v -z --stdin [614ms]
+2025-03-15 18:02:20.051 [info] > git config --get --local branch.main.vscode-merge-base [582ms]
+2025-03-15 18:02:20.052 [warning] [Git][config] git config failed: Failed to execute git
+2025-03-15 18:02:20.196 [info] > git rev-parse --show-toplevel [632ms]
+2025-03-15 18:02:20.203 [info] > git reflog main --grep-reflog=branch: Created from *. [706ms]
+2025-03-15 18:02:20.261 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [167ms]
+2025-03-15 18:02:20.279 [info] > git reflog main --grep-reflog=branch: Created from *. [214ms]
+2025-03-15 18:02:20.333 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:02:20.422 [info] > git rev-parse --show-toplevel [166ms]
+2025-03-15 18:02:20.422 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [197ms]
+2025-03-15 18:02:20.422 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-15 18:02:20.423 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-15 18:02:20.464 [info] > git rev-parse refs/remotes/origin/main [131ms]
+2025-03-15 18:02:20.498 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [197ms]
+2025-03-15 18:02:20.498 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2025-03-15 18:02:20.498 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2025-03-15 18:02:20.629 [info] > git merge-base refs/heads/main refs/remotes/origin/main [99ms]
+2025-03-15 18:02:20.656 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [159ms]
+2025-03-15 18:02:20.658 [info] > git rev-parse --show-toplevel [202ms]
+2025-03-15 18:02:20.663 [info] > git merge-base refs/heads/main refs/remotes/origin/main [218ms]
+2025-03-15 18:02:20.746 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [90ms]
+2025-03-15 18:02:20.775 [info] > git diff --name-status -z --diff-filter=ADMR 2c88edd48e1f8eff6838c8c0b5570d2b3ce4ba8d...refs/remotes/origin/main [80ms]
+2025-03-15 18:02:20.790 [info] > git check-ignore -v -z --stdin [77ms]
+2025-03-15 18:02:20.790 [info] > git rev-parse --show-toplevel [44ms]
+2025-03-15 18:02:20.821 [info] > git rev-parse --show-toplevel [4ms]
+2025-03-15 18:02:21.306 [info] > git status -z -uall [823ms]
+2025-03-15 18:02:21.459 [info] > git rev-parse --show-toplevel [617ms]
+2025-03-15 18:02:21.572 [info] > git rev-parse --show-toplevel [8ms]
+2025-03-15 18:02:21.590 [info] > git rev-parse --show-toplevel [6ms]
+2025-03-15 18:02:21.639 [info] > git rev-parse --show-toplevel [30ms]
+2025-03-15 18:02:21.658 [info] > git rev-parse --show-toplevel [5ms]
+2025-03-15 18:02:21.665 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-03-15 18:02:21.735 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [51ms]
+2025-03-15 18:02:21.750 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [46ms]
+2025-03-15 18:02:21.795 [info] > git cat-file -s 341016216cd110a39f0acd8971405e25b541ea88 [29ms]
+2025-03-15 18:02:21.971 [info] > git blame --root --incremental 070d10664871c6fbc0ed65c7fcb82bd7458fbf03 -- 2025/connect-the-dot/public/src/script.js [83ms]
+2025-03-15 18:02:27.102 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [8133ms]
+2025-03-15 18:02:27.222 [info] > git hash-object -t tree /dev/null [20ms]
+2025-03-15 18:02:27.268 [info] > git rev-list origin/main..main [26ms]
+2025-03-15 18:02:29.788 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/bindery.js [76ms]
+2025-03-15 18:02:29.944 [info] > git show --textconv :2025/connect-the-dot/public/bindery.js [92ms]
+2025-03-15 18:02:29.947 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/bindery.js.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fbindery.js%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:02:29.983 [info] > git ls-files --stage -- 2025/connect-the-dot/public/bindery.js [119ms]
+2025-03-15 18:02:29.984 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/bindery.js.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fbindery.js%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:02:30.300 [info] > git check-ignore -v -z --stdin [202ms]
+2025-03-15 18:02:31.836 [info] > git blame --root --incremental 070d10664871c6fbc0ed65c7fcb82bd7458fbf03 -- 2025/connect-the-dot/public/bindery.js [46ms]
+2025-03-15 18:02:31.837 [info] fatal: no such path 2025/connect-the-dot/public/bindery.js in 070d10664871c6fbc0ed65c7fcb82bd7458fbf03
+2025-03-15 18:02:33.764 [info] > git config --get commit.template [10ms]
+2025-03-15 18:02:33.792 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [12ms]
+2025-03-15 18:02:33.799 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:02:33.804 [info] > git rev-parse refs/remotes/origin/main [5ms]
+2025-03-15 18:02:33.837 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [12ms]
+2025-03-15 18:02:34.323 [info] > git status -z -uall [508ms]
+2025-03-15 18:02:39.351 [info] > git config --get commit.template [11ms]
+2025-03-15 18:02:39.360 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [10ms]
+2025-03-15 18:02:39.369 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:02:39.381 [info] > git rev-parse refs/remotes/origin/main [11ms]
+2025-03-15 18:02:39.408 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [11ms]
+2025-03-15 18:02:39.784 [info] > git status -z -uall [400ms]
+2025-03-15 18:02:44.940 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/bindery.html [224ms]
+2025-03-15 18:02:45.363 [info] > git check-ignore -v -z --stdin [71ms]
+2025-03-15 18:02:45.364 [info] > git rev-list origin/main..main [399ms]
+2025-03-15 18:02:45.401 [info] > git show --textconv :2025/connect-the-dot/public/bindery.html [84ms]
+2025-03-15 18:02:45.401 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/bindery.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fbindery.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:02:45.420 [info] > git ls-files --stage -- 2025/connect-the-dot/public/bindery.html [70ms]
+2025-03-15 18:02:45.420 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/bindery.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fbindery.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:02:45.523 [info] > git blame --root --incremental 070d10664871c6fbc0ed65c7fcb82bd7458fbf03 -- 2025/connect-the-dot/public/bindery.html [25ms]
+2025-03-15 18:02:45.523 [info] fatal: no such path 2025/connect-the-dot/public/bindery.html in 070d10664871c6fbc0ed65c7fcb82bd7458fbf03
+2025-03-15 18:03:01.396 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [31698ms]
+2025-03-15 18:21:20.506 [info] > git fetch [387ms]
+2025-03-15 18:21:20.506 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 18:21:20.523 [info] > git config --get commit.template [11ms]
+2025-03-15 18:21:20.531 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [8ms]
+2025-03-15 18:21:20.535 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:21:20.537 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 18:21:20.556 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+2025-03-15 18:21:21.103 [info] > git status -z -uall [560ms]
+2025-03-15 18:24:21.502 [info] > git fetch [382ms]
+2025-03-15 18:24:21.503 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 18:24:21.519 [info] > git config --get commit.template [9ms]
+2025-03-15 18:24:21.523 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-15 18:24:21.529 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 18:24:21.532 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 18:24:21.555 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-15 18:24:21.760 [info] > git status -z -uall [223ms]
+2025-03-15 18:24:25.052 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/test.html [43ms]
+2025-03-15 18:24:25.066 [info] > git rev-list origin/main..main [5ms]
+2025-03-15 18:24:25.235 [info] > git show --textconv :2025/connect-the-dot/public/src/test.html [26ms]
+2025-03-15 18:24:25.236 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/src/test.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fsrc%2Ftest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:24:25.239 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/test.html [22ms]
+2025-03-15 18:24:25.240 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/src/test.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fsrc%2Ftest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:24:25.471 [info] > git check-ignore -v -z --stdin [13ms]
+2025-03-15 18:24:37.233 [info] > git blame --root --incremental 070d10664871c6fbc0ed65c7fcb82bd7458fbf03 -- 2025/connect-the-dot/public/src/test.html [4ms]
+2025-03-15 18:24:37.233 [info] fatal: no such path 2025/connect-the-dot/public/src/test.html in 070d10664871c6fbc0ed65c7fcb82bd7458fbf03
+2025-03-15 18:24:59.619 [info] > git show --textconv :2025/connect-the-dot/public/test.html [45ms]
+2025-03-15 18:24:59.627 [info] > git ls-files --stage -- 2025/connect-the-dot/public/test.html [41ms]
+2025-03-15 18:24:59.642 [info] > git cat-file -s 41f2868ff17989a883bfcf322fd2b6221922a649 [8ms]
+2025-03-15 18:24:59.768 [info] > git blame --root --incremental 070d10664871c6fbc0ed65c7fcb82bd7458fbf03 -- 2025/connect-the-dot/public/test.html [98ms]
+2025-03-15 18:25:03.557 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [4174ms]
+2025-03-15 18:25:09.514 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/test.html [15ms]
+2025-03-15 18:25:09.782 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/test.html [72ms]
+2025-03-15 18:25:09.783 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/src/test.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fsrc%2Ftest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:25:09.788 [info] > git show --textconv :2025/connect-the-dot/public/src/test.html [88ms]
+2025-03-15 18:25:09.789 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/src/test.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fsrc%2Ftest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 18:25:13.271 [info] > git show --textconv :2025/connect-the-dot/public/test.html [53ms]
+2025-03-15 18:25:13.276 [info] > git ls-files --stage -- 2025/connect-the-dot/public/test.html [27ms]
+2025-03-15 18:25:13.300 [info] > git cat-file -s 41f2868ff17989a883bfcf322fd2b6221922a649 [12ms]
+2025-03-15 18:25:16.956 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [3951ms]
+2025-03-15 18:26:12.317 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [124ms]
+2025-03-15 18:26:12.336 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [161ms]
+2025-03-15 18:26:12.342 [info] > git cat-file -s 341016216cd110a39f0acd8971405e25b541ea88 [17ms]
+2025-03-15 18:26:13.724 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/bindery.html [43ms]
+2025-03-15 18:26:14.304 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [2312ms]
+2025-03-15 19:09:27.191 [info] > git fetch [356ms]
+2025-03-15 19:09:27.191 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 19:09:27.203 [info] > git config --get commit.template [7ms]
+2025-03-15 19:09:27.207 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2025-03-15 19:09:27.212 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 19:09:27.215 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-15 19:09:27.236 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+2025-03-15 19:09:27.451 [info] > git status -z -uall [232ms]
+2025-03-15 19:09:28.863 [info] > git show --textconv :2025/connect-the-dot/public/test.html [34ms]
+2025-03-15 19:09:28.865 [info] > git ls-files --stage -- 2025/connect-the-dot/public/test.html [28ms]
+2025-03-15 19:09:28.877 [info] > git cat-file -s 41f2868ff17989a883bfcf322fd2b6221922a649 [9ms]
+2025-03-15 19:09:31.363 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [2737ms]
+2025-03-15 19:09:31.377 [info] > git rev-list origin/main..main [4ms]
+2025-03-15 21:56:57.904 [info] > git fetch [519ms]
+2025-03-15 21:56:57.905 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 21:56:57.914 [info] > git config --get commit.template [5ms]
+2025-03-15 21:56:57.917 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-15 21:56:57.920 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 21:56:57.922 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-15 21:56:57.939 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+2025-03-15 21:56:58.095 [info] > git status -z -uall [168ms]
+2025-03-15 22:02:49.060 [info] > git fetch [508ms]
+2025-03-15 22:02:49.061 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:02:49.072 [info] > git config --get commit.template [7ms]
+2025-03-15 22:02:49.075 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-15 22:02:49.079 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:02:49.082 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 22:02:49.100 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+2025-03-15 22:02:49.260 [info] > git status -z -uall [176ms]
+2025-03-15 22:11:35.693 [info] > git fetch [508ms]
+2025-03-15 22:11:35.693 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:11:35.704 [info] > git config --get commit.template [6ms]
+2025-03-15 22:11:35.707 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-15 22:11:35.710 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:11:35.712 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-15 22:11:35.734 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [5ms]
+2025-03-15 22:11:35.891 [info] > git status -z -uall [170ms]
+2025-03-15 22:12:15.485 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/bindery.html [43ms]
+2025-03-15 22:12:15.532 [info] > git rev-list origin/main..main [26ms]
+2025-03-15 22:14:36.265 [info] > git fetch [355ms]
+2025-03-15 22:14:36.265 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:14:36.278 [info] > git config --get commit.template [6ms]
+2025-03-15 22:14:36.281 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-15 22:14:36.284 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:14:36.286 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-15 22:14:36.318 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [5ms]
+2025-03-15 22:14:36.481 [info] > git status -z -uall [185ms]
+2025-03-15 22:17:37.002 [info] > git fetch [508ms]
+2025-03-15 22:17:37.002 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:17:37.019 [info] > git config --get commit.template [11ms]
+2025-03-15 22:17:37.024 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [6ms]
+2025-03-15 22:17:37.030 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:17:37.033 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 22:17:37.056 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-15 22:17:37.282 [info] > git status -z -uall [244ms]
+2025-03-15 22:20:50.367 [info] > git fetch [519ms]
+2025-03-15 22:20:50.368 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:20:50.383 [info] > git config --get commit.template [10ms]
+2025-03-15 22:20:50.387 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-15 22:20:50.391 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:20:50.394 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 22:20:50.419 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-15 22:20:50.592 [info] > git status -z -uall [192ms]
+2025-03-15 22:22:09.745 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/binderytest.html [14ms]
+2025-03-15 22:22:09.753 [info] > git rev-list origin/main..main [3ms]
+2025-03-15 22:22:09.949 [info] > git show --textconv :2025/connect-the-dot/public/binderytest.html [21ms]
+2025-03-15 22:22:09.950 [warning] [GitFileSystemProvider][readFile] File not found - git:/root/2025/connect-the-dot/public/binderytest.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fbinderytest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 22:22:09.955 [info] > git ls-files --stage -- 2025/connect-the-dot/public/binderytest.html [17ms]
+2025-03-15 22:22:09.956 [warning] [GitFileSystemProvider][stat] File not found - git:/root/2025/connect-the-dot/public/binderytest.html.git?%7B%22path%22%3A%22%2Froot%2F2025%2Fconnect-the-dot%2Fpublic%2Fbinderytest.html%22%2C%22ref%22%3A%22%22%7D
+2025-03-15 22:22:10.198 [info] > git check-ignore -v -z --stdin [13ms]
+2025-03-15 22:22:11.318 [info] > git blame --root --incremental 070d10664871c6fbc0ed65c7fcb82bd7458fbf03 -- 2025/connect-the-dot/public/binderytest.html [25ms]
+2025-03-15 22:22:11.318 [info] fatal: no such path 2025/connect-the-dot/public/binderytest.html in 070d10664871c6fbc0ed65c7fcb82bd7458fbf03
+2025-03-15 22:23:52.963 [info] > git fetch [376ms]
+2025-03-15 22:23:52.963 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:23:52.977 [info] > git config --get commit.template [8ms]
+2025-03-15 22:23:52.981 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-15 22:23:52.986 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:23:52.991 [info] > git rev-parse refs/remotes/origin/main [4ms]
+2025-03-15 22:23:53.014 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [8ms]
+2025-03-15 22:23:53.213 [info] > git status -z -uall [217ms]
+2025-03-15 22:23:55.142 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [41ms]
+2025-03-15 22:23:55.147 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [31ms]
+2025-03-15 22:23:55.157 [info] > git cat-file -s 341016216cd110a39f0acd8971405e25b541ea88 [6ms]
+2025-03-15 22:23:56.460 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [1557ms]
+2025-03-15 22:23:56.470 [info] > git rev-list origin/main..main [3ms]
+2025-03-15 22:24:57.059 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/bindery.html [13ms]
+2025-03-15 22:24:59.359 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [30ms]
+2025-03-15 22:24:59.374 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [32ms]
+2025-03-15 22:24:59.391 [info] > git cat-file -s 341016216cd110a39f0acd8971405e25b541ea88 [9ms]
+2025-03-15 22:24:59.930 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/binderytest.html [44ms]
+2025-03-15 22:25:00.708 [info] > git show --textconv :2025/connect-the-dot/public/src/script.js [54ms]
+2025-03-15 22:25:00.720 [info] > git ls-files --stage -- 2025/connect-the-dot/public/src/script.js [52ms]
+2025-03-15 22:25:00.733 [info] > git cat-file -s 341016216cd110a39f0acd8971405e25b541ea88 [9ms]
+2025-03-15 22:25:01.580 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [2433ms]
+2025-03-15 22:25:02.401 [info] > git check-ignore -v -z --stdin [224ms]
+2025-03-15 22:25:02.401 [info] > git show --textconv :2025/connect-the-dot/public/test.html [61ms]
+2025-03-15 22:25:02.423 [info] > git ls-files --stage -- 2025/connect-the-dot/public/test.html [62ms]
+2025-03-15 22:25:02.527 [info] > git cat-file -s 41f2868ff17989a883bfcf322fd2b6221922a649 [49ms]
+2025-03-15 22:25:05.952 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/src/script.js [5469ms]
+2025-03-15 22:25:08.675 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z -n51 --shortstat --follow -- /root/2025/connect-the-dot/public/test.html [7136ms]
+2025-03-15 22:30:31.636 [info] > git fetch [503ms]
+2025-03-15 22:30:31.637 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:30:31.651 [info] > git config --get commit.template [8ms]
+2025-03-15 22:30:31.655 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-15 22:30:31.662 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:30:31.666 [info] > git rev-parse refs/remotes/origin/main [4ms]
+2025-03-15 22:30:31.688 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+2025-03-15 22:30:31.880 [info] > git status -z -uall [208ms]
+2025-03-15 22:40:49.314 [info] > git fetch [501ms]
+2025-03-15 22:40:49.314 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 22:40:49.325 [info] > git config --get commit.template [6ms]
+2025-03-15 22:40:49.328 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-15 22:40:49.332 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 22:40:49.334 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 22:40:49.354 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-15 22:40:49.530 [info] > git status -z -uall [191ms]
+2025-03-15 23:11:44.748 [info] > git fetch [364ms]
+2025-03-15 23:11:44.748 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 23:11:44.758 [info] > git config --get commit.template [5ms]
+2025-03-15 23:11:44.761 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-15 23:11:44.765 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 23:11:44.767 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 23:11:44.785 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-15 23:11:44.945 [info] > git status -z -uall [174ms]
+2025-03-15 23:20:12.023 [info] > git fetch [504ms]
+2025-03-15 23:20:12.023 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-15 23:20:12.042 [info] > git config --get commit.template [9ms]
+2025-03-15 23:20:12.046 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-15 23:20:12.052 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-15 23:20:12.056 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-15 23:20:12.080 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [10ms]
+2025-03-15 23:20:12.311 [info] > git status -z -uall [250ms]
+2025-03-16 02:08:34.390 [info] > git fetch [499ms]
+2025-03-16 02:08:34.390 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 02:08:34.400 [info] > git config --get commit.template [6ms]
+2025-03-16 02:08:34.404 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-16 02:08:34.408 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 02:08:34.410 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-16 02:08:34.432 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-16 02:08:34.683 [info] > git status -z -uall [267ms]
+2025-03-16 02:16:25.923 [info] > git fetch [519ms]
+2025-03-16 02:16:25.923 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 02:16:25.933 [info] > git config --get commit.template [5ms]
+2025-03-16 02:16:25.936 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-16 02:16:25.940 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 02:16:25.942 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-16 02:16:25.960 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [7ms]
+2025-03-16 02:16:26.181 [info] > git status -z -uall [235ms]
+2025-03-16 02:21:26.239 [info] > git fetch [355ms]
+2025-03-16 02:21:26.239 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 02:21:26.251 [info] > git config --get commit.template [6ms]
+2025-03-16 02:21:26.254 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-16 02:21:26.258 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 02:21:26.260 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-16 02:21:26.278 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-16 02:21:26.447 [info] > git status -z -uall [183ms]
+2025-03-16 02:26:54.309 [info] > git fetch [349ms]
+2025-03-16 02:26:54.309 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 02:26:54.317 [info] > git config --get commit.template [4ms]
+2025-03-16 02:26:54.320 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-16 02:26:54.324 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 02:26:54.326 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-16 02:26:54.342 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [6ms]
+2025-03-16 02:26:54.494 [info] > git status -z -uall [165ms]
+2025-03-16 02:34:47.525 [info] > git fetch [376ms]
+2025-03-16 02:34:47.525 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 02:34:47.536 [info] > git config --get commit.template [6ms]
+2025-03-16 02:34:47.538 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-16 02:34:47.542 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 02:34:47.545 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-16 02:34:47.561 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2025-03-16 02:34:47.703 [info] > git status -z -uall [155ms]
+2025-03-16 02:47:22.774 [info] > git fetch [370ms]
+2025-03-16 02:47:22.774 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 02:47:22.784 [info] > git config --get commit.template [5ms]
+2025-03-16 02:47:22.786 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-03-16 02:47:22.790 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 02:47:22.792 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2025-03-16 02:47:22.810 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [5ms]
+2025-03-16 02:47:23.011 [info] > git status -z -uall [216ms]
+2025-03-16 03:18:34.951 [info] > git fetch [507ms]
+2025-03-16 03:18:34.951 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 03:18:34.966 [info] > git config --get commit.template [8ms]
+2025-03-16 03:18:34.970 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-16 03:18:34.975 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 03:18:34.983 [info] > git rev-parse refs/remotes/origin/main [8ms]
+2025-03-16 03:18:35.007 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-16 03:18:35.210 [info] > git status -z -uall [222ms]
+2025-03-16 03:22:25.308 [info] > git fetch [513ms]
+2025-03-16 03:22:25.308 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 03:22:25.319 [info] > git config --get commit.template [6ms]
+2025-03-16 03:22:25.322 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-03-16 03:22:25.326 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 03:22:25.329 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-16 03:22:25.352 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [9ms]
+2025-03-16 03:22:25.554 [info] > git status -z -uall [220ms]
+2025-03-16 03:30:12.144 [info] > git fetch [398ms]
+2025-03-16 03:30:12.144 [info] ERROR: We're doing an SSH key audit.
+Reason: unverified automatically (private key found in a public repository)
+Please visit https://github.com/settings/keys/118392686 to approve this key so we know it's safe.
+
+Fingerprint:
+SHA256:XCUdw5eXGITLQRAZYAenmjC5lagUMVzApP6l9bBTBhQ
+
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2025-03-16 03:30:12.167 [info] > git config --get commit.template [15ms]
+2025-03-16 03:30:12.171 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2025-03-16 03:30:12.194 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/root/.git/refs/remotes/origin/main'
+2025-03-16 03:30:12.197 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2025-03-16 03:30:12.243 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [17ms]
+2025-03-16 03:30:12.749 [info] > git status -z -uall [532ms]

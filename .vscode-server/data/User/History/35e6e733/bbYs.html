@@ -1,0 +1,12 @@
+<section id="content">
+  {% for post in site.posts %}
+  <h2>{{ post.title | escape }}</h2>
+  <div class="post-content">
+    {{ post.content | markdownify }}
+  </div>
+  {% endfor %}
+</section>
+<script src="https://unpkg.com/bindery/"></script>
+<script>
+  Bindery.makeBook({ content: '#content' });
+</script>
